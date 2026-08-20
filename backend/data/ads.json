@@ -5,9 +5,28 @@
     "title": "Everything You Need",
     "category": "online shopping",
     "description": "Online marketplace for electronics, gadgets, home appliances, kitchen products, fashion, books, groceries and everyday household products.",
-    "keywords": ["online shopping", "electronics", "gadgets", "home", "kitchen", "appliances", "fashion", "books", "groceries", "household"],
-    "audience": ["students", "families", "professionals", "online shoppers"],
-    "emotion": ["convenience", "excitement"]
+    "keywords": [
+      "online shopping",
+      "electronics",
+      "gadgets",
+      "home",
+      "kitchen",
+      "appliances",
+      "fashion",
+      "books",
+      "groceries",
+      "household"
+    ],
+    "audience": [
+      "students",
+      "families",
+      "professionals",
+      "online shoppers"
+    ],
+    "emotion": [
+      "convenience",
+      "excitement"
+    ]
   },
   {
     "id": "flipkart_001",
@@ -15,9 +34,25 @@
     "title": "Shop Everything Online",
     "category": "online shopping",
     "description": "Online shopping for smartphones, electronics, fashion, home appliances, furniture, groceries and everyday products.",
-    "keywords": ["shopping", "smartphone", "electronics", "fashion", "home appliances", "furniture", "groceries", "delivery"],
-    "audience": ["families", "students", "professionals"],
-    "emotion": ["convenience", "excitement"]
+    "keywords": [
+      "shopping",
+      "smartphone",
+      "electronics",
+      "fashion",
+      "home appliances",
+      "furniture",
+      "groceries",
+      "delivery"
+    ],
+    "audience": [
+      "families",
+      "students",
+      "professionals"
+    ],
+    "emotion": [
+      "convenience",
+      "excitement"
+    ]
   },
   {
     "id": "myntra_001",
@@ -25,9 +60,28 @@
     "title": "Fashion For You",
     "category": "fashion",
     "description": "Online fashion shopping for clothes, shirts, dresses, jeans, shoes, accessories, bags and modern outfits.",
-    "keywords": ["fashion", "clothing", "dress", "shirt", "jeans", "shoes", "outfit", "style", "accessories", "shopping"],
-    "audience": ["young adults", "students", "fashion lovers"],
-    "emotion": ["confidence", "style", "excitement"]
+    "keywords": [
+      "fashion",
+      "clothing",
+      "dress",
+      "shirt",
+      "jeans",
+      "shoes",
+      "outfit",
+      "style",
+      "accessories",
+      "shopping"
+    ],
+    "audience": [
+      "young adults",
+      "students",
+      "fashion lovers"
+    ],
+    "emotion": [
+      "confidence",
+      "style",
+      "excitement"
+    ]
   },
   {
     "id": "ajio_001",
@@ -35,9 +89,25 @@
     "title": "Discover Your Style",
     "category": "fashion",
     "description": "Fashion marketplace featuring clothing, footwear, accessories, streetwear, casual outfits and lifestyle fashion.",
-    "keywords": ["fashion", "clothing", "streetwear", "casual", "outfit", "shoes", "accessories", "style"],
-    "audience": ["young adults", "students", "fashion enthusiasts"],
-    "emotion": ["confidence", "style"]
+    "keywords": [
+      "fashion",
+      "clothing",
+      "streetwear",
+      "casual",
+      "outfit",
+      "shoes",
+      "accessories",
+      "style"
+    ],
+    "audience": [
+      "young adults",
+      "students",
+      "fashion enthusiasts"
+    ],
+    "emotion": [
+      "confidence",
+      "style"
+    ]
   },
   {
     "id": "nike_001",
@@ -45,9 +115,29 @@
     "title": "Move With Purpose",
     "category": "sports and fitness",
     "description": "Sportswear, running shoes, gym clothing, athletic shoes, workouts, running, exercise and active lifestyle.",
-    "keywords": ["sports", "fitness", "running", "gym", "workout", "exercise", "shoes", "athlete", "training", "sportswear"],
-    "audience": ["athletes", "runners", "gym users", "young adults"],
-    "emotion": ["energy", "motivation", "confidence"]
+    "keywords": [
+      "sports",
+      "fitness",
+      "running",
+      "gym",
+      "workout",
+      "exercise",
+      "shoes",
+      "athlete",
+      "training",
+      "sportswear"
+    ],
+    "audience": [
+      "athletes",
+      "runners",
+      "gym users",
+      "young adults"
+    ],
+    "emotion": [
+      "energy",
+      "motivation",
+      "confidence"
+    ]
   },
   {
     "id": "adidas_001",
@@ -55,9 +145,27 @@
     "title": "Impossible Is Nothing",
     "category": "sports and fitness",
     "description": "Athletic footwear, sports clothing, football, running, gym training, exercise and active lifestyle products.",
-    "keywords": ["sports", "football", "running", "gym", "fitness", "training", "shoes", "athlete", "sportswear"],
-    "audience": ["athletes", "sports fans", "fitness enthusiasts"],
-    "emotion": ["energy", "motivation", "confidence"]
+    "keywords": [
+      "sports",
+      "football",
+      "running",
+      "gym",
+      "fitness",
+      "training",
+      "shoes",
+      "athlete",
+      "sportswear"
+    ],
+    "audience": [
+      "athletes",
+      "sports fans",
+      "fitness enthusiasts"
+    ],
+    "emotion": [
+      "energy",
+      "motivation",
+      "confidence"
+    ]
   },
   {
     "id": "decathlon_001",
@@ -65,9 +173,30 @@
     "title": "Sport For Everyone",
     "category": "sports equipment",
     "description": "Sports equipment and clothing for running, cycling, hiking, trekking, gym, football, swimming and outdoor activities.",
-    "keywords": ["sports equipment", "running", "cycling", "hiking", "trekking", "gym", "football", "swimming", "outdoor", "fitness"],
-    "audience": ["athletes", "hikers", "runners", "families", "fitness enthusiasts"],
-    "emotion": ["adventure", "energy", "motivation"]
+    "keywords": [
+      "sports equipment",
+      "running",
+      "cycling",
+      "hiking",
+      "trekking",
+      "gym",
+      "football",
+      "swimming",
+      "outdoor",
+      "fitness"
+    ],
+    "audience": [
+      "athletes",
+      "hikers",
+      "runners",
+      "families",
+      "fitness enthusiasts"
+    ],
+    "emotion": [
+      "adventure",
+      "energy",
+      "motivation"
+    ]
   },
   {
     "id": "zomato_001",
@@ -75,9 +204,30 @@
     "title": "Food Delivered Fast",
     "category": "food delivery",
     "description": "Food delivery from restaurants including meals, lunch, dinner, snacks, desserts, pizza, burgers and beverages.",
-    "keywords": ["food", "restaurant", "delivery", "lunch", "dinner", "meal", "snacks", "dessert", "pizza", "burger", "beverages"],
-    "audience": ["students", "professionals", "families", "food lovers"],
-    "emotion": ["hunger", "enjoyment", "convenience"]
+    "keywords": [
+      "food",
+      "restaurant",
+      "delivery",
+      "lunch",
+      "dinner",
+      "meal",
+      "snacks",
+      "dessert",
+      "pizza",
+      "burger",
+      "beverages"
+    ],
+    "audience": [
+      "students",
+      "professionals",
+      "families",
+      "food lovers"
+    ],
+    "emotion": [
+      "hunger",
+      "enjoyment",
+      "convenience"
+    ]
   },
   {
     "id": "swiggy_001",
@@ -85,9 +235,28 @@
     "title": "Order Your Favourite Food",
     "category": "food delivery",
     "description": "Online food ordering and restaurant delivery for meals, snacks, desserts, beverages, lunch and dinner.",
-    "keywords": ["food", "restaurant", "food delivery", "ordering", "meal", "snacks", "dessert", "beverages", "lunch", "dinner"],
-    "audience": ["students", "young adults", "families"],
-    "emotion": ["hunger", "enjoyment", "convenience"]
+    "keywords": [
+      "food",
+      "restaurant",
+      "food delivery",
+      "ordering",
+      "meal",
+      "snacks",
+      "dessert",
+      "beverages",
+      "lunch",
+      "dinner"
+    ],
+    "audience": [
+      "students",
+      "young adults",
+      "families"
+    ],
+    "emotion": [
+      "hunger",
+      "enjoyment",
+      "convenience"
+    ]
   },
   {
     "id": "dominos_001",
@@ -95,9 +264,27 @@
     "title": "Pizza Night",
     "category": "pizza and food",
     "description": "Pizza, cheese, fast food, dinner, parties, friends eating together and pizza delivery.",
-    "keywords": ["pizza", "food", "dinner", "cheese", "party", "friends", "fast food", "delivery", "restaurant"],
-    "audience": ["students", "families", "young adults"],
-    "emotion": ["happiness", "fun", "enjoyment"]
+    "keywords": [
+      "pizza",
+      "food",
+      "dinner",
+      "cheese",
+      "party",
+      "friends",
+      "fast food",
+      "delivery",
+      "restaurant"
+    ],
+    "audience": [
+      "students",
+      "families",
+      "young adults"
+    ],
+    "emotion": [
+      "happiness",
+      "fun",
+      "enjoyment"
+    ]
   },
   {
     "id": "starbucks_001",
@@ -105,9 +292,27 @@
     "title": "Your Coffee Moment",
     "category": "coffee and beverages",
     "description": "Coffee, cafe culture, hot drinks, cold drinks, beverages, friends meeting at cafes and relaxing coffee moments.",
-    "keywords": ["coffee", "cafe", "beverage", "drink", "tea", "friends", "relaxation", "morning", "cafe culture"],
-    "audience": ["students", "professionals", "coffee lovers"],
-    "emotion": ["relaxation", "happiness", "comfort"]
+    "keywords": [
+      "coffee",
+      "cafe",
+      "beverage",
+      "drink",
+      "tea",
+      "friends",
+      "relaxation",
+      "morning",
+      "cafe culture"
+    ],
+    "audience": [
+      "students",
+      "professionals",
+      "coffee lovers"
+    ],
+    "emotion": [
+      "relaxation",
+      "happiness",
+      "comfort"
+    ]
   },
   {
     "id": "coca_cola_001",
@@ -115,9 +320,27 @@
     "title": "Refresh Your Moment",
     "category": "soft drinks",
     "description": "Refreshing cold beverages for parties, meals, friends, celebrations, summer days and social gatherings.",
-    "keywords": ["soft drink", "cold drink", "beverage", "refreshment", "party", "friends", "summer", "celebration", "meal"],
-    "audience": ["young adults", "families", "social groups"],
-    "emotion": ["happiness", "refreshment", "celebration"]
+    "keywords": [
+      "soft drink",
+      "cold drink",
+      "beverage",
+      "refreshment",
+      "party",
+      "friends",
+      "summer",
+      "celebration",
+      "meal"
+    ],
+    "audience": [
+      "young adults",
+      "families",
+      "social groups"
+    ],
+    "emotion": [
+      "happiness",
+      "refreshment",
+      "celebration"
+    ]
   },
   {
     "id": "pepsi_001",
@@ -125,9 +348,26 @@
     "title": "Refresh The Fun",
     "category": "soft drinks",
     "description": "Cold carbonated beverages for snacks, fast food, parties, sports events, entertainment and social gatherings.",
-    "keywords": ["soft drink", "cola", "beverage", "snacks", "fast food", "party", "sports", "entertainment"],
-    "audience": ["young adults", "students", "sports fans"],
-    "emotion": ["fun", "energy", "refreshment"]
+    "keywords": [
+      "soft drink",
+      "cola",
+      "beverage",
+      "snacks",
+      "fast food",
+      "party",
+      "sports",
+      "entertainment"
+    ],
+    "audience": [
+      "young adults",
+      "students",
+      "sports fans"
+    ],
+    "emotion": [
+      "fun",
+      "energy",
+      "refreshment"
+    ]
   },
   {
     "id": "blinkit_001",
@@ -135,9 +375,27 @@
     "title": "Everyday Essentials Delivered",
     "category": "quick commerce",
     "description": "Fast delivery of groceries, fruits, vegetables, snacks, beverages, cleaning products, household supplies and everyday essentials.",
-    "keywords": ["groceries", "snacks", "delivery", "food", "household", "cleaning", "beverages", "fruits", "vegetables", "essentials"],
-    "audience": ["families", "students", "professionals"],
-    "emotion": ["convenience", "speed"]
+    "keywords": [
+      "groceries",
+      "snacks",
+      "delivery",
+      "food",
+      "household",
+      "cleaning",
+      "beverages",
+      "fruits",
+      "vegetables",
+      "essentials"
+    ],
+    "audience": [
+      "families",
+      "students",
+      "professionals"
+    ],
+    "emotion": [
+      "convenience",
+      "speed"
+    ]
   },
   {
     "id": "zepto_001",
@@ -145,9 +403,25 @@
     "title": "Groceries In Minutes",
     "category": "quick commerce",
     "description": "Rapid grocery and household delivery including snacks, drinks, fruits, vegetables, cleaning products and daily essentials.",
-    "keywords": ["groceries", "quick delivery", "snacks", "drinks", "fruits", "vegetables", "cleaning", "household"],
-    "audience": ["families", "students", "professionals"],
-    "emotion": ["speed", "convenience"]
+    "keywords": [
+      "groceries",
+      "quick delivery",
+      "snacks",
+      "drinks",
+      "fruits",
+      "vegetables",
+      "cleaning",
+      "household"
+    ],
+    "audience": [
+      "families",
+      "students",
+      "professionals"
+    ],
+    "emotion": [
+      "speed",
+      "convenience"
+    ]
   },
   {
     "id": "makemytrip_001",
@@ -155,9 +429,28 @@
     "title": "Plan Your Next Adventure",
     "category": "travel",
     "description": "Flights, hotels, vacations, mountain trips, beach holidays, weekend getaways, tourism and adventure travel.",
-    "keywords": ["travel", "vacation", "holiday", "mountains", "beach", "hotel", "flight", "adventure", "tourism", "trip"],
-    "audience": ["travelers", "families", "young adults"],
-    "emotion": ["adventure", "excitement", "relaxation"]
+    "keywords": [
+      "travel",
+      "vacation",
+      "holiday",
+      "mountains",
+      "beach",
+      "hotel",
+      "flight",
+      "adventure",
+      "tourism",
+      "trip"
+    ],
+    "audience": [
+      "travelers",
+      "families",
+      "young adults"
+    ],
+    "emotion": [
+      "adventure",
+      "excitement",
+      "relaxation"
+    ]
   },
   {
     "id": "goibibo_001",
@@ -165,9 +458,26 @@
     "title": "Travel More",
     "category": "travel",
     "description": "Flights, hotels, holiday trips, weekend getaways, tourism and travel bookings for adventures and vacations.",
-    "keywords": ["travel", "flights", "hotels", "vacation", "holiday", "trip", "tourism", "weekend getaway"],
-    "audience": ["travelers", "tourists", "families"],
-    "emotion": ["adventure", "excitement", "relaxation"]
+    "keywords": [
+      "travel",
+      "flights",
+      "hotels",
+      "vacation",
+      "holiday",
+      "trip",
+      "tourism",
+      "weekend getaway"
+    ],
+    "audience": [
+      "travelers",
+      "tourists",
+      "families"
+    ],
+    "emotion": [
+      "adventure",
+      "excitement",
+      "relaxation"
+    ]
   },
   {
     "id": "airbnb_001",
@@ -175,9 +485,27 @@
     "title": "Stay Somewhere Special",
     "category": "travel accommodation",
     "description": "Vacation homes, apartments, unique stays, travel experiences, holidays, tourism and weekend trips.",
-    "keywords": ["travel", "hotel alternative", "vacation home", "apartment", "holiday", "tourism", "stay", "weekend trip"],
-    "audience": ["travelers", "couples", "families", "tourists"],
-    "emotion": ["adventure", "relaxation", "discovery"]
+    "keywords": [
+      "travel",
+      "hotel alternative",
+      "vacation home",
+      "apartment",
+      "holiday",
+      "tourism",
+      "stay",
+      "weekend trip"
+    ],
+    "audience": [
+      "travelers",
+      "couples",
+      "families",
+      "tourists"
+    ],
+    "emotion": [
+      "adventure",
+      "relaxation",
+      "discovery"
+    ]
   },
   {
     "id": "uber_001",
@@ -185,9 +513,26 @@
     "title": "Move Around Your City",
     "category": "transportation",
     "description": "Ride booking, taxis, cars, city transportation, commuting, airport rides and getting around town.",
-    "keywords": ["taxi", "car", "ride", "transport", "city", "commute", "airport", "driver", "travel"],
-    "audience": ["professionals", "students", "travelers"],
-    "emotion": ["convenience", "freedom"]
+    "keywords": [
+      "taxi",
+      "car",
+      "ride",
+      "transport",
+      "city",
+      "commute",
+      "airport",
+      "driver",
+      "travel"
+    ],
+    "audience": [
+      "professionals",
+      "students",
+      "travelers"
+    ],
+    "emotion": [
+      "convenience",
+      "freedom"
+    ]
   },
   {
     "id": "ola_001",
@@ -195,9 +540,26 @@
     "title": "Your Ride Is Here",
     "category": "transportation",
     "description": "Cab and ride booking for city travel, commuting, airport transportation, road trips and daily transportation.",
-    "keywords": ["cab", "taxi", "ride", "car", "transport", "city", "commute", "airport", "road trip"],
-    "audience": ["students", "professionals", "travelers"],
-    "emotion": ["convenience", "freedom"]
+    "keywords": [
+      "cab",
+      "taxi",
+      "ride",
+      "car",
+      "transport",
+      "city",
+      "commute",
+      "airport",
+      "road trip"
+    ],
+    "audience": [
+      "students",
+      "professionals",
+      "travelers"
+    ],
+    "emotion": [
+      "convenience",
+      "freedom"
+    ]
   },
   {
     "id": "apple_001",
@@ -205,9 +567,27 @@
     "title": "Technology That Inspires",
     "category": "technology",
     "description": "Premium smartphones, laptops, tablets, smart watches, computers, technology products and digital lifestyle.",
-    "keywords": ["technology", "smartphone", "laptop", "computer", "tablet", "watch", "innovation", "gadgets", "digital"],
-    "audience": ["students", "professionals", "technology enthusiasts"],
-    "emotion": ["innovation", "excitement", "premium"]
+    "keywords": [
+      "technology",
+      "smartphone",
+      "laptop",
+      "computer",
+      "tablet",
+      "watch",
+      "innovation",
+      "gadgets",
+      "digital"
+    ],
+    "audience": [
+      "students",
+      "professionals",
+      "technology enthusiasts"
+    ],
+    "emotion": [
+      "innovation",
+      "excitement",
+      "premium"
+    ]
   },
   {
     "id": "samsung_001",
@@ -215,9 +595,26 @@
     "title": "Innovation For Everyone",
     "category": "technology",
     "description": "Smartphones, televisions, electronics, smart watches, home appliances and modern technology products.",
-    "keywords": ["smartphone", "electronics", "technology", "television", "watch", "gadgets", "innovation", "home appliances"],
-    "audience": ["families", "students", "professionals", "technology enthusiasts"],
-    "emotion": ["innovation", "excitement"]
+    "keywords": [
+      "smartphone",
+      "electronics",
+      "technology",
+      "television",
+      "watch",
+      "gadgets",
+      "innovation",
+      "home appliances"
+    ],
+    "audience": [
+      "families",
+      "students",
+      "professionals",
+      "technology enthusiasts"
+    ],
+    "emotion": [
+      "innovation",
+      "excitement"
+    ]
   },
   {
     "id": "boat_001",
@@ -225,9 +622,28 @@
     "title": "Sound That Moves You",
     "category": "audio electronics",
     "description": "Wireless headphones, earbuds, speakers, smart watches and audio accessories for music, gaming and entertainment.",
-    "keywords": ["headphones", "earbuds", "wireless", "speaker", "music", "audio", "gaming", "bluetooth", "smartwatch"],
-    "audience": ["students", "gamers", "music lovers", "young adults"],
-    "emotion": ["energy", "entertainment", "excitement"]
+    "keywords": [
+      "headphones",
+      "earbuds",
+      "wireless",
+      "speaker",
+      "music",
+      "audio",
+      "gaming",
+      "bluetooth",
+      "smartwatch"
+    ],
+    "audience": [
+      "students",
+      "gamers",
+      "music lovers",
+      "young adults"
+    ],
+    "emotion": [
+      "energy",
+      "entertainment",
+      "excitement"
+    ]
   },
   {
     "id": "spotify_001",
@@ -235,9 +651,25 @@
     "title": "Music For Every Moment",
     "category": "music and entertainment",
     "description": "Music streaming, playlists, songs, podcasts, headphones, entertainment and listening experiences.",
-    "keywords": ["music", "songs", "playlist", "podcast", "headphones", "entertainment", "audio"],
-    "audience": ["students", "young adults", "music lovers"],
-    "emotion": ["happiness", "relaxation", "energy"]
+    "keywords": [
+      "music",
+      "songs",
+      "playlist",
+      "podcast",
+      "headphones",
+      "entertainment",
+      "audio"
+    ],
+    "audience": [
+      "students",
+      "young adults",
+      "music lovers"
+    ],
+    "emotion": [
+      "happiness",
+      "relaxation",
+      "energy"
+    ]
   },
   {
     "id": "netflix_001",
@@ -245,9 +677,25 @@
     "title": "Watch Something Great",
     "category": "entertainment",
     "description": "Movies, television shows, series, documentaries, streaming entertainment and video content.",
-    "keywords": ["movies", "series", "television", "streaming", "entertainment", "documentary", "show"],
-    "audience": ["families", "young adults", "entertainment lovers"],
-    "emotion": ["relaxation", "excitement", "curiosity"]
+    "keywords": [
+      "movies",
+      "series",
+      "television",
+      "streaming",
+      "entertainment",
+      "documentary",
+      "show"
+    ],
+    "audience": [
+      "families",
+      "young adults",
+      "entertainment lovers"
+    ],
+    "emotion": [
+      "relaxation",
+      "excitement",
+      "curiosity"
+    ]
   },
   {
     "id": "prime_video_001",
@@ -255,9 +703,24 @@
     "title": "Entertainment For Everyone",
     "category": "entertainment",
     "description": "Streaming movies, web series, television shows, sports and entertainment content for home viewing.",
-    "keywords": ["movies", "web series", "streaming", "television", "sports", "entertainment", "shows"],
-    "audience": ["families", "students", "young adults"],
-    "emotion": ["relaxation", "excitement"]
+    "keywords": [
+      "movies",
+      "web series",
+      "streaming",
+      "television",
+      "sports",
+      "entertainment",
+      "shows"
+    ],
+    "audience": [
+      "families",
+      "students",
+      "young adults"
+    ],
+    "emotion": [
+      "relaxation",
+      "excitement"
+    ]
   },
   {
     "id": "philips_001",
@@ -265,9 +728,25 @@
     "title": "Smart Solutions For Home",
     "category": "home appliances",
     "description": "Kitchen appliances, grooming devices, irons, air care products, home appliances and household electronics.",
-    "keywords": ["home appliances", "kitchen", "appliance", "iron", "grooming", "household", "electric", "home"],
-    "audience": ["families", "homeowners", "professionals"],
-    "emotion": ["convenience", "comfort"]
+    "keywords": [
+      "home appliances",
+      "kitchen",
+      "appliance",
+      "iron",
+      "grooming",
+      "household",
+      "electric",
+      "home"
+    ],
+    "audience": [
+      "families",
+      "homeowners",
+      "professionals"
+    ],
+    "emotion": [
+      "convenience",
+      "comfort"
+    ]
   },
   {
     "id": "lg_001",
@@ -275,9 +754,24 @@
     "title": "Life's Good At Home",
     "category": "home appliances",
     "description": "Refrigerators, washing machines, televisions, air conditioners, kitchen appliances and smart home electronics.",
-    "keywords": ["refrigerator", "washing machine", "television", "air conditioner", "kitchen", "appliances", "home", "smart home"],
-    "audience": ["families", "homeowners"],
-    "emotion": ["comfort", "convenience"]
+    "keywords": [
+      "refrigerator",
+      "washing machine",
+      "television",
+      "air conditioner",
+      "kitchen",
+      "appliances",
+      "home",
+      "smart home"
+    ],
+    "audience": [
+      "families",
+      "homeowners"
+    ],
+    "emotion": [
+      "comfort",
+      "convenience"
+    ]
   },
   {
     "id": "whirlpool_001",
@@ -285,9 +779,23 @@
     "title": "Better Home Appliances",
     "category": "home appliances",
     "description": "Washing machines, refrigerators, kitchen appliances and household products designed for everyday home use.",
-    "keywords": ["washing machine", "refrigerator", "kitchen", "home appliance", "laundry", "household", "cleaning"],
-    "audience": ["families", "homeowners"],
-    "emotion": ["comfort", "convenience"]
+    "keywords": [
+      "washing machine",
+      "refrigerator",
+      "kitchen",
+      "home appliance",
+      "laundry",
+      "household",
+      "cleaning"
+    ],
+    "audience": [
+      "families",
+      "homeowners"
+    ],
+    "emotion": [
+      "comfort",
+      "convenience"
+    ]
   },
   {
     "id": "ikea_001",
@@ -295,9 +803,27 @@
     "title": "Make Your Home Better",
     "category": "home and furniture",
     "description": "Furniture, kitchen organization, home decor, storage, bedroom products, living room products and interior design.",
-    "keywords": ["furniture", "home decor", "kitchen", "storage", "bedroom", "living room", "interior", "home organization"],
-    "audience": ["families", "students", "homeowners", "young adults"],
-    "emotion": ["comfort", "creativity", "style"]
+    "keywords": [
+      "furniture",
+      "home decor",
+      "kitchen",
+      "storage",
+      "bedroom",
+      "living room",
+      "interior",
+      "home organization"
+    ],
+    "audience": [
+      "families",
+      "students",
+      "homeowners",
+      "young adults"
+    ],
+    "emotion": [
+      "comfort",
+      "creativity",
+      "style"
+    ]
   },
   {
     "id": "cadbury_001",
@@ -305,9 +831,26 @@
     "title": "Sweet Moments",
     "category": "chocolate and confectionery",
     "description": "Chocolate, sweets, desserts, candy, gifting, celebrations and enjoyable snack moments.",
-    "keywords": ["chocolate", "candy", "sweets", "dessert", "snacks", "gifting", "celebration", "confectionery"],
-    "audience": ["families", "children", "young adults"],
-    "emotion": ["happiness", "celebration", "indulgence"]
+    "keywords": [
+      "chocolate",
+      "candy",
+      "sweets",
+      "dessert",
+      "snacks",
+      "gifting",
+      "celebration",
+      "confectionery"
+    ],
+    "audience": [
+      "families",
+      "children",
+      "young adults"
+    ],
+    "emotion": [
+      "happiness",
+      "celebration",
+      "indulgence"
+    ]
   },
   {
     "id": "oreo_001",
@@ -315,9 +858,26 @@
     "title": "Make Snack Time Fun",
     "category": "cookies and snacks",
     "description": "Cookies, biscuits, sweet snacks, desserts, milk, afternoon snacks and fun food moments.",
-    "keywords": ["cookies", "biscuits", "snacks", "dessert", "milk", "sweet", "food", "snack time"],
-    "audience": ["children", "families", "students"],
-    "emotion": ["fun", "happiness", "indulgence"]
+    "keywords": [
+      "cookies",
+      "biscuits",
+      "snacks",
+      "dessert",
+      "milk",
+      "sweet",
+      "food",
+      "snack time"
+    ],
+    "audience": [
+      "children",
+      "families",
+      "students"
+    ],
+    "emotion": [
+      "fun",
+      "happiness",
+      "indulgence"
+    ]
   },
   {
     "id": "kitkat_001",
@@ -325,9 +885,26 @@
     "title": "Have A Break",
     "category": "chocolate snacks",
     "description": "Chocolate snack for breaks, relaxation, work breaks, study breaks and casual sweet cravings.",
-    "keywords": ["chocolate", "snack", "break", "study break", "work break", "sweet", "dessert", "relaxation"],
-    "audience": ["students", "professionals", "young adults"],
-    "emotion": ["relaxation", "happiness", "indulgence"]
+    "keywords": [
+      "chocolate",
+      "snack",
+      "break",
+      "study break",
+      "work break",
+      "sweet",
+      "dessert",
+      "relaxation"
+    ],
+    "audience": [
+      "students",
+      "professionals",
+      "young adults"
+    ],
+    "emotion": [
+      "relaxation",
+      "happiness",
+      "indulgence"
+    ]
   },
   {
     "id": "haribo_001",
@@ -335,9 +912,26 @@
     "title": "Fun With Gummies",
     "category": "candy and confectionery",
     "description": "Gummy candies, sweets, colorful candy, playful snacks and confectionery for fun moments.",
-    "keywords": ["candy", "gummy", "sweets", "confectionery", "snacks", "colorful", "sweet", "dessert"],
-    "audience": ["children", "families", "young adults"],
-    "emotion": ["fun", "happiness", "playful"]
+    "keywords": [
+      "candy",
+      "gummy",
+      "sweets",
+      "confectionery",
+      "snacks",
+      "colorful",
+      "sweet",
+      "dessert"
+    ],
+    "audience": [
+      "children",
+      "families",
+      "young adults"
+    ],
+    "emotion": [
+      "fun",
+      "happiness",
+      "playful"
+    ]
   },
   {
     "id": "loreal_001",
@@ -345,9 +939,24 @@
     "title": "Beauty And Care",
     "category": "beauty",
     "description": "Skincare, cosmetics, makeup, hair care, beauty products and personal care routines.",
-    "keywords": ["beauty", "skincare", "makeup", "cosmetics", "hair care", "personal care", "face", "skin"],
-    "audience": ["young adults", "beauty enthusiasts"],
-    "emotion": ["confidence", "self care"]
+    "keywords": [
+      "beauty",
+      "skincare",
+      "makeup",
+      "cosmetics",
+      "hair care",
+      "personal care",
+      "face",
+      "skin"
+    ],
+    "audience": [
+      "young adults",
+      "beauty enthusiasts"
+    ],
+    "emotion": [
+      "confidence",
+      "self care"
+    ]
   },
   {
     "id": "nykaa_001",
@@ -355,9 +964,26 @@
     "title": "Beauty Shopping",
     "category": "beauty and cosmetics",
     "description": "Online shopping for makeup, skincare, cosmetics, perfumes, hair care and beauty products.",
-    "keywords": ["makeup", "skincare", "cosmetics", "perfume", "beauty", "hair care", "shopping", "personal care"],
-    "audience": ["young adults", "beauty lovers", "students"],
-    "emotion": ["confidence", "self care", "style"]
+    "keywords": [
+      "makeup",
+      "skincare",
+      "cosmetics",
+      "perfume",
+      "beauty",
+      "hair care",
+      "shopping",
+      "personal care"
+    ],
+    "audience": [
+      "young adults",
+      "beauty lovers",
+      "students"
+    ],
+    "emotion": [
+      "confidence",
+      "self care",
+      "style"
+    ]
   },
   {
     "id": "mamaearth_001",
@@ -365,9 +991,26 @@
     "title": "Natural Personal Care",
     "category": "personal care",
     "description": "Skincare, hair care, face care, natural personal care products and everyday beauty routines.",
-    "keywords": ["skincare", "hair care", "face care", "natural", "personal care", "beauty", "skin", "hair"],
-    "audience": ["young adults", "families", "beauty consumers"],
-    "emotion": ["self care", "confidence", "wellness"]
+    "keywords": [
+      "skincare",
+      "hair care",
+      "face care",
+      "natural",
+      "personal care",
+      "beauty",
+      "skin",
+      "hair"
+    ],
+    "audience": [
+      "young adults",
+      "families",
+      "beauty consumers"
+    ],
+    "emotion": [
+      "self care",
+      "confidence",
+      "wellness"
+    ]
   },
   {
     "id": "coursera_001",
@@ -375,9 +1018,26 @@
     "title": "Learn Something New",
     "category": "education",
     "description": "Online learning, programming, artificial intelligence, business courses, professional skills and education.",
-    "keywords": ["education", "learning", "programming", "course", "student", "coding", "artificial intelligence", "career"],
-    "audience": ["students", "developers", "professionals"],
-    "emotion": ["curiosity", "growth", "motivation"]
+    "keywords": [
+      "education",
+      "learning",
+      "programming",
+      "course",
+      "student",
+      "coding",
+      "artificial intelligence",
+      "career"
+    ],
+    "audience": [
+      "students",
+      "developers",
+      "professionals"
+    ],
+    "emotion": [
+      "curiosity",
+      "growth",
+      "motivation"
+    ]
   },
   {
     "id": "udemy_001",
@@ -385,9 +1045,27 @@
     "title": "Learn New Skills",
     "category": "online education",
     "description": "Online courses for programming, web development, artificial intelligence, business, design, technology and career skills.",
-    "keywords": ["online course", "programming", "coding", "web development", "AI", "business", "design", "education", "career"],
-    "audience": ["students", "developers", "professionals"],
-    "emotion": ["learning", "growth", "motivation"]
+    "keywords": [
+      "online course",
+      "programming",
+      "coding",
+      "web development",
+      "AI",
+      "business",
+      "design",
+      "education",
+      "career"
+    ],
+    "audience": [
+      "students",
+      "developers",
+      "professionals"
+    ],
+    "emotion": [
+      "learning",
+      "growth",
+      "motivation"
+    ]
   },
   {
     "id": "duolingo_001",
@@ -395,9 +1073,26 @@
     "title": "Learn A New Language",
     "category": "language learning",
     "description": "Language learning, studying languages, vocabulary, English practice, speaking practice and educational activities.",
-    "keywords": ["language", "learning", "education", "study", "student", "English", "speaking", "vocabulary"],
-    "audience": ["students", "travelers", "language learners"],
-    "emotion": ["curiosity", "growth", "fun"]
+    "keywords": [
+      "language",
+      "learning",
+      "education",
+      "study",
+      "student",
+      "English",
+      "speaking",
+      "vocabulary"
+    ],
+    "audience": [
+      "students",
+      "travelers",
+      "language learners"
+    ],
+    "emotion": [
+      "curiosity",
+      "growth",
+      "fun"
+    ]
   },
   {
     "id": "razorpay_001",
@@ -405,9 +1100,27 @@
     "title": "Power Your Business",
     "category": "fintech",
     "description": "Online payments, business payments, payment links, digital transactions, startups and merchant technology.",
-    "keywords": ["payments", "online payment", "business", "startup", "fintech", "merchant", "digital payment", "transactions"],
-    "audience": ["business owners", "startups", "developers", "professionals"],
-    "emotion": ["growth", "convenience", "innovation"]
+    "keywords": [
+      "payments",
+      "online payment",
+      "business",
+      "startup",
+      "fintech",
+      "merchant",
+      "digital payment",
+      "transactions"
+    ],
+    "audience": [
+      "business owners",
+      "startups",
+      "developers",
+      "professionals"
+    ],
+    "emotion": [
+      "growth",
+      "convenience",
+      "innovation"
+    ]
   },
   {
     "id": "cred_001",
@@ -415,9 +1128,25 @@
     "title": "Smart Financial Lifestyle",
     "category": "personal finance",
     "description": "Credit card payments, personal finance, rewards, financial management and premium lifestyle services.",
-    "keywords": ["credit card", "finance", "payments", "rewards", "money", "financial management", "personal finance"],
-    "audience": ["professionals", "credit card users", "young adults"],
-    "emotion": ["premium", "convenience", "rewards"]
+    "keywords": [
+      "credit card",
+      "finance",
+      "payments",
+      "rewards",
+      "money",
+      "financial management",
+      "personal finance"
+    ],
+    "audience": [
+      "professionals",
+      "credit card users",
+      "young adults"
+    ],
+    "emotion": [
+      "premium",
+      "convenience",
+      "rewards"
+    ]
   },
   {
     "id": "groww_001",
@@ -425,9 +1154,26 @@
     "title": "Start Investing",
     "category": "investing",
     "description": "Investment platform for stocks, mutual funds, investing, savings, financial planning and wealth building.",
-    "keywords": ["investing", "stocks", "mutual funds", "finance", "money", "savings", "wealth", "investment"],
-    "audience": ["young adults", "professionals", "investors"],
-    "emotion": ["growth", "confidence", "financial independence"]
+    "keywords": [
+      "investing",
+      "stocks",
+      "mutual funds",
+      "finance",
+      "money",
+      "savings",
+      "wealth",
+      "investment"
+    ],
+    "audience": [
+      "young adults",
+      "professionals",
+      "investors"
+    ],
+    "emotion": [
+      "growth",
+      "confidence",
+      "financial independence"
+    ]
   },
   {
     "id": "playstation_001",
@@ -435,9 +1181,26 @@
     "title": "Play Has No Limits",
     "category": "gaming",
     "description": "Video games, console gaming, controllers, gaming entertainment, action games, adventure games and immersive gameplay.",
-    "keywords": ["gaming", "video games", "console", "controller", "game", "gamer", "play", "entertainment"],
-    "audience": ["gamers", "teenagers", "young adults"],
-    "emotion": ["excitement", "fun", "competition"]
+    "keywords": [
+      "gaming",
+      "video games",
+      "console",
+      "controller",
+      "game",
+      "gamer",
+      "play",
+      "entertainment"
+    ],
+    "audience": [
+      "gamers",
+      "teenagers",
+      "young adults"
+    ],
+    "emotion": [
+      "excitement",
+      "fun",
+      "competition"
+    ]
   },
   {
     "id": "xbox_001",
@@ -445,9 +1208,25 @@
     "title": "Gaming For Everyone",
     "category": "gaming",
     "description": "Console gaming, video games, multiplayer gaming, controllers, entertainment and competitive gaming.",
-    "keywords": ["gaming", "console", "video games", "multiplayer", "controller", "gamer", "competition"],
-    "audience": ["gamers", "teenagers", "young adults"],
-    "emotion": ["fun", "excitement", "competition"]
+    "keywords": [
+      "gaming",
+      "console",
+      "video games",
+      "multiplayer",
+      "controller",
+      "gamer",
+      "competition"
+    ],
+    "audience": [
+      "gamers",
+      "teenagers",
+      "young adults"
+    ],
+    "emotion": [
+      "fun",
+      "excitement",
+      "competition"
+    ]
   },
   {
     "id": "hp_001",
@@ -455,9 +1234,26 @@
     "title": "Technology For Work And Study",
     "category": "computers",
     "description": "Laptops, desktop computers, printers and technology products for students, professionals, coding and office work.",
-    "keywords": ["laptop", "computer", "printer", "coding", "study", "office", "work", "technology", "student"],
-    "audience": ["students", "developers", "professionals"],
-    "emotion": ["productivity", "innovation"]
+    "keywords": [
+      "laptop",
+      "computer",
+      "printer",
+      "coding",
+      "study",
+      "office",
+      "work",
+      "technology",
+      "student"
+    ],
+    "audience": [
+      "students",
+      "developers",
+      "professionals"
+    ],
+    "emotion": [
+      "productivity",
+      "innovation"
+    ]
   },
   {
     "id": "lenovo_001",
@@ -465,9 +1261,26 @@
     "title": "Power Your Productivity",
     "category": "computers",
     "description": "Laptops, computers and technology for programming, gaming, office work, studying and professional productivity.",
-    "keywords": ["laptop", "computer", "programming", "coding", "gaming", "office", "study", "productivity"],
-    "audience": ["students", "developers", "gamers", "professionals"],
-    "emotion": ["productivity", "performance"]
+    "keywords": [
+      "laptop",
+      "computer",
+      "programming",
+      "coding",
+      "gaming",
+      "office",
+      "study",
+      "productivity"
+    ],
+    "audience": [
+      "students",
+      "developers",
+      "gamers",
+      "professionals"
+    ],
+    "emotion": [
+      "productivity",
+      "performance"
+    ]
   },
   {
     "id": "tata_001",
@@ -475,9 +1288,28 @@
     "title": "Drive Into The Future",
     "category": "automobile",
     "description": "Cars and SUVs for city driving, family travel, road trips, commuting, adventure and modern mobility.",
-    "keywords": ["car", "SUV", "automobile", "driving", "road trip", "family", "commute", "travel", "vehicle"],
-    "audience": ["families", "professionals", "travelers", "drivers"],
-    "emotion": ["freedom", "adventure", "confidence"]
+    "keywords": [
+      "car",
+      "SUV",
+      "automobile",
+      "driving",
+      "road trip",
+      "family",
+      "commute",
+      "travel",
+      "vehicle"
+    ],
+    "audience": [
+      "families",
+      "professionals",
+      "travelers",
+      "drivers"
+    ],
+    "emotion": [
+      "freedom",
+      "adventure",
+      "confidence"
+    ]
   },
   {
     "id": "hyundai_001",
@@ -485,9 +1317,27 @@
     "title": "Drive Your Journey",
     "category": "automobile",
     "description": "Modern cars for city commuting, family journeys, road trips, technology, comfort and everyday driving.",
-    "keywords": ["car", "driving", "road trip", "family", "city", "commute", "vehicle", "automobile", "comfort"],
-    "audience": ["families", "professionals", "drivers"],
-    "emotion": ["freedom", "comfort", "confidence"]
+    "keywords": [
+      "car",
+      "driving",
+      "road trip",
+      "family",
+      "city",
+      "commute",
+      "vehicle",
+      "automobile",
+      "comfort"
+    ],
+    "audience": [
+      "families",
+      "professionals",
+      "drivers"
+    ],
+    "emotion": [
+      "freedom",
+      "comfort",
+      "confidence"
+    ]
   },
   {
     "id": "royal_enfield_001",
@@ -495,9 +1345,26 @@
     "title": "Ride Into Adventure",
     "category": "motorcycles",
     "description": "Motorcycles, biking, road trips, mountain rides, adventure riding, touring and outdoor exploration.",
-    "keywords": ["motorcycle", "bike", "riding", "road trip", "mountains", "adventure", "touring", "biker"],
-    "audience": ["bikers", "young adults", "travelers"],
-    "emotion": ["adventure", "freedom", "excitement"]
+    "keywords": [
+      "motorcycle",
+      "bike",
+      "riding",
+      "road trip",
+      "mountains",
+      "adventure",
+      "touring",
+      "biker"
+    ],
+    "audience": [
+      "bikers",
+      "young adults",
+      "travelers"
+    ],
+    "emotion": [
+      "adventure",
+      "freedom",
+      "excitement"
+    ]
   },
   {
     "id": "booking_001",
@@ -505,9 +1372,28 @@
     "title": "Find Your Stay",
     "category": "travel accommodation",
     "description": "Hotels, vacation stays, resorts, travel accommodation, holidays, tourism and destination trips.",
-    "keywords": ["hotel", "travel", "vacation", "resort", "holiday", "tourism", "room", "stay", "trip"],
-    "audience": ["travelers", "families", "tourists", "couples"],
-    "emotion": ["relaxation", "adventure", "discovery"]
+    "keywords": [
+      "hotel",
+      "travel",
+      "vacation",
+      "resort",
+      "holiday",
+      "tourism",
+      "room",
+      "stay",
+      "trip"
+    ],
+    "audience": [
+      "travelers",
+      "families",
+      "tourists",
+      "couples"
+    ],
+    "emotion": [
+      "relaxation",
+      "adventure",
+      "discovery"
+    ]
   },
   {
     "id": "swiggy_instamart_001",
@@ -515,9 +1401,25 @@
     "title": "Daily Essentials In Minutes",
     "category": "grocery delivery",
     "description": "Fast delivery of groceries, snacks, drinks, household products, cleaning supplies and daily essentials.",
-    "keywords": ["groceries", "snacks", "drinks", "household", "cleaning", "delivery", "daily essentials", "shopping"],
-    "audience": ["families", "students", "professionals"],
-    "emotion": ["convenience", "speed"]
+    "keywords": [
+      "groceries",
+      "snacks",
+      "drinks",
+      "household",
+      "cleaning",
+      "delivery",
+      "daily essentials",
+      "shopping"
+    ],
+    "audience": [
+      "families",
+      "students",
+      "professionals"
+    ],
+    "emotion": [
+      "convenience",
+      "speed"
+    ]
   },
   {
     "id": "surf_excel_001",
@@ -525,9 +1427,26 @@
     "title": "Powerful Laundry Care",
     "category": "laundry and cleaning",
     "description": "Laundry detergent, washing clothes, removing stains, cleaning dirty clothes and household laundry care.",
-    "keywords": ["laundry", "detergent", "washing clothes", "stains", "cleaning", "clothes", "washing machine", "household"],
-    "audience": ["families", "parents", "homeowners"],
-    "emotion": ["cleanliness", "care", "freshness"]
+    "keywords": [
+      "laundry",
+      "detergent",
+      "washing clothes",
+      "stains",
+      "cleaning",
+      "clothes",
+      "washing machine",
+      "household"
+    ],
+    "audience": [
+      "families",
+      "parents",
+      "homeowners"
+    ],
+    "emotion": [
+      "cleanliness",
+      "care",
+      "freshness"
+    ]
   },
   {
     "id": "philips_grooming_001",
@@ -535,8 +1454,3798 @@
     "title": "Personal Grooming Made Easy",
     "category": "personal grooming",
     "description": "Electric shavers, trimmers, beard grooming, hair styling, personal grooming devices and self-care products.",
-    "keywords": ["shaver", "trimmer", "beard", "grooming", "hair", "personal care", "electric trimmer", "self care"],
-    "audience": ["men", "young adults", "professionals"],
-    "emotion": ["confidence", "self care"]
+    "keywords": [
+      "shaver",
+      "trimmer",
+      "beard",
+      "grooming",
+      "hair",
+      "personal care",
+      "electric trimmer",
+      "self care"
+    ],
+    "audience": [
+      "men",
+      "young adults",
+      "professionals"
+    ],
+    "emotion": [
+      "confidence",
+      "self care"
+    ]
+  },
+  {
+    "id": "amazon_kitchen_001",
+    "brand": "Amazon",
+    "title": "Kitchen Essentials",
+    "category": "online shopping",
+    "description": "Online shopping for cookware, kitchen appliances, utensils, storage and cooking products.",
+    "keywords": [
+      "kitchen",
+      "cookware",
+      "utensils",
+      "appliances",
+      "cooking",
+      "pots",
+      "pans",
+      "home"
+    ],
+    "audience": [
+      "families",
+      "homeowners",
+      "cooks"
+    ],
+    "emotion": [
+      "convenience",
+      "discovery"
+    ]
+  },
+  {
+    "id": "amazon_electronics_001",
+    "brand": "Amazon",
+    "title": "Tech At Your Door",
+    "category": "online shopping",
+    "description": "Shopping for smartphones, laptops, headphones, cameras, gadgets and consumer electronics.",
+    "keywords": [
+      "electronics",
+      "smartphone",
+      "laptop",
+      "headphones",
+      "camera",
+      "gadgets",
+      "technology"
+    ],
+    "audience": [
+      "students",
+      "professionals",
+      "tech enthusiasts"
+    ],
+    "emotion": [
+      "innovation",
+      "excitement"
+    ]
+  },
+  {
+    "id": "amazon_home_001",
+    "brand": "Amazon",
+    "title": "Better Home Shopping",
+    "category": "online shopping",
+    "description": "Furniture, storage, decor, lighting, bedding and household products for the home.",
+    "keywords": [
+      "home",
+      "furniture",
+      "decor",
+      "storage",
+      "lighting",
+      "bedroom",
+      "household"
+    ],
+    "audience": [
+      "families",
+      "homeowners"
+    ],
+    "emotion": [
+      "comfort",
+      "style"
+    ]
+  },
+  {
+    "id": "amazon_fashion_001",
+    "brand": "Amazon",
+    "title": "Style Delivered",
+    "category": "online shopping",
+    "description": "Clothing, shoes, bags, watches and fashion accessories for everyday outfits.",
+    "keywords": [
+      "fashion",
+      "clothing",
+      "shoes",
+      "bags",
+      "accessories",
+      "outfit",
+      "style"
+    ],
+    "audience": [
+      "young adults",
+      "students",
+      "shoppers"
+    ],
+    "emotion": [
+      "confidence",
+      "style"
+    ]
+  },
+  {
+    "id": "amazon_grocery_001",
+    "brand": "Amazon",
+    "title": "Groceries At Your Door",
+    "category": "online shopping",
+    "description": "Groceries, snacks, beverages, pantry products and everyday household essentials.",
+    "keywords": [
+      "groceries",
+      "food",
+      "snacks",
+      "beverages",
+      "pantry",
+      "essentials",
+      "shopping"
+    ],
+    "audience": [
+      "families",
+      "students",
+      "professionals"
+    ],
+    "emotion": [
+      "convenience",
+      "speed"
+    ]
+  },
+  {
+    "id": "flipkart_electronics_001",
+    "brand": "Flipkart",
+    "title": "Smart Tech Shopping",
+    "category": "online shopping",
+    "description": "Smartphones, laptops, televisions, headphones and electronics available online.",
+    "keywords": [
+      "smartphone",
+      "laptop",
+      "television",
+      "headphones",
+      "electronics",
+      "gadgets"
+    ],
+    "audience": [
+      "students",
+      "professionals",
+      "families"
+    ],
+    "emotion": [
+      "excitement",
+      "convenience"
+    ]
+  },
+  {
+    "id": "flipkart_home_001",
+    "brand": "Flipkart",
+    "title": "Upgrade Your Home",
+    "category": "online shopping",
+    "description": "Furniture, kitchen appliances, home decor, mattresses and household products.",
+    "keywords": [
+      "home",
+      "furniture",
+      "kitchen",
+      "appliances",
+      "decor",
+      "mattress",
+      "household"
+    ],
+    "audience": [
+      "families",
+      "homeowners"
+    ],
+    "emotion": [
+      "comfort",
+      "style"
+    ]
+  },
+  {
+    "id": "flipkart_fashion_001",
+    "brand": "Flipkart",
+    "title": "Everyday Fashion",
+    "category": "online shopping",
+    "description": "Clothing, footwear, watches, bags and accessories for casual and modern fashion.",
+    "keywords": [
+      "fashion",
+      "clothing",
+      "footwear",
+      "shoes",
+      "bags",
+      "watches",
+      "outfit"
+    ],
+    "audience": [
+      "young adults",
+      "students"
+    ],
+    "emotion": [
+      "style",
+      "confidence"
+    ]
+  },
+  {
+    "id": "flipkart_mobile_001",
+    "brand": "Flipkart",
+    "title": "Find Your Next Phone",
+    "category": "online shopping",
+    "description": "Smartphones, mobile accessories, chargers and technology for everyday communication.",
+    "keywords": [
+      "phone",
+      "smartphone",
+      "mobile",
+      "charger",
+      "earbuds",
+      "technology"
+    ],
+    "audience": [
+      "students",
+      "professionals",
+      "young adults"
+    ],
+    "emotion": [
+      "innovation",
+      "excitement"
+    ]
+  },
+  {
+    "id": "myntra_casual_001",
+    "brand": "Myntra",
+    "title": "Casual Looks",
+    "category": "fashion",
+    "description": "Casual shirts, t-shirts, jeans, sneakers and everyday outfits.",
+    "keywords": [
+      "casual",
+      "shirt",
+      "t-shirt",
+      "jeans",
+      "sneakers",
+      "outfit",
+      "fashion"
+    ],
+    "audience": [
+      "students",
+      "young adults"
+    ],
+    "emotion": [
+      "style",
+      "confidence"
+    ]
+  },
+  {
+    "id": "myntra_sports_001",
+    "brand": "Myntra",
+    "title": "Activewear Style",
+    "category": "fashion",
+    "description": "Sports shoes, gym clothing, running outfits and athletic fashion.",
+    "keywords": [
+      "sportswear",
+      "gym",
+      "running",
+      "sports shoes",
+      "activewear",
+      "fitness"
+    ],
+    "audience": [
+      "gym users",
+      "runners",
+      "young adults"
+    ],
+    "emotion": [
+      "energy",
+      "confidence"
+    ]
+  },
+  {
+    "id": "myntra_womens_001",
+    "brand": "Myntra",
+    "title": "Fashion For Her",
+    "category": "fashion",
+    "description": "Dresses, tops, ethnic wear, handbags, footwear and women's fashion.",
+    "keywords": [
+      "women",
+      "dress",
+      "tops",
+      "ethnic wear",
+      "handbag",
+      "fashion"
+    ],
+    "audience": [
+      "women",
+      "young adults",
+      "fashion lovers"
+    ],
+    "emotion": [
+      "style",
+      "confidence"
+    ]
+  },
+  {
+    "id": "myntra_mens_001",
+    "brand": "Myntra",
+    "title": "Modern Menswear",
+    "category": "fashion",
+    "description": "Shirts, trousers, jackets, sneakers and men's fashion accessories.",
+    "keywords": [
+      "men",
+      "shirts",
+      "trousers",
+      "jacket",
+      "sneakers",
+      "menswear"
+    ],
+    "audience": [
+      "men",
+      "young adults",
+      "professionals"
+    ],
+    "emotion": [
+      "confidence",
+      "style"
+    ]
+  },
+  {
+    "id": "nike_running_001",
+    "brand": "Nike",
+    "title": "Run Your Way",
+    "category": "sports and fitness",
+    "description": "Running shoes, running apparel and training products for outdoor and treadmill running.",
+    "keywords": [
+      "running",
+      "running shoes",
+      "jogging",
+      "treadmill",
+      "athletic shoes",
+      "running apparel"
+    ],
+    "audience": [
+      "runners",
+      "athletes",
+      "fitness enthusiasts"
+    ],
+    "emotion": [
+      "energy",
+      "motivation"
+    ]
+  },
+  {
+    "id": "nike_gym_001",
+    "brand": "Nike",
+    "title": "Train Strong",
+    "category": "sports and fitness",
+    "description": "Training shoes, gym clothing and performance apparel for workouts and strength training.",
+    "keywords": [
+      "gym",
+      "workout",
+      "training",
+      "strength",
+      "fitness",
+      "gym shoes",
+      "sportswear"
+    ],
+    "audience": [
+      "gym users",
+      "athletes",
+      "young adults"
+    ],
+    "emotion": [
+      "motivation",
+      "confidence"
+    ]
+  },
+  {
+    "id": "nike_football_001",
+    "brand": "Nike",
+    "title": "Play To Win",
+    "category": "sports and fitness",
+    "description": "Football boots, jerseys and sportswear for football training and matches.",
+    "keywords": [
+      "football",
+      "soccer",
+      "football boots",
+      "jersey",
+      "sports",
+      "training"
+    ],
+    "audience": [
+      "football players",
+      "sports fans",
+      "athletes"
+    ],
+    "emotion": [
+      "competition",
+      "energy"
+    ]
+  },
+  {
+    "id": "nike_basketball_001",
+    "brand": "Nike",
+    "title": "Own The Court",
+    "category": "sports and fitness",
+    "description": "Basketball shoes, jerseys and performance clothing for court sports.",
+    "keywords": [
+      "basketball",
+      "court",
+      "basketball shoes",
+      "jersey",
+      "sportswear",
+      "athlete"
+    ],
+    "audience": [
+      "basketball players",
+      "young adults",
+      "athletes"
+    ],
+    "emotion": [
+      "energy",
+      "competition"
+    ]
+  },
+  {
+    "id": "nike_lifestyle_001",
+    "brand": "Nike",
+    "title": "Move Every Day",
+    "category": "sports and fitness",
+    "description": "Sneakers, casual sportswear and lifestyle clothing for active everyday life.",
+    "keywords": [
+      "sneakers",
+      "lifestyle",
+      "streetwear",
+      "sportswear",
+      "casual",
+      "shoes"
+    ],
+    "audience": [
+      "young adults",
+      "students",
+      "fashion lovers"
+    ],
+    "emotion": [
+      "style",
+      "energy"
+    ]
+  },
+  {
+    "id": "adidas_running_001",
+    "brand": "Adidas",
+    "title": "Run With Confidence",
+    "category": "sports and fitness",
+    "description": "Running shoes and performance clothing for jogging, training and road running.",
+    "keywords": [
+      "running",
+      "jogging",
+      "running shoes",
+      "training",
+      "sportswear",
+      "fitness"
+    ],
+    "audience": [
+      "runners",
+      "athletes",
+      "fitness enthusiasts"
+    ],
+    "emotion": [
+      "energy",
+      "confidence"
+    ]
+  },
+  {
+    "id": "adidas_football_001",
+    "brand": "Adidas",
+    "title": "Impossible Is Football",
+    "category": "sports and fitness",
+    "description": "Football boots, jerseys and training apparel for players and football fans.",
+    "keywords": [
+      "football",
+      "soccer",
+      "boots",
+      "jersey",
+      "training",
+      "sports"
+    ],
+    "audience": [
+      "football players",
+      "sports fans"
+    ],
+    "emotion": [
+      "competition",
+      "energy"
+    ]
+  },
+  {
+    "id": "adidas_gym_001",
+    "brand": "Adidas",
+    "title": "Train Every Day",
+    "category": "sports and fitness",
+    "description": "Gym shoes, workout clothing and training gear for fitness routines.",
+    "keywords": [
+      "gym",
+      "workout",
+      "training",
+      "fitness",
+      "gym shoes",
+      "activewear"
+    ],
+    "audience": [
+      "gym users",
+      "athletes",
+      "young adults"
+    ],
+    "emotion": [
+      "motivation",
+      "energy"
+    ]
+  },
+  {
+    "id": "adidas_lifestyle_001",
+    "brand": "Adidas",
+    "title": "Sport Meets Style",
+    "category": "sports and fitness",
+    "description": "Sneakers, streetwear and casual sports clothing for everyday fashion.",
+    "keywords": [
+      "sneakers",
+      "streetwear",
+      "fashion",
+      "casual",
+      "sportswear",
+      "lifestyle"
+    ],
+    "audience": [
+      "young adults",
+      "students"
+    ],
+    "emotion": [
+      "style",
+      "confidence"
+    ]
+  },
+  {
+    "id": "decathlon_cycling_001",
+    "brand": "Decathlon",
+    "title": "Ride Further",
+    "category": "sports equipment",
+    "description": "Bicycles, helmets, cycling clothing and accessories for road and outdoor cycling.",
+    "keywords": [
+      "cycling",
+      "bicycle",
+      "bike",
+      "helmet",
+      "cycling gear",
+      "outdoor"
+    ],
+    "audience": [
+      "cyclists",
+      "families",
+      "fitness enthusiasts"
+    ],
+    "emotion": [
+      "adventure",
+      "energy"
+    ]
+  },
+  {
+    "id": "decathlon_hiking_001",
+    "brand": "Decathlon",
+    "title": "Explore Outdoors",
+    "category": "sports equipment",
+    "description": "Hiking shoes, backpacks, trekking equipment and outdoor clothing.",
+    "keywords": [
+      "hiking",
+      "trekking",
+      "backpack",
+      "hiking shoes",
+      "outdoor",
+      "mountains"
+    ],
+    "audience": [
+      "hikers",
+      "travelers",
+      "adventure lovers"
+    ],
+    "emotion": [
+      "adventure",
+      "discovery"
+    ]
+  },
+  {
+    "id": "decathlon_swimming_001",
+    "brand": "Decathlon",
+    "title": "Make A Splash",
+    "category": "sports equipment",
+    "description": "Swimwear, goggles, swimming accessories and equipment for pool activities.",
+    "keywords": [
+      "swimming",
+      "swimwear",
+      "goggles",
+      "pool",
+      "water sports"
+    ],
+    "audience": [
+      "swimmers",
+      "families",
+      "athletes"
+    ],
+    "emotion": [
+      "fun",
+      "energy"
+    ]
+  },
+  {
+    "id": "decathlon_gym_001",
+    "brand": "Decathlon",
+    "title": "Build Your Routine",
+    "category": "sports equipment",
+    "description": "Fitness equipment, training clothes and gym accessories for home and gym workouts.",
+    "keywords": [
+      "gym",
+      "fitness",
+      "weights",
+      "workout",
+      "training",
+      "fitness equipment"
+    ],
+    "audience": [
+      "gym users",
+      "fitness enthusiasts"
+    ],
+    "emotion": [
+      "motivation",
+      "energy"
+    ]
+  },
+  {
+    "id": "zomato_pizza_001",
+    "brand": "Zomato",
+    "title": "Pizza Delivered",
+    "category": "food delivery",
+    "description": "Pizza, cheesy meals, sides and restaurant delivery for dinner and casual food cravings.",
+    "keywords": [
+      "pizza",
+      "cheese",
+      "delivery",
+      "dinner",
+      "restaurant",
+      "fast food"
+    ],
+    "audience": [
+      "students",
+      "families",
+      "young adults"
+    ],
+    "emotion": [
+      "hunger",
+      "enjoyment"
+    ]
+  },
+  {
+    "id": "zomato_dessert_001",
+    "brand": "Zomato",
+    "title": "Sweet Cravings",
+    "category": "food delivery",
+    "description": "Desserts, cakes, ice cream and sweet treats delivered from nearby restaurants.",
+    "keywords": [
+      "dessert",
+      "cake",
+      "ice cream",
+      "sweet",
+      "food delivery",
+      "cravings"
+    ],
+    "audience": [
+      "families",
+      "students",
+      "food lovers"
+    ],
+    "emotion": [
+      "indulgence",
+      "happiness"
+    ]
+  },
+  {
+    "id": "zomato_lunch_001",
+    "brand": "Zomato",
+    "title": "Lunch Delivered",
+    "category": "food delivery",
+    "description": "Restaurant meals and lunch delivery for offices, homes and busy afternoons.",
+    "keywords": [
+      "lunch",
+      "meal",
+      "restaurant",
+      "office",
+      "food delivery",
+      "afternoon"
+    ],
+    "audience": [
+      "professionals",
+      "students",
+      "families"
+    ],
+    "emotion": [
+      "convenience",
+      "hunger"
+    ]
+  },
+  {
+    "id": "zomato_burger_001",
+    "brand": "Zomato",
+    "title": "Burger Time",
+    "category": "food delivery",
+    "description": "Burgers, fries, fast food and restaurant meals delivered to your door.",
+    "keywords": [
+      "burger",
+      "fries",
+      "fast food",
+      "restaurant",
+      "delivery",
+      "meal"
+    ],
+    "audience": [
+      "students",
+      "young adults",
+      "families"
+    ],
+    "emotion": [
+      "fun",
+      "hunger"
+    ]
+  },
+  {
+    "id": "swiggy_breakfast_001",
+    "brand": "Swiggy",
+    "title": "Breakfast At Your Door",
+    "category": "food delivery",
+    "description": "Breakfast meals, coffee, sandwiches and morning food delivered from restaurants.",
+    "keywords": [
+      "breakfast",
+      "coffee",
+      "sandwich",
+      "morning",
+      "food delivery",
+      "restaurant"
+    ],
+    "audience": [
+      "students",
+      "professionals",
+      "families"
+    ],
+    "emotion": [
+      "convenience",
+      "happiness"
+    ]
+  },
+  {
+    "id": "swiggy_dessert_001",
+    "brand": "Swiggy",
+    "title": "Dessert Delivered",
+    "category": "food delivery",
+    "description": "Cakes, ice cream, sweets and desserts delivered for cravings and celebrations.",
+    "keywords": [
+      "dessert",
+      "cake",
+      "ice cream",
+      "sweets",
+      "delivery",
+      "celebration"
+    ],
+    "audience": [
+      "families",
+      "young adults",
+      "food lovers"
+    ],
+    "emotion": [
+      "happiness",
+      "indulgence"
+    ]
+  },
+  {
+    "id": "swiggy_late_night_001",
+    "brand": "Swiggy",
+    "title": "Late Night Cravings",
+    "category": "food delivery",
+    "description": "Late-night meals, snacks and fast food delivered when hunger strikes.",
+    "keywords": [
+      "late night",
+      "food",
+      "snacks",
+      "fast food",
+      "delivery",
+      "cravings"
+    ],
+    "audience": [
+      "students",
+      "young adults",
+      "professionals"
+    ],
+    "emotion": [
+      "fun",
+      "hunger"
+    ]
+  },
+  {
+    "id": "swiggy_healthy_001",
+    "brand": "Swiggy",
+    "title": "Healthy Meals Delivered",
+    "category": "food delivery",
+    "description": "Salads, healthy bowls, nutritious meals and fresh food delivered from restaurants.",
+    "keywords": [
+      "healthy food",
+      "salad",
+      "nutrition",
+      "fresh meals",
+      "food delivery",
+      "healthy"
+    ],
+    "audience": [
+      "fitness enthusiasts",
+      "professionals",
+      "health-conscious consumers"
+    ],
+    "emotion": [
+      "wellness",
+      "convenience"
+    ]
+  },
+  {
+    "id": "blinkit_groceries_001",
+    "brand": "Blinkit",
+    "title": "Groceries In Minutes",
+    "category": "quick commerce",
+    "description": "Milk, bread, vegetables, fruits, pantry items and daily groceries delivered quickly.",
+    "keywords": [
+      "groceries",
+      "milk",
+      "bread",
+      "vegetables",
+      "fruits",
+      "pantry",
+      "delivery"
+    ],
+    "audience": [
+      "families",
+      "students",
+      "professionals"
+    ],
+    "emotion": [
+      "speed",
+      "convenience"
+    ]
+  },
+  {
+    "id": "blinkit_snacks_001",
+    "brand": "Blinkit",
+    "title": "Snack Attack",
+    "category": "quick commerce",
+    "description": "Chips, biscuits, chocolate, instant noodles and beverages delivered quickly.",
+    "keywords": [
+      "snacks",
+      "chips",
+      "biscuits",
+      "chocolate",
+      "noodles",
+      "beverages",
+      "quick delivery"
+    ],
+    "audience": [
+      "students",
+      "young adults",
+      "families"
+    ],
+    "emotion": [
+      "fun",
+      "convenience"
+    ]
+  },
+  {
+    "id": "blinkit_cleaning_001",
+    "brand": "Blinkit",
+    "title": "Home Essentials Fast",
+    "category": "quick commerce",
+    "description": "Cleaning supplies, detergents, paper products and household essentials delivered quickly.",
+    "keywords": [
+      "cleaning",
+      "detergent",
+      "household",
+      "paper",
+      "home essentials",
+      "delivery"
+    ],
+    "audience": [
+      "families",
+      "homeowners"
+    ],
+    "emotion": [
+      "cleanliness",
+      "convenience"
+    ]
+  },
+  {
+    "id": "blinkit_emergency_001",
+    "brand": "Blinkit",
+    "title": "Forgot Something?",
+    "category": "quick commerce",
+    "description": "Urgent everyday essentials, toiletries, batteries and household items delivered quickly.",
+    "keywords": [
+      "urgent",
+      "essentials",
+      "toiletries",
+      "batteries",
+      "household",
+      "quick delivery"
+    ],
+    "audience": [
+      "families",
+      "students",
+      "professionals"
+    ],
+    "emotion": [
+      "speed",
+      "relief"
+    ]
+  },
+  {
+    "id": "zepto_fruits_001",
+    "brand": "Zepto",
+    "title": "Freshness In Minutes",
+    "category": "quick commerce",
+    "description": "Fresh fruits, vegetables, dairy and grocery essentials delivered quickly.",
+    "keywords": [
+      "fruits",
+      "vegetables",
+      "fresh",
+      "dairy",
+      "groceries",
+      "delivery"
+    ],
+    "audience": [
+      "families",
+      "health-conscious consumers"
+    ],
+    "emotion": [
+      "freshness",
+      "convenience"
+    ]
+  },
+  {
+    "id": "zepto_snacks_001",
+    "brand": "Zepto",
+    "title": "Cravings Delivered",
+    "category": "quick commerce",
+    "description": "Snacks, chocolates, cold drinks and instant food delivered rapidly.",
+    "keywords": [
+      "snacks",
+      "chocolate",
+      "cold drinks",
+      "instant food",
+      "delivery",
+      "cravings"
+    ],
+    "audience": [
+      "students",
+      "young adults"
+    ],
+    "emotion": [
+      "fun",
+      "speed"
+    ]
+  },
+  {
+    "id": "zepto_household_001",
+    "brand": "Zepto",
+    "title": "Daily Home Essentials",
+    "category": "quick commerce",
+    "description": "Household supplies, toiletries, cleaning products and daily-use items delivered quickly.",
+    "keywords": [
+      "household",
+      "toiletries",
+      "cleaning",
+      "daily essentials",
+      "home",
+      "delivery"
+    ],
+    "audience": [
+      "families",
+      "homeowners"
+    ],
+    "emotion": [
+      "convenience",
+      "speed"
+    ]
+  },
+  {
+    "id": "makemytrip_beach_001",
+    "brand": "MakeMyTrip",
+    "title": "Escape To The Beach",
+    "category": "travel",
+    "description": "Beach holidays, coastal resorts, flights and vacation packages for relaxing getaways.",
+    "keywords": [
+      "beach",
+      "holiday",
+      "resort",
+      "vacation",
+      "coast",
+      "travel",
+      "flight"
+    ],
+    "audience": [
+      "families",
+      "couples",
+      "young adults"
+    ],
+    "emotion": [
+      "relaxation",
+      "adventure"
+    ]
+  },
+  {
+    "id": "makemytrip_mountains_001",
+    "brand": "MakeMyTrip",
+    "title": "Mountain Getaway",
+    "category": "travel",
+    "description": "Mountain trips, hill stations, hotels and adventure vacations.",
+    "keywords": [
+      "mountains",
+      "hills",
+      "trekking",
+      "hotel",
+      "vacation",
+      "adventure"
+    ],
+    "audience": [
+      "travelers",
+      "young adults",
+      "families"
+    ],
+    "emotion": [
+      "adventure",
+      "discovery"
+    ]
+  },
+  {
+    "id": "makemytrip_business_001",
+    "brand": "MakeMyTrip",
+    "title": "Travel For Work",
+    "category": "travel",
+    "description": "Flights, hotels and business travel bookings for professional trips and meetings.",
+    "keywords": [
+      "business travel",
+      "flight",
+      "hotel",
+      "office trip",
+      "work travel"
+    ],
+    "audience": [
+      "professionals",
+      "business travelers"
+    ],
+    "emotion": [
+      "convenience",
+      "productivity"
+    ]
+  },
+  {
+    "id": "makemytrip_weekend_001",
+    "brand": "MakeMyTrip",
+    "title": "Weekend Getaway",
+    "category": "travel",
+    "description": "Short trips, nearby destinations, hotels and weekend vacation packages.",
+    "keywords": [
+      "weekend",
+      "getaway",
+      "short trip",
+      "hotel",
+      "vacation",
+      "travel"
+    ],
+    "audience": [
+      "young adults",
+      "couples",
+      "families"
+    ],
+    "emotion": [
+      "relaxation",
+      "excitement"
+    ]
+  },
+  {
+    "id": "airbnb_home_001",
+    "brand": "Airbnb",
+    "title": "Feel At Home Anywhere",
+    "category": "travel accommodation",
+    "description": "Vacation homes and apartments for travelers seeking comfortable stays.",
+    "keywords": [
+      "vacation home",
+      "apartment",
+      "stay",
+      "travel",
+      "holiday",
+      "home"
+    ],
+    "audience": [
+      "families",
+      "travelers",
+      "couples"
+    ],
+    "emotion": [
+      "comfort",
+      "discovery"
+    ]
+  },
+  {
+    "id": "airbnb_beach_001",
+    "brand": "Airbnb",
+    "title": "Stay By The Sea",
+    "category": "travel accommodation",
+    "description": "Unique vacation homes and stays near beaches and coastal destinations.",
+    "keywords": [
+      "beach",
+      "vacation home",
+      "sea",
+      "coastal",
+      "holiday",
+      "stay"
+    ],
+    "audience": [
+      "couples",
+      "families",
+      "travelers"
+    ],
+    "emotion": [
+      "relaxation",
+      "discovery"
+    ]
+  },
+  {
+    "id": "airbnb_mountain_001",
+    "brand": "Airbnb",
+    "title": "A Stay In The Mountains",
+    "category": "travel accommodation",
+    "description": "Cabins, homes and unique stays near mountains and outdoor destinations.",
+    "keywords": [
+      "mountains",
+      "cabin",
+      "trekking",
+      "outdoor",
+      "vacation",
+      "stay"
+    ],
+    "audience": [
+      "travelers",
+      "couples",
+      "adventure lovers"
+    ],
+    "emotion": [
+      "adventure",
+      "discovery"
+    ]
+  },
+  {
+    "id": "uber_commute_001",
+    "brand": "Uber",
+    "title": "Your Daily Ride",
+    "category": "transportation",
+    "description": "City rides and car transportation for commuting to work, college and everyday destinations.",
+    "keywords": [
+      "commute",
+      "city ride",
+      "taxi",
+      "car",
+      "office",
+      "college",
+      "transport"
+    ],
+    "audience": [
+      "professionals",
+      "students"
+    ],
+    "emotion": [
+      "convenience",
+      "freedom"
+    ]
+  },
+  {
+    "id": "uber_airport_001",
+    "brand": "Uber",
+    "title": "Ride To The Airport",
+    "category": "transportation",
+    "description": "Airport rides and reliable city transportation for flights and travel.",
+    "keywords": [
+      "airport",
+      "ride",
+      "taxi",
+      "travel",
+      "flight",
+      "transport"
+    ],
+    "audience": [
+      "travelers",
+      "professionals"
+    ],
+    "emotion": [
+      "convenience",
+      "relief"
+    ]
+  },
+  {
+    "id": "uber_night_001",
+    "brand": "Uber",
+    "title": "Get Home Safely",
+    "category": "transportation",
+    "description": "On-demand rides for evenings, social outings, restaurants and nightlife.",
+    "keywords": [
+      "night",
+      "ride",
+      "restaurant",
+      "party",
+      "city",
+      "transport"
+    ],
+    "audience": [
+      "young adults",
+      "professionals"
+    ],
+    "emotion": [
+      "freedom",
+      "safety"
+    ]
+  },
+  {
+    "id": "apple_iphone_001",
+    "brand": "Apple",
+    "title": "iPhone For Every Day",
+    "category": "technology",
+    "description": "Premium smartphones for photography, communication, entertainment and everyday productivity.",
+    "keywords": [
+      "iphone",
+      "smartphone",
+      "camera",
+      "mobile",
+      "photography",
+      "technology"
+    ],
+    "audience": [
+      "students",
+      "professionals",
+      "creators"
+    ],
+    "emotion": [
+      "innovation",
+      "premium"
+    ]
+  },
+  {
+    "id": "apple_macbook_001",
+    "brand": "Apple",
+    "title": "Create On Mac",
+    "category": "technology",
+    "description": "Laptops for coding, creative work, study, office productivity and professional workflows.",
+    "keywords": [
+      "macbook",
+      "laptop",
+      "coding",
+      "programming",
+      "design",
+      "office",
+      "study"
+    ],
+    "audience": [
+      "developers",
+      "students",
+      "professionals",
+      "creators"
+    ],
+    "emotion": [
+      "productivity",
+      "innovation"
+    ]
+  },
+  {
+    "id": "apple_watch_001",
+    "brand": "Apple",
+    "title": "Stay Connected",
+    "category": "technology",
+    "description": "Smart watches for fitness tracking, notifications, health routines and everyday activity.",
+    "keywords": [
+      "smartwatch",
+      "fitness",
+      "watch",
+      "activity",
+      "notifications",
+      "technology"
+    ],
+    "audience": [
+      "fitness enthusiasts",
+      "professionals",
+      "young adults"
+    ],
+    "emotion": [
+      "wellness",
+      "innovation"
+    ]
+  },
+  {
+    "id": "apple_airpods_001",
+    "brand": "Apple",
+    "title": "Wireless Sound",
+    "category": "technology",
+    "description": "Wireless earbuds for music, podcasts, calls and entertainment on the go.",
+    "keywords": [
+      "earbuds",
+      "airpods",
+      "music",
+      "podcast",
+      "wireless",
+      "audio"
+    ],
+    "audience": [
+      "students",
+      "music lovers",
+      "professionals"
+    ],
+    "emotion": [
+      "freedom",
+      "entertainment"
+    ]
+  },
+  {
+    "id": "samsung_phone_001",
+    "brand": "Samsung",
+    "title": "Galaxy For Your World",
+    "category": "technology",
+    "description": "Smartphones with cameras, displays and mobile technology for communication and entertainment.",
+    "keywords": [
+      "smartphone",
+      "phone",
+      "camera",
+      "display",
+      "galaxy",
+      "mobile"
+    ],
+    "audience": [
+      "students",
+      "professionals",
+      "young adults"
+    ],
+    "emotion": [
+      "innovation",
+      "excitement"
+    ]
+  },
+  {
+    "id": "samsung_tv_001",
+    "brand": "Samsung",
+    "title": "Bring Entertainment Home",
+    "category": "technology",
+    "description": "Large-screen televisions and smart displays for movies, sports and home entertainment.",
+    "keywords": [
+      "television",
+      "TV",
+      "movies",
+      "sports",
+      "screen",
+      "home entertainment"
+    ],
+    "audience": [
+      "families",
+      "movie lovers",
+      "sports fans"
+    ],
+    "emotion": [
+      "entertainment",
+      "excitement"
+    ]
+  },
+  {
+    "id": "samsung_appliances_001",
+    "brand": "Samsung",
+    "title": "Smart Home Living",
+    "category": "technology",
+    "description": "Refrigerators, washing machines, air conditioners and connected home appliances.",
+    "keywords": [
+      "refrigerator",
+      "washing machine",
+      "air conditioner",
+      "home",
+      "appliances",
+      "smart home"
+    ],
+    "audience": [
+      "families",
+      "homeowners"
+    ],
+    "emotion": [
+      "comfort",
+      "convenience"
+    ]
+  },
+  {
+    "id": "boat_music_001",
+    "brand": "boAt",
+    "title": "Your Music Everywhere",
+    "category": "audio electronics",
+    "description": "Wireless earbuds and headphones for music, podcasts and everyday listening.",
+    "keywords": [
+      "earbuds",
+      "headphones",
+      "music",
+      "wireless",
+      "audio",
+      "podcast"
+    ],
+    "audience": [
+      "students",
+      "music lovers",
+      "young adults"
+    ],
+    "emotion": [
+      "energy",
+      "entertainment"
+    ]
+  },
+  {
+    "id": "boat_gaming_001",
+    "brand": "boAt",
+    "title": "Game With Better Sound",
+    "category": "audio electronics",
+    "description": "Gaming headphones and audio accessories for immersive games and multiplayer sessions.",
+    "keywords": [
+      "gaming",
+      "headphones",
+      "gaming headset",
+      "audio",
+      "multiplayer",
+      "console"
+    ],
+    "audience": [
+      "gamers",
+      "teenagers",
+      "young adults"
+    ],
+    "emotion": [
+      "excitement",
+      "competition"
+    ]
+  },
+  {
+    "id": "boat_fitness_001",
+    "brand": "boAt",
+    "title": "Sound For Your Workout",
+    "category": "audio electronics",
+    "description": "Wireless earbuds and sports audio accessories for running, gym sessions and exercise.",
+    "keywords": [
+      "fitness",
+      "gym",
+      "running",
+      "earbuds",
+      "wireless",
+      "workout"
+    ],
+    "audience": [
+      "runners",
+      "gym users",
+      "athletes"
+    ],
+    "emotion": [
+      "energy",
+      "motivation"
+    ]
+  },
+  {
+    "id": "spotify_workout_001",
+    "brand": "Spotify",
+    "title": "Music For Your Workout",
+    "category": "music and entertainment",
+    "description": "Workout playlists, energetic songs and audio for running, gym sessions and exercise.",
+    "keywords": [
+      "workout",
+      "gym",
+      "running",
+      "playlist",
+      "music",
+      "fitness"
+    ],
+    "audience": [
+      "gym users",
+      "runners",
+      "athletes"
+    ],
+    "emotion": [
+      "energy",
+      "motivation"
+    ]
+  },
+  {
+    "id": "spotify_study_001",
+    "brand": "Spotify",
+    "title": "Focus And Study",
+    "category": "music and entertainment",
+    "description": "Focus playlists, instrumental music and podcasts for studying and concentration.",
+    "keywords": [
+      "study",
+      "focus",
+      "playlist",
+      "instrumental",
+      "podcast",
+      "concentration"
+    ],
+    "audience": [
+      "students",
+      "professionals"
+    ],
+    "emotion": [
+      "focus",
+      "relaxation"
+    ]
+  },
+  {
+    "id": "spotify_party_001",
+    "brand": "Spotify",
+    "title": "Turn Up The Music",
+    "category": "music and entertainment",
+    "description": "Party playlists, popular songs and music for social gatherings and celebrations.",
+    "keywords": [
+      "party",
+      "music",
+      "playlist",
+      "friends",
+      "celebration",
+      "songs"
+    ],
+    "audience": [
+      "young adults",
+      "students"
+    ],
+    "emotion": [
+      "fun",
+      "energy"
+    ]
+  },
+  {
+    "id": "netflix_movies_001",
+    "brand": "Netflix",
+    "title": "Movie Night",
+    "category": "entertainment",
+    "description": "Streaming movies, films and entertainment for relaxing evenings at home.",
+    "keywords": [
+      "movies",
+      "film",
+      "streaming",
+      "movie night",
+      "home",
+      "entertainment"
+    ],
+    "audience": [
+      "families",
+      "young adults"
+    ],
+    "emotion": [
+      "relaxation",
+      "excitement"
+    ]
+  },
+  {
+    "id": "netflix_series_001",
+    "brand": "Netflix",
+    "title": "Your Next Series",
+    "category": "entertainment",
+    "description": "TV shows, web series and binge-worthy entertainment for home viewing.",
+    "keywords": [
+      "series",
+      "TV show",
+      "web series",
+      "streaming",
+      "binge",
+      "entertainment"
+    ],
+    "audience": [
+      "young adults",
+      "families"
+    ],
+    "emotion": [
+      "curiosity",
+      "excitement"
+    ]
+  },
+  {
+    "id": "netflix_documentary_001",
+    "brand": "Netflix",
+    "title": "Discover Something New",
+    "category": "entertainment",
+    "description": "Documentaries about science, nature, history, culture and real-world stories.",
+    "keywords": [
+      "documentary",
+      "science",
+      "nature",
+      "history",
+      "culture",
+      "streaming"
+    ],
+    "audience": [
+      "students",
+      "curious viewers",
+      "families"
+    ],
+    "emotion": [
+      "curiosity",
+      "discovery"
+    ]
+  },
+  {
+    "id": "prime_video_sports_001",
+    "brand": "Prime Video",
+    "title": "Watch The Big Game",
+    "category": "entertainment",
+    "description": "Streaming sports, live events and sports entertainment at home.",
+    "keywords": [
+      "sports",
+      "match",
+      "live",
+      "football",
+      "cricket",
+      "streaming"
+    ],
+    "audience": [
+      "sports fans",
+      "young adults",
+      "families"
+    ],
+    "emotion": [
+      "excitement",
+      "competition"
+    ]
+  },
+  {
+    "id": "prime_video_movies_001",
+    "brand": "Prime Video",
+    "title": "Movie Night At Home",
+    "category": "entertainment",
+    "description": "Movies and films for relaxing evenings and family entertainment.",
+    "keywords": [
+      "movies",
+      "film",
+      "streaming",
+      "home",
+      "family",
+      "entertainment"
+    ],
+    "audience": [
+      "families",
+      "young adults"
+    ],
+    "emotion": [
+      "relaxation",
+      "excitement"
+    ]
+  },
+  {
+    "id": "prime_video_series_001",
+    "brand": "Prime Video",
+    "title": "Binge Your Next Story",
+    "category": "entertainment",
+    "description": "Web series and television shows across genres for streaming entertainment.",
+    "keywords": [
+      "series",
+      "web series",
+      "streaming",
+      "TV",
+      "shows",
+      "binge"
+    ],
+    "audience": [
+      "young adults",
+      "students"
+    ],
+    "emotion": [
+      "curiosity",
+      "excitement"
+    ]
+  },
+  {
+    "id": "philips_kitchen_001",
+    "brand": "Philips",
+    "title": "Smarter Kitchen Moments",
+    "category": "home appliances",
+    "description": "Kitchen appliances including air fryers, mixers, blenders and cooking devices.",
+    "keywords": [
+      "kitchen",
+      "air fryer",
+      "mixer",
+      "blender",
+      "cooking",
+      "appliance"
+    ],
+    "audience": [
+      "families",
+      "home cooks",
+      "homeowners"
+    ],
+    "emotion": [
+      "convenience",
+      "comfort"
+    ]
+  },
+  {
+    "id": "philips_lighting_001",
+    "brand": "Philips",
+    "title": "Light Up Your Space",
+    "category": "home appliances",
+    "description": "Home lighting and smart lighting products for bedrooms, workspaces and living rooms.",
+    "keywords": [
+      "lighting",
+      "lamp",
+      "smart light",
+      "bedroom",
+      "workspace",
+      "home"
+    ],
+    "audience": [
+      "students",
+      "families",
+      "homeowners"
+    ],
+    "emotion": [
+      "comfort",
+      "style"
+    ]
+  },
+  {
+    "id": "lg_refrigerator_001",
+    "brand": "LG",
+    "title": "Freshness For Your Kitchen",
+    "category": "home appliances",
+    "description": "Refrigerators and food storage appliances for modern kitchens and families.",
+    "keywords": [
+      "refrigerator",
+      "fridge",
+      "kitchen",
+      "food storage",
+      "appliance",
+      "home"
+    ],
+    "audience": [
+      "families",
+      "homeowners"
+    ],
+    "emotion": [
+      "freshness",
+      "convenience"
+    ]
+  },
+  {
+    "id": "lg_washing_machine_001",
+    "brand": "LG",
+    "title": "Laundry Made Easier",
+    "category": "home appliances",
+    "description": "Washing machines for laundry, clothes cleaning and everyday household routines.",
+    "keywords": [
+      "washing machine",
+      "laundry",
+      "clothes",
+      "cleaning",
+      "home appliance"
+    ],
+    "audience": [
+      "families",
+      "homeowners"
+    ],
+    "emotion": [
+      "cleanliness",
+      "convenience"
+    ]
+  },
+  {
+    "id": "lg_tv_001",
+    "brand": "LG",
+    "title": "Cinema At Home",
+    "category": "home appliances",
+    "description": "Smart televisions and large displays for movies, sports and entertainment.",
+    "keywords": [
+      "TV",
+      "television",
+      "movies",
+      "sports",
+      "screen",
+      "home entertainment"
+    ],
+    "audience": [
+      "families",
+      "sports fans",
+      "movie lovers"
+    ],
+    "emotion": [
+      "entertainment",
+      "excitement"
+    ]
+  },
+  {
+    "id": "lg_ac_001",
+    "brand": "LG",
+    "title": "Comfort In Every Season",
+    "category": "home appliances",
+    "description": "Air conditioners and cooling appliances for comfortable homes and bedrooms.",
+    "keywords": [
+      "air conditioner",
+      "AC",
+      "cooling",
+      "bedroom",
+      "home",
+      "appliance"
+    ],
+    "audience": [
+      "families",
+      "homeowners"
+    ],
+    "emotion": [
+      "comfort",
+      "relief"
+    ]
+  },
+  {
+    "id": "ikea_kitchen_001",
+    "brand": "IKEA",
+    "title": "Organize Your Kitchen",
+    "category": "home and furniture",
+    "description": "Kitchen cabinets, storage, shelves, utensils and furniture for organized cooking spaces.",
+    "keywords": [
+      "kitchen",
+      "storage",
+      "cabinets",
+      "shelves",
+      "organization",
+      "furniture"
+    ],
+    "audience": [
+      "homeowners",
+      "families",
+      "home cooks"
+    ],
+    "emotion": [
+      "organization",
+      "style"
+    ]
+  },
+  {
+    "id": "ikea_bedroom_001",
+    "brand": "IKEA",
+    "title": "Better Bedroom Living",
+    "category": "home and furniture",
+    "description": "Beds, wardrobes, bedside tables, mattresses and bedroom furniture.",
+    "keywords": [
+      "bedroom",
+      "bed",
+      "wardrobe",
+      "mattress",
+      "furniture",
+      "home"
+    ],
+    "audience": [
+      "families",
+      "young adults",
+      "homeowners"
+    ],
+    "emotion": [
+      "comfort",
+      "relaxation"
+    ]
+  },
+  {
+    "id": "ikea_office_001",
+    "brand": "IKEA",
+    "title": "Work From Home Better",
+    "category": "home and furniture",
+    "description": "Desks, chairs, shelves and workspace furniture for home offices and studying.",
+    "keywords": [
+      "home office",
+      "desk",
+      "chair",
+      "study",
+      "workspace",
+      "furniture"
+    ],
+    "audience": [
+      "students",
+      "professionals",
+      "remote workers"
+    ],
+    "emotion": [
+      "productivity",
+      "comfort"
+    ]
+  },
+  {
+    "id": "ikea_decor_001",
+    "brand": "IKEA",
+    "title": "Make Space Beautiful",
+    "category": "home and furniture",
+    "description": "Home decor, lamps, cushions, storage and interior products for stylish living spaces.",
+    "keywords": [
+      "home decor",
+      "lamp",
+      "cushion",
+      "interior",
+      "living room",
+      "style"
+    ],
+    "audience": [
+      "young adults",
+      "families",
+      "homeowners"
+    ],
+    "emotion": [
+      "creativity",
+      "style"
+    ]
+  },
+  {
+    "id": "cadbury_gift_001",
+    "brand": "Cadbury",
+    "title": "Sweet Gifts",
+    "category": "chocolate and confectionery",
+    "description": "Chocolate gifts and confectionery for birthdays, celebrations and special occasions.",
+    "keywords": [
+      "chocolate",
+      "gift",
+      "birthday",
+      "celebration",
+      "sweets"
+    ],
+    "audience": [
+      "families",
+      "young adults",
+      "gift buyers"
+    ],
+    "emotion": [
+      "happiness",
+      "celebration"
+    ]
+  },
+  {
+    "id": "cadbury_dessert_001",
+    "brand": "Cadbury",
+    "title": "Chocolate Cravings",
+    "category": "chocolate and confectionery",
+    "description": "Chocolate snacks and treats for dessert moments and sweet cravings.",
+    "keywords": [
+      "chocolate",
+      "dessert",
+      "sweet",
+      "snack",
+      "cravings"
+    ],
+    "audience": [
+      "students",
+      "young adults",
+      "families"
+    ],
+    "emotion": [
+      "indulgence",
+      "happiness"
+    ]
+  },
+  {
+    "id": "cadbury_festival_001",
+    "brand": "Cadbury",
+    "title": "Celebrate With Chocolate",
+    "category": "chocolate and confectionery",
+    "description": "Chocolate and sweets for festivals, family gatherings and celebrations.",
+    "keywords": [
+      "festival",
+      "chocolate",
+      "sweets",
+      "family",
+      "celebration"
+    ],
+    "audience": [
+      "families",
+      "young adults"
+    ],
+    "emotion": [
+      "celebration",
+      "happiness"
+    ]
+  },
+  {
+    "id": "oreo_milk_001",
+    "brand": "Oreo",
+    "title": "Cookie And Milk",
+    "category": "cookies and snacks",
+    "description": "Chocolate sandwich cookies for snack time with milk and family.",
+    "keywords": [
+      "cookies",
+      "milk",
+      "snack",
+      "biscuit",
+      "dessert",
+      "family"
+    ],
+    "audience": [
+      "children",
+      "families",
+      "students"
+    ],
+    "emotion": [
+      "fun",
+      "happiness"
+    ]
+  },
+  {
+    "id": "oreo_break_001",
+    "brand": "Oreo",
+    "title": "Make Your Break Fun",
+    "category": "cookies and snacks",
+    "description": "Cookies and sweet snacks for study breaks, work breaks and casual snacking.",
+    "keywords": [
+      "cookies",
+      "break",
+      "snack",
+      "study break",
+      "work break",
+      "sweet"
+    ],
+    "audience": [
+      "students",
+      "professionals",
+      "young adults"
+    ],
+    "emotion": [
+      "fun",
+      "relaxation"
+    ]
+  },
+  {
+    "id": "kitkat_study_001",
+    "brand": "KitKat",
+    "title": "Break From Studying",
+    "category": "chocolate snacks",
+    "description": "Chocolate snacks for study breaks, library sessions and moments of relaxation.",
+    "keywords": [
+      "chocolate",
+      "study break",
+      "student",
+      "snack",
+      "break",
+      "sweet"
+    ],
+    "audience": [
+      "students",
+      "young adults"
+    ],
+    "emotion": [
+      "relaxation",
+      "happiness"
+    ]
+  },
+  {
+    "id": "kitkat_work_001",
+    "brand": "KitKat",
+    "title": "Take A Break",
+    "category": "chocolate snacks",
+    "description": "Chocolate snacks for office breaks, workdays and afternoon cravings.",
+    "keywords": [
+      "chocolate",
+      "office",
+      "work break",
+      "snack",
+      "afternoon",
+      "sweet"
+    ],
+    "audience": [
+      "professionals",
+      "young adults"
+    ],
+    "emotion": [
+      "relaxation",
+      "indulgence"
+    ]
+  },
+  {
+    "id": "l_oreal_makeup_001",
+    "brand": "L'Oreal",
+    "title": "Beauty In Every Look",
+    "category": "beauty",
+    "description": "Makeup, foundation, lipstick, cosmetics and beauty products for everyday looks.",
+    "keywords": [
+      "makeup",
+      "lipstick",
+      "foundation",
+      "cosmetics",
+      "beauty",
+      "face"
+    ],
+    "audience": [
+      "young adults",
+      "beauty enthusiasts"
+    ],
+    "emotion": [
+      "confidence",
+      "style"
+    ]
+  },
+  {
+    "id": "l_oreal_hair_001",
+    "brand": "L'Oreal",
+    "title": "Hair Care Routine",
+    "category": "beauty",
+    "description": "Hair care products, shampoo, styling and treatments for everyday hair routines.",
+    "keywords": [
+      "hair care",
+      "shampoo",
+      "hair styling",
+      "hair",
+      "beauty",
+      "personal care"
+    ],
+    "audience": [
+      "young adults",
+      "beauty consumers"
+    ],
+    "emotion": [
+      "self care",
+      "confidence"
+    ]
+  },
+  {
+    "id": "l_oreal_skincare_001",
+    "brand": "L'Oreal",
+    "title": "Care For Your Skin",
+    "category": "beauty",
+    "description": "Skincare, face care, moisturizers and beauty routines for healthy-looking skin.",
+    "keywords": [
+      "skincare",
+      "face care",
+      "moisturizer",
+      "skin",
+      "beauty",
+      "self care"
+    ],
+    "audience": [
+      "young adults",
+      "beauty enthusiasts"
+    ],
+    "emotion": [
+      "wellness",
+      "confidence"
+    ]
+  },
+  {
+    "id": "nykaa_makeup_001",
+    "brand": "Nykaa",
+    "title": "Makeup Shopping",
+    "category": "beauty and cosmetics",
+    "description": "Online shopping for lipstick, foundation, mascara, cosmetics and makeup accessories.",
+    "keywords": [
+      "makeup",
+      "lipstick",
+      "foundation",
+      "mascara",
+      "cosmetics",
+      "beauty shopping"
+    ],
+    "audience": [
+      "students",
+      "young adults",
+      "beauty lovers"
+    ],
+    "emotion": [
+      "confidence",
+      "style"
+    ]
+  },
+  {
+    "id": "nykaa_skincare_001",
+    "brand": "Nykaa",
+    "title": "Skincare Shopping",
+    "category": "beauty and cosmetics",
+    "description": "Skincare products including cleansers, moisturizers, serums and face care.",
+    "keywords": [
+      "skincare",
+      "cleanser",
+      "moisturizer",
+      "serum",
+      "face care",
+      "beauty"
+    ],
+    "audience": [
+      "young adults",
+      "beauty consumers"
+    ],
+    "emotion": [
+      "self care",
+      "wellness"
+    ]
+  },
+  {
+    "id": "nykaa_perfume_001",
+    "brand": "Nykaa",
+    "title": "Find Your Fragrance",
+    "category": "beauty and cosmetics",
+    "description": "Perfumes, fragrances and personal care products for everyday style.",
+    "keywords": [
+      "perfume",
+      "fragrance",
+      "beauty",
+      "personal care",
+      "scent"
+    ],
+    "audience": [
+      "young adults",
+      "professionals"
+    ],
+    "emotion": [
+      "confidence",
+      "style"
+    ]
+  },
+  {
+    "id": "mamaearth_hair_001",
+    "brand": "Mamaearth",
+    "title": "Natural Hair Care",
+    "category": "personal care",
+    "description": "Hair care products including shampoo, conditioner and treatments for everyday routines.",
+    "keywords": [
+      "hair care",
+      "shampoo",
+      "conditioner",
+      "hair",
+      "natural",
+      "personal care"
+    ],
+    "audience": [
+      "young adults",
+      "families"
+    ],
+    "emotion": [
+      "self care",
+      "wellness"
+    ]
+  },
+  {
+    "id": "mamaearth_skin_001",
+    "brand": "Mamaearth",
+    "title": "Everyday Skin Care",
+    "category": "personal care",
+    "description": "Face washes, moisturizers and skincare products for everyday personal care.",
+    "keywords": [
+      "skincare",
+      "face wash",
+      "moisturizer",
+      "skin",
+      "personal care",
+      "natural"
+    ],
+    "audience": [
+      "young adults",
+      "beauty consumers"
+    ],
+    "emotion": [
+      "wellness",
+      "self care"
+    ]
+  },
+  {
+    "id": "coursera_coding_001",
+    "brand": "Coursera",
+    "title": "Learn To Code",
+    "category": "education",
+    "description": "Online programming courses for software development, computer science and coding careers.",
+    "keywords": [
+      "coding",
+      "programming",
+      "software development",
+      "computer science",
+      "course",
+      "education"
+    ],
+    "audience": [
+      "students",
+      "developers",
+      "career changers"
+    ],
+    "emotion": [
+      "growth",
+      "motivation"
+    ]
+  },
+  {
+    "id": "coursera_ai_001",
+    "brand": "Coursera",
+    "title": "Learn Artificial Intelligence",
+    "category": "education",
+    "description": "Online courses covering artificial intelligence, machine learning, data science and modern AI.",
+    "keywords": [
+      "AI",
+      "artificial intelligence",
+      "machine learning",
+      "data science",
+      "course"
+    ],
+    "audience": [
+      "students",
+      "developers",
+      "professionals"
+    ],
+    "emotion": [
+      "curiosity",
+      "growth"
+    ]
+  },
+  {
+    "id": "coursera_business_001",
+    "brand": "Coursera",
+    "title": "Build Business Skills",
+    "category": "education",
+    "description": "Online business, management, leadership and professional development courses.",
+    "keywords": [
+      "business",
+      "management",
+      "leadership",
+      "career",
+      "professional development"
+    ],
+    "audience": [
+      "professionals",
+      "students",
+      "managers"
+    ],
+    "emotion": [
+      "growth",
+      "confidence"
+    ]
+  },
+  {
+    "id": "udemy_webdev_001",
+    "brand": "Udemy",
+    "title": "Build Websites",
+    "category": "online education",
+    "description": "Online courses for web development, JavaScript, React, backend programming and software engineering.",
+    "keywords": [
+      "web development",
+      "javascript",
+      "react",
+      "backend",
+      "programming",
+      "coding"
+    ],
+    "audience": [
+      "students",
+      "developers",
+      "career changers"
+    ],
+    "emotion": [
+      "learning",
+      "growth"
+    ]
+  },
+  {
+    "id": "udemy_ai_001",
+    "brand": "Udemy",
+    "title": "Master AI Skills",
+    "category": "online education",
+    "description": "Courses covering artificial intelligence, machine learning, generative AI and practical technology skills.",
+    "keywords": [
+      "AI",
+      "machine learning",
+      "generative AI",
+      "technology",
+      "course",
+      "programming"
+    ],
+    "audience": [
+      "developers",
+      "students",
+      "professionals"
+    ],
+    "emotion": [
+      "curiosity",
+      "growth"
+    ]
+  },
+  {
+    "id": "udemy_design_001",
+    "brand": "Udemy",
+    "title": "Learn Creative Design",
+    "category": "online education",
+    "description": "Courses for graphic design, UI design, video editing and creative digital skills.",
+    "keywords": [
+      "design",
+      "UI",
+      "graphic design",
+      "video editing",
+      "creative",
+      "course"
+    ],
+    "audience": [
+      "students",
+      "creators",
+      "professionals"
+    ],
+    "emotion": [
+      "creativity",
+      "growth"
+    ]
+  },
+  {
+    "id": "duolingo_english_001",
+    "brand": "Duolingo",
+    "title": "Practice English",
+    "category": "language learning",
+    "description": "Interactive English vocabulary, speaking, listening and language practice.",
+    "keywords": [
+      "English",
+      "language",
+      "speaking",
+      "vocabulary",
+      "learning",
+      "practice"
+    ],
+    "audience": [
+      "students",
+      "travelers",
+      "language learners"
+    ],
+    "emotion": [
+      "growth",
+      "fun"
+    ]
+  },
+  {
+    "id": "duolingo_travel_001",
+    "brand": "Duolingo",
+    "title": "Learn For Your Travels",
+    "category": "language learning",
+    "description": "Language lessons and vocabulary for travelers preparing for international trips.",
+    "keywords": [
+      "language",
+      "travel",
+      "vocabulary",
+      "speaking",
+      "tourism",
+      "learning"
+    ],
+    "audience": [
+      "travelers",
+      "students",
+      "young adults"
+    ],
+    "emotion": [
+      "curiosity",
+      "adventure"
+    ]
+  },
+  {
+    "id": "razorpay_ecommerce_001",
+    "brand": "Razorpay",
+    "title": "Accept Online Payments",
+    "category": "fintech",
+    "description": "Payment infrastructure for online stores, ecommerce businesses and digital checkout.",
+    "keywords": [
+      "online payments",
+      "ecommerce",
+      "checkout",
+      "merchant",
+      "business",
+      "fintech"
+    ],
+    "audience": [
+      "business owners",
+      "startups",
+      "developers"
+    ],
+    "emotion": [
+      "growth",
+      "convenience"
+    ]
+  },
+  {
+    "id": "razorpay_startup_001",
+    "brand": "Razorpay",
+    "title": "Payments For Startups",
+    "category": "fintech",
+    "description": "Digital payment tools, payment links and financial infrastructure for startups.",
+    "keywords": [
+      "startup",
+      "payments",
+      "payment links",
+      "fintech",
+      "business",
+      "merchant"
+    ],
+    "audience": [
+      "startup founders",
+      "business owners"
+    ],
+    "emotion": [
+      "growth",
+      "innovation"
+    ]
+  },
+  {
+    "id": "cred_cards_001",
+    "brand": "CRED",
+    "title": "Manage Your Cards",
+    "category": "personal finance",
+    "description": "Credit card payment management, rewards and financial tools for responsible card users.",
+    "keywords": [
+      "credit card",
+      "payments",
+      "rewards",
+      "finance",
+      "money",
+      "cards"
+    ],
+    "audience": [
+      "professionals",
+      "credit card users"
+    ],
+    "emotion": [
+      "premium",
+      "convenience"
+    ]
+  },
+  {
+    "id": "cred_rewards_001",
+    "brand": "CRED",
+    "title": "Rewards For Smart Payments",
+    "category": "personal finance",
+    "description": "Credit card rewards and premium benefits for users who manage payments responsibly.",
+    "keywords": [
+      "rewards",
+      "credit card",
+      "cashback",
+      "payments",
+      "premium",
+      "finance"
+    ],
+    "audience": [
+      "young adults",
+      "professionals"
+    ],
+    "emotion": [
+      "rewards",
+      "premium"
+    ]
+  },
+  {
+    "id": "groww_stocks_001",
+    "brand": "Groww",
+    "title": "Start With Stocks",
+    "category": "investing",
+    "description": "Investing platform for stocks, market tracking and building long-term investment habits.",
+    "keywords": [
+      "stocks",
+      "investing",
+      "shares",
+      "market",
+      "finance",
+      "wealth"
+    ],
+    "audience": [
+      "young adults",
+      "professionals",
+      "investors"
+    ],
+    "emotion": [
+      "growth",
+      "confidence"
+    ]
+  },
+  {
+    "id": "groww_mutual_funds_001",
+    "brand": "Groww",
+    "title": "Build Your Portfolio",
+    "category": "investing",
+    "description": "Mutual fund investing and long-term wealth building for new and experienced investors.",
+    "keywords": [
+      "mutual funds",
+      "investing",
+      "portfolio",
+      "savings",
+      "wealth",
+      "finance"
+    ],
+    "audience": [
+      "young adults",
+      "professionals",
+      "investors"
+    ],
+    "emotion": [
+      "growth",
+      "financial independence"
+    ]
+  },
+  {
+    "id": "playstation_action_001",
+    "brand": "PlayStation",
+    "title": "Enter The Action",
+    "category": "gaming",
+    "description": "Console gaming, action games, controllers and immersive entertainment.",
+    "keywords": [
+      "gaming",
+      "action game",
+      "console",
+      "controller",
+      "video game",
+      "gamer"
+    ],
+    "audience": [
+      "gamers",
+      "teenagers",
+      "young adults"
+    ],
+    "emotion": [
+      "excitement",
+      "competition"
+    ]
+  },
+  {
+    "id": "playstation_sports_001",
+    "brand": "PlayStation",
+    "title": "Play Sports At Home",
+    "category": "gaming",
+    "description": "Sports video games, football, racing and competitive console gaming.",
+    "keywords": [
+      "sports game",
+      "football game",
+      "racing",
+      "console",
+      "gaming",
+      "competition"
+    ],
+    "audience": [
+      "gamers",
+      "sports fans",
+      "young adults"
+    ],
+    "emotion": [
+      "fun",
+      "competition"
+    ]
+  },
+  {
+    "id": "xbox_multiplayer_001",
+    "brand": "Xbox",
+    "title": "Play Together",
+    "category": "gaming",
+    "description": "Multiplayer console gaming, online games and social entertainment.",
+    "keywords": [
+      "multiplayer",
+      "gaming",
+      "console",
+      "online game",
+      "friends",
+      "controller"
+    ],
+    "audience": [
+      "gamers",
+      "teenagers",
+      "young adults"
+    ],
+    "emotion": [
+      "fun",
+      "competition"
+    ]
+  },
+  {
+    "id": "xbox_racing_001",
+    "brand": "Xbox",
+    "title": "Race Without Limits",
+    "category": "gaming",
+    "description": "Racing games, driving simulators and competitive console entertainment.",
+    "keywords": [
+      "racing",
+      "driving game",
+      "console",
+      "gaming",
+      "cars",
+      "competition"
+    ],
+    "audience": [
+      "gamers",
+      "car enthusiasts",
+      "young adults"
+    ],
+    "emotion": [
+      "excitement",
+      "competition"
+    ]
+  },
+  {
+    "id": "hp_student_001",
+    "brand": "HP",
+    "title": "Study Smarter",
+    "category": "computers",
+    "description": "Laptops and printers for students, online classes, assignments and everyday study.",
+    "keywords": [
+      "laptop",
+      "student",
+      "study",
+      "online class",
+      "printer",
+      "college",
+      "computer"
+    ],
+    "audience": [
+      "students",
+      "college students"
+    ],
+    "emotion": [
+      "productivity",
+      "growth"
+    ]
+  },
+  {
+    "id": "hp_office_001",
+    "brand": "HP",
+    "title": "Work From Anywhere",
+    "category": "computers",
+    "description": "Laptops, monitors and printers for office work, meetings and professional productivity.",
+    "keywords": [
+      "laptop",
+      "office",
+      "work",
+      "meeting",
+      "printer",
+      "professional",
+      "computer"
+    ],
+    "audience": [
+      "professionals",
+      "remote workers"
+    ],
+    "emotion": [
+      "productivity",
+      "convenience"
+    ]
+  },
+  {
+    "id": "hp_gaming_001",
+    "brand": "HP",
+    "title": "Power Your Gaming",
+    "category": "computers",
+    "description": "Gaming laptops and computers for games, graphics and high-performance entertainment.",
+    "keywords": [
+      "gaming laptop",
+      "gaming",
+      "GPU",
+      "computer",
+      "games",
+      "performance"
+    ],
+    "audience": [
+      "gamers",
+      "students",
+      "young adults"
+    ],
+    "emotion": [
+      "excitement",
+      "performance"
+    ]
+  },
+  {
+    "id": "lenovo_coding_001",
+    "brand": "Lenovo",
+    "title": "Built For Developers",
+    "category": "computers",
+    "description": "Laptops and computers for programming, software development and technical work.",
+    "keywords": [
+      "laptop",
+      "coding",
+      "programming",
+      "developer",
+      "software",
+      "computer"
+    ],
+    "audience": [
+      "developers",
+      "students",
+      "professionals"
+    ],
+    "emotion": [
+      "productivity",
+      "performance"
+    ]
+  },
+  {
+    "id": "lenovo_gaming_001",
+    "brand": "Lenovo",
+    "title": "Game With Power",
+    "category": "computers",
+    "description": "Gaming laptops and high-performance computers for immersive games and entertainment.",
+    "keywords": [
+      "gaming",
+      "gaming laptop",
+      "computer",
+      "games",
+      "performance",
+      "graphics"
+    ],
+    "audience": [
+      "gamers",
+      "young adults",
+      "students"
+    ],
+    "emotion": [
+      "excitement",
+      "competition"
+    ]
+  },
+  {
+    "id": "lenovo_study_001",
+    "brand": "Lenovo",
+    "title": "Your Study Companion",
+    "category": "computers",
+    "description": "Laptops and accessories for students, online learning, research and assignments.",
+    "keywords": [
+      "student",
+      "study",
+      "laptop",
+      "online learning",
+      "college",
+      "education"
+    ],
+    "audience": [
+      "students",
+      "young adults"
+    ],
+    "emotion": [
+      "productivity",
+      "growth"
+    ]
+  },
+  {
+    "id": "tata_motors_suv_001",
+    "brand": "Tata Motors",
+    "title": "Adventure In An SUV",
+    "category": "automobile",
+    "description": "SUVs for family road trips, outdoor travel, city driving and weekend adventures.",
+    "keywords": [
+      "SUV",
+      "car",
+      "road trip",
+      "family",
+      "adventure",
+      "driving"
+    ],
+    "audience": [
+      "families",
+      "travelers",
+      "drivers"
+    ],
+    "emotion": [
+      "freedom",
+      "adventure"
+    ]
+  },
+  {
+    "id": "tata_motors_city_001",
+    "brand": "Tata Motors",
+    "title": "Drive Through The City",
+    "category": "automobile",
+    "description": "Modern cars for commuting, city roads, daily travel and comfortable driving.",
+    "keywords": [
+      "car",
+      "city",
+      "commute",
+      "driving",
+      "traffic",
+      "vehicle"
+    ],
+    "audience": [
+      "professionals",
+      "families",
+      "drivers"
+    ],
+    "emotion": [
+      "freedom",
+      "comfort"
+    ]
+  },
+  {
+    "id": "tata_motors_ev_001",
+    "brand": "Tata Motors",
+    "title": "Drive Electric",
+    "category": "automobile",
+    "description": "Electric vehicles and modern mobility for efficient city travel and sustainable driving.",
+    "keywords": [
+      "electric car",
+      "EV",
+      "electric vehicle",
+      "charging",
+      "city",
+      "automobile"
+    ],
+    "audience": [
+      "professionals",
+      "technology enthusiasts",
+      "drivers"
+    ],
+    "emotion": [
+      "innovation",
+      "sustainability"
+    ]
+  },
+  {
+    "id": "hyundai_family_001",
+    "brand": "Hyundai",
+    "title": "Family Road Trips",
+    "category": "automobile",
+    "description": "Comfortable cars for family travel, road trips, commuting and everyday driving.",
+    "keywords": [
+      "family car",
+      "road trip",
+      "car",
+      "driving",
+      "travel",
+      "SUV"
+    ],
+    "audience": [
+      "families",
+      "drivers"
+    ],
+    "emotion": [
+      "comfort",
+      "freedom"
+    ]
+  },
+  {
+    "id": "hyundai_technology_001",
+    "brand": "Hyundai",
+    "title": "Smart Driving",
+    "category": "automobile",
+    "description": "Modern cars featuring technology, connected features and comfortable city driving.",
+    "keywords": [
+      "car",
+      "technology",
+      "connected car",
+      "city",
+      "driving",
+      "automobile"
+    ],
+    "audience": [
+      "professionals",
+      "technology enthusiasts"
+    ],
+    "emotion": [
+      "innovation",
+      "confidence"
+    ]
+  },
+  {
+    "id": "royal_enfield_mountain_001",
+    "brand": "Royal Enfield",
+    "title": "Ride The Mountains",
+    "category": "motorcycles",
+    "description": "Motorcycles for mountain roads, touring, adventure riding and outdoor exploration.",
+    "keywords": [
+      "motorcycle",
+      "bike",
+      "mountains",
+      "riding",
+      "touring",
+      "adventure"
+    ],
+    "audience": [
+      "bikers",
+      "travelers",
+      "young adults"
+    ],
+    "emotion": [
+      "adventure",
+      "freedom"
+    ]
+  },
+  {
+    "id": "royal_enfield_roadtrip_001",
+    "brand": "Royal Enfield",
+    "title": "The Open Road",
+    "category": "motorcycles",
+    "description": "Motorcycles and riding gear for long road trips, touring and exploration.",
+    "keywords": [
+      "motorcycle",
+      "road trip",
+      "touring",
+      "biker",
+      "highway",
+      "riding"
+    ],
+    "audience": [
+      "bikers",
+      "young adults",
+      "travelers"
+    ],
+    "emotion": [
+      "freedom",
+      "adventure"
+    ]
+  },
+  {
+    "id": "booking_com_hotel_001",
+    "brand": "Booking.com",
+    "title": "Find A Hotel",
+    "category": "travel accommodation",
+    "description": "Hotels, rooms, resorts and accommodation for vacations, business trips and tourism.",
+    "keywords": [
+      "hotel",
+      "room",
+      "resort",
+      "travel",
+      "vacation",
+      "business trip"
+    ],
+    "audience": [
+      "travelers",
+      "families",
+      "professionals"
+    ],
+    "emotion": [
+      "relaxation",
+      "convenience"
+    ]
+  },
+  {
+    "id": "booking_com_beach_001",
+    "brand": "Booking.com",
+    "title": "Book A Beach Stay",
+    "category": "travel accommodation",
+    "description": "Hotels and resorts near beaches and coastal destinations for relaxing vacations.",
+    "keywords": [
+      "beach",
+      "resort",
+      "hotel",
+      "vacation",
+      "coast",
+      "travel"
+    ],
+    "audience": [
+      "families",
+      "couples",
+      "travelers"
+    ],
+    "emotion": [
+      "relaxation",
+      "adventure"
+    ]
+  },
+  {
+    "id": "booking_com_city_001",
+    "brand": "Booking.com",
+    "title": "Stay In The City",
+    "category": "travel accommodation",
+    "description": "Hotels and accommodations in cities for tourism, shopping, work and events.",
+    "keywords": [
+      "city",
+      "hotel",
+      "tourism",
+      "shopping",
+      "business",
+      "travel"
+    ],
+    "audience": [
+      "tourists",
+      "professionals",
+      "travelers"
+    ],
+    "emotion": [
+      "discovery",
+      "convenience"
+    ]
+  },
+  {
+    "id": "swiggy_instamart_groceries_001",
+    "brand": "Swiggy Instamart",
+    "title": "Groceries In Minutes",
+    "category": "grocery delivery",
+    "description": "Fresh groceries, milk, bread, vegetables and pantry essentials delivered quickly.",
+    "keywords": [
+      "groceries",
+      "milk",
+      "bread",
+      "vegetables",
+      "pantry",
+      "delivery"
+    ],
+    "audience": [
+      "families",
+      "students",
+      "professionals"
+    ],
+    "emotion": [
+      "speed",
+      "convenience"
+    ]
+  },
+  {
+    "id": "swiggy_instamart_household_001",
+    "brand": "Swiggy Instamart",
+    "title": "Household Essentials Fast",
+    "category": "grocery delivery",
+    "description": "Cleaning products, toiletries, paper goods and household essentials delivered quickly.",
+    "keywords": [
+      "household",
+      "cleaning",
+      "toiletries",
+      "paper",
+      "essentials",
+      "delivery"
+    ],
+    "audience": [
+      "families",
+      "homeowners"
+    ],
+    "emotion": [
+      "convenience",
+      "speed"
+    ]
+  },
+  {
+    "id": "swiggy_instamart_snacks_001",
+    "brand": "Swiggy Instamart",
+    "title": "Snacks On Demand",
+    "category": "grocery delivery",
+    "description": "Chips, biscuits, chocolates, beverages and instant snacks delivered quickly.",
+    "keywords": [
+      "snacks",
+      "chips",
+      "biscuits",
+      "chocolate",
+      "beverages",
+      "delivery"
+    ],
+    "audience": [
+      "students",
+      "young adults"
+    ],
+    "emotion": [
+      "fun",
+      "speed"
+    ]
+  },
+  {
+    "id": "surf_excel_stains_001",
+    "brand": "Surf Excel",
+    "title": "Tough On Stains",
+    "category": "laundry and cleaning",
+    "description": "Laundry detergent designed for washing dirty clothes and removing everyday stains.",
+    "keywords": [
+      "stains",
+      "detergent",
+      "dirty clothes",
+      "laundry",
+      "washing",
+      "cleaning"
+    ],
+    "audience": [
+      "families",
+      "parents",
+      "homeowners"
+    ],
+    "emotion": [
+      "cleanliness",
+      "care"
+    ]
+  },
+  {
+    "id": "surf_excel_kids_001",
+    "brand": "Surf Excel",
+    "title": "Keep Clothes Play Ready",
+    "category": "laundry and cleaning",
+    "description": "Laundry care for children's clothes after outdoor play, school and messy activities.",
+    "keywords": [
+      "children",
+      "kids",
+      "dirty clothes",
+      "laundry",
+      "school",
+      "play",
+      "detergent"
+    ],
+    "audience": [
+      "parents",
+      "families"
+    ],
+    "emotion": [
+      "care",
+      "freshness"
+    ]
+  },
+  {
+    "id": "surf_excel_washing_machine_001",
+    "brand": "Surf Excel",
+    "title": "Everyday Laundry Care",
+    "category": "laundry and cleaning",
+    "description": "Detergent and laundry products for washing machines and everyday household clothes.",
+    "keywords": [
+      "washing machine",
+      "laundry",
+      "detergent",
+      "clothes",
+      "household",
+      "cleaning"
+    ],
+    "audience": [
+      "families",
+      "homeowners"
+    ],
+    "emotion": [
+      "freshness",
+      "cleanliness"
+    ]
+  },
+  {
+    "id": "puma_running_001",
+    "brand": "Puma",
+    "title": "Run Your Energy",
+    "category": "sports and fitness",
+    "description": "Running shoes, sportswear and training apparel for jogging, running and fitness.",
+    "keywords": [
+      "running",
+      "running shoes",
+      "jogging",
+      "sportswear",
+      "training",
+      "fitness"
+    ],
+    "audience": [
+      "runners",
+      "athletes",
+      "young adults"
+    ],
+    "emotion": [
+      "energy",
+      "confidence"
+    ]
+  },
+  {
+    "id": "puma_football_001",
+    "brand": "Puma",
+    "title": "Play With Speed",
+    "category": "sports and fitness",
+    "description": "Football boots, jerseys and sports clothing for football players and fans.",
+    "keywords": [
+      "football",
+      "soccer",
+      "boots",
+      "jersey",
+      "sports",
+      "training"
+    ],
+    "audience": [
+      "football players",
+      "sports fans"
+    ],
+    "emotion": [
+      "energy",
+      "competition"
+    ]
+  },
+  {
+    "id": "mcdonald_s_burger_001",
+    "brand": "McDonald's",
+    "title": "Burger And Fries",
+    "category": "fast food",
+    "description": "Burgers, fries, fast food meals and restaurant dining for casual food moments.",
+    "keywords": [
+      "burger",
+      "fries",
+      "fast food",
+      "restaurant",
+      "meal",
+      "food"
+    ],
+    "audience": [
+      "students",
+      "families",
+      "young adults"
+    ],
+    "emotion": [
+      "happiness",
+      "fun"
+    ]
+  },
+  {
+    "id": "mcdonald_s_breakfast_001",
+    "brand": "McDonald's",
+    "title": "Breakfast On The Go",
+    "category": "fast food",
+    "description": "Breakfast meals, coffee and quick food for busy mornings.",
+    "keywords": [
+      "breakfast",
+      "coffee",
+      "morning",
+      "fast food",
+      "meal",
+      "restaurant"
+    ],
+    "audience": [
+      "students",
+      "professionals"
+    ],
+    "emotion": [
+      "convenience",
+      "energy"
+    ]
+  },
+  {
+    "id": "dominos_pizza_001",
+    "brand": "Dominos",
+    "title": "Pizza Night",
+    "category": "pizza and food",
+    "description": "Pizza, cheese, sides and delivery for dinner, parties and friends.",
+    "keywords": [
+      "pizza",
+      "cheese",
+      "dinner",
+      "party",
+      "friends",
+      "delivery"
+    ],
+    "audience": [
+      "students",
+      "families",
+      "young adults"
+    ],
+    "emotion": [
+      "fun",
+      "happiness"
+    ]
+  },
+  {
+    "id": "phonepe_payments_001",
+    "brand": "PhonePe",
+    "title": "Pay In Seconds",
+    "category": "digital payments",
+    "description": "Digital payments for shopping, bills, restaurants, transfers and everyday purchases.",
+    "keywords": [
+      "digital payment",
+      "UPI",
+      "payment",
+      "shopping",
+      "bills",
+      "restaurant",
+      "money"
+    ],
+    "audience": [
+      "students",
+      "professionals",
+      "families"
+    ],
+    "emotion": [
+      "convenience",
+      "speed"
+    ]
+  },
+  {
+    "id": "phonepe_travel_001",
+    "brand": "PhonePe",
+    "title": "Pay While You Travel",
+    "category": "digital payments",
+    "description": "Digital payments for travel bookings, transport, food and everyday trips.",
+    "keywords": [
+      "UPI",
+      "travel",
+      "payment",
+      "transport",
+      "food",
+      "booking"
+    ],
+    "audience": [
+      "travelers",
+      "young adults",
+      "professionals"
+    ],
+    "emotion": [
+      "convenience",
+      "freedom"
+    ]
+  },
+  {
+    "id": "paytm_bills_001",
+    "brand": "Paytm",
+    "title": "Pay Your Bills",
+    "category": "digital payments",
+    "description": "Digital payments for electricity, mobile recharge, shopping and household bills.",
+    "keywords": [
+      "bill payment",
+      "electricity",
+      "mobile recharge",
+      "UPI",
+      "digital payment",
+      "household"
+    ],
+    "audience": [
+      "families",
+      "professionals",
+      "students"
+    ],
+    "emotion": [
+      "convenience",
+      "relief"
+    ]
+  },
+  {
+    "id": "paytm_shopping_001",
+    "brand": "Paytm",
+    "title": "Checkout Digitally",
+    "category": "digital payments",
+    "description": "Digital payments for stores, shopping, food and everyday purchases.",
+    "keywords": [
+      "UPI",
+      "shopping",
+      "checkout",
+      "payment",
+      "store",
+      "food"
+    ],
+    "audience": [
+      "students",
+      "young adults",
+      "families"
+    ],
+    "emotion": [
+      "speed",
+      "convenience"
+    ]
+  },
+  {
+    "id": "ikea_living_room_001",
+    "brand": "IKEA",
+    "title": "Style Your Living Room",
+    "category": "home and furniture",
+    "description": "Sofas, tables, lamps, storage and decor for comfortable living rooms.",
+    "keywords": [
+      "living room",
+      "sofa",
+      "table",
+      "lamp",
+      "storage",
+      "home decor",
+      "furniture"
+    ],
+    "audience": [
+      "families",
+      "homeowners",
+      "young adults"
+    ],
+    "emotion": [
+      "comfort",
+      "style"
+    ]
+  },
+  {
+    "id": "asian_paints_painting_001",
+    "brand": "Asian Paints",
+    "title": "Refresh Your Walls",
+    "category": "home improvement",
+    "description": "Wall paints, colors and interior painting solutions for homes and rooms.",
+    "keywords": [
+      "paint",
+      "wall",
+      "home",
+      "interior",
+      "colors",
+      "bedroom",
+      "living room"
+    ],
+    "audience": [
+      "homeowners",
+      "families"
+    ],
+    "emotion": [
+      "creativity",
+      "comfort"
+    ]
+  },
+  {
+    "id": "asian_paints_decor_001",
+    "brand": "Asian Paints",
+    "title": "Transform Your Home",
+    "category": "home improvement",
+    "description": "Interior colors and home improvement ideas for bedrooms, kitchens and living spaces.",
+    "keywords": [
+      "home decor",
+      "interior",
+      "colors",
+      "bedroom",
+      "kitchen",
+      "living room"
+    ],
+    "audience": [
+      "homeowners",
+      "families"
+    ],
+    "emotion": [
+      "style",
+      "creativity"
+    ]
+  },
+  {
+    "id": "urban_company_cleaning_001",
+    "brand": "Urban Company",
+    "title": "Professional Home Cleaning",
+    "category": "home services",
+    "description": "Home cleaning, deep cleaning and household services for kitchens, bathrooms and living spaces.",
+    "keywords": [
+      "home cleaning",
+      "deep cleaning",
+      "kitchen cleaning",
+      "bathroom",
+      "household service"
+    ],
+    "audience": [
+      "families",
+      "homeowners",
+      "professionals"
+    ],
+    "emotion": [
+      "cleanliness",
+      "relief"
+    ]
+  },
+  {
+    "id": "urban_company_beauty_001",
+    "brand": "Urban Company",
+    "title": "Beauty At Home",
+    "category": "home services",
+    "description": "Salon, grooming and personal care services delivered at home.",
+    "keywords": [
+      "salon",
+      "beauty",
+      "grooming",
+      "hair",
+      "personal care",
+      "home service"
+    ],
+    "audience": [
+      "young adults",
+      "professionals"
+    ],
+    "emotion": [
+      "self care",
+      "convenience"
+    ]
+  },
+  {
+    "id": "air_india_flight_001",
+    "brand": "Air India",
+    "title": "Fly To Your Next Destination",
+    "category": "air travel",
+    "description": "Air travel for domestic and international trips, holidays and business journeys.",
+    "keywords": [
+      "flight",
+      "air travel",
+      "airport",
+      "holiday",
+      "business trip",
+      "travel"
+    ],
+    "audience": [
+      "travelers",
+      "families",
+      "professionals"
+    ],
+    "emotion": [
+      "adventure",
+      "freedom"
+    ]
+  },
+  {
+    "id": "dhl_shipping_001",
+    "brand": "DHL",
+    "title": "Send It Anywhere",
+    "category": "logistics",
+    "description": "Parcel shipping and logistics for ecommerce, business deliveries and international packages.",
+    "keywords": [
+      "shipping",
+      "parcel",
+      "delivery",
+      "logistics",
+      "ecommerce",
+      "package"
+    ],
+    "audience": [
+      "business owners",
+      "online sellers",
+      "professionals"
+    ],
+    "emotion": [
+      "reliability",
+      "convenience"
+    ]
+  },
+  {
+    "id": "spotify_podcast_001",
+    "brand": "Spotify",
+    "title": "Stories And Podcasts",
+    "category": "music and entertainment",
+    "description": "Podcasts, interviews, stories and spoken-word entertainment for everyday listening.",
+    "keywords": [
+      "podcast",
+      "audio",
+      "stories",
+      "interview",
+      "listening",
+      "entertainment"
+    ],
+    "audience": [
+      "students",
+      "professionals",
+      "young adults"
+    ],
+    "emotion": [
+      "curiosity",
+      "relaxation"
+    ]
+  },
+  {
+    "id": "red_bull_sports_001",
+    "brand": "Red Bull",
+    "title": "Fuel Your Performance",
+    "category": "energy drinks",
+    "description": "Energy drinks associated with sports, training, adventure and active lifestyles.",
+    "keywords": [
+      "energy drink",
+      "sports",
+      "gym",
+      "running",
+      "training",
+      "adventure"
+    ],
+    "audience": [
+      "athletes",
+      "young adults",
+      "sports fans"
+    ],
+    "emotion": [
+      "energy",
+      "excitement"
+    ]
+  },
+  {
+    "id": "red_bull_gaming_001",
+    "brand": "Red Bull",
+    "title": "Power Your Gaming",
+    "category": "energy drinks",
+    "description": "Energy drinks for gaming sessions, competition and late-night entertainment.",
+    "keywords": [
+      "energy drink",
+      "gaming",
+      "esports",
+      "competition",
+      "gamer",
+      "entertainment"
+    ],
+    "audience": [
+      "gamers",
+      "young adults"
+    ],
+    "emotion": [
+      "energy",
+      "competition"
+    ]
+  },
+  {
+    "id": "nestle_coffee_001",
+    "brand": "Nestle",
+    "title": "Coffee At Home",
+    "category": "food and beverages",
+    "description": "Coffee and hot beverages for mornings, study sessions and relaxing breaks.",
+    "keywords": [
+      "coffee",
+      "morning",
+      "hot drink",
+      "study",
+      "break",
+      "beverage"
+    ],
+    "audience": [
+      "students",
+      "professionals",
+      "families"
+    ],
+    "emotion": [
+      "comfort",
+      "focus"
+    ]
+  },
+  {
+    "id": "nestle_cereal_001",
+    "brand": "Nestle",
+    "title": "Start Your Morning",
+    "category": "food and beverages",
+    "description": "Breakfast cereals and food for convenient family breakfasts and morning routines.",
+    "keywords": [
+      "breakfast",
+      "cereal",
+      "morning",
+      "food",
+      "family",
+      "nutrition"
+    ],
+    "audience": [
+      "families",
+      "students"
+    ],
+    "emotion": [
+      "energy",
+      "comfort"
+    ]
+  },
+  {
+    "id": "dettol_cleaning_001",
+    "brand": "Dettol",
+    "title": "Everyday Hygiene",
+    "category": "household hygiene",
+    "description": "Cleaning and hygiene products for kitchens, bathrooms, hands and household surfaces.",
+    "keywords": [
+      "cleaning",
+      "hygiene",
+      "disinfectant",
+      "kitchen",
+      "bathroom",
+      "hand wash",
+      "home"
+    ],
+    "audience": [
+      "families",
+      "parents",
+      "homeowners"
+    ],
+    "emotion": [
+      "cleanliness",
+      "care"
+    ]
+  },
+  {
+    "id": "dettol_handwash_001",
+    "brand": "Dettol",
+    "title": "Clean Hands",
+    "category": "household hygiene",
+    "description": "Hand wash and hygiene products for everyday hand cleaning and household routines.",
+    "keywords": [
+      "hand wash",
+      "hands",
+      "hygiene",
+      "cleanliness",
+      "personal care"
+    ],
+    "audience": [
+      "families",
+      "students",
+      "professionals"
+    ],
+    "emotion": [
+      "freshness",
+      "care"
+    ]
+  },
+  {
+    "id": "ariel_laundry_001",
+    "brand": "Ariel",
+    "title": "Deep Clean Laundry",
+    "category": "laundry and cleaning",
+    "description": "Laundry detergent for washing clothes, removing stains and freshening everyday garments.",
+    "keywords": [
+      "laundry",
+      "detergent",
+      "clothes",
+      "stains",
+      "washing machine",
+      "cleaning"
+    ],
+    "audience": [
+      "families",
+      "parents",
+      "homeowners"
+    ],
+    "emotion": [
+      "cleanliness",
+      "freshness"
+    ]
   }
 ]

@@ -17,6 +17,10 @@ function App() {
 
   const [currentTime, setCurrentTime] = useState(0);
   const [currentAd, setCurrentAd] = useState(null);
+  const [videoReady, setVideoReady] = useState(false);
+  const [duration, setDuration] = useState(0);
+
+  const VIDEO_READY_THRESHOLD = 15;
 
   const playerRef = useRef(null);
   const pollingRef = useRef(null);
@@ -67,6 +71,7 @@ function App() {
 
     setStatus("starting");
     setProgress(0);
+    setVideoReady(false);
     setPlacements([]);
     setCurrentAd(null);
 
@@ -139,9 +144,13 @@ function App() {
 
           setStatus(job.status);
 
-          setProgress(
-            job.progress || 0
-          );
+          const currentProgress = job.progress || 0;
+
+          setProgress(currentProgress);
+
+          if (currentProgress >= VIDEO_READY_THRESHOLD) {
+            setVideoReady(true);
+          }
 
           // New advertisements discovered
           setPlacements(
@@ -167,7 +176,7 @@ function App() {
 
             alert(
               job.error ||
-                "Video analysis failed."
+              "Video analysis failed."
             );
           }
 
@@ -188,6 +197,10 @@ function App() {
 
   const onPlayerReady = (event) => {
     playerRef.current = event.target;
+
+    const videoDuration = event.target.getDuration();
+
+    setDuration(videoDuration);
   };
 
   // --------------------------------------------------
@@ -261,7 +274,7 @@ function App() {
         if (
           !latestAd ||
           placement.timestamp >
-            latestAd.timestamp
+          latestAd.timestamp
         ) {
           latestAd = placement;
         }
@@ -303,10 +316,18 @@ function App() {
     width: "100%",
     height: "100%",
     playerVars: {
-      autoplay: 1,
+      autoplay: 0,
       controls: 1,
       rel: 0,
     },
+  };
+
+  const seekToAd = (timestamp) => {
+    if (!playerRef.current) return;
+
+    playerRef.current.seekTo(timestamp, true);
+    playerRef.current.playVideo();
+    setCurrentTime(timestamp);
   };
 
   // --------------------------------------------------
@@ -408,21 +429,46 @@ function App() {
 
             <div className="video-wrapper">
 
-              <YouTube
-                className="youtube"
-                videoId={videoId}
-                opts={playerOptions}
-                onReady={onPlayerReady}
-                onPlay={
-                  startTimeTracking
-                }
-                onPause={
-                  stopTimeTracking
-                }
-                onEnd={
-                  stopTimeTracking
-                }
-              />
+              {videoReady ? (
+                <YouTube
+                  className="youtube"
+                  videoId={videoId}
+                  opts={playerOptions}
+                  onReady={onPlayerReady}
+                  onPlay={startTimeTracking}
+                  onPause={stopTimeTracking}
+                  onEnd={stopTimeTracking}
+                />
+              ) : (
+                <div className="video-loading">
+                  <h3>Preparing your video...</h3>
+
+                  <p>
+                    Downloading and analyzing the video
+                  </p>
+
+                  <div className="loading-progress">
+                    <div
+                      className="loading-progress-bar"
+                      style={{
+                        width: `${Math.min(
+                          progress,
+                          VIDEO_READY_THRESHOLD
+                        ) / VIDEO_READY_THRESHOLD * 100}%`,
+                      }}
+                    />
+                  </div>
+
+                  <strong>
+                    {progress}% ready
+                  </strong>
+
+                  <p>
+                    Video will start when the first
+                    contextual analysis is ready.
+                  </p>
+                </div>
+              )}
 
             </div>
 
@@ -438,6 +484,93 @@ function App() {
 
             </div>
 
+            {/* CONTEXTUAL AD TIMELINE */}
+
+            {duration > 0 && (
+              <div className="ad-timeline">
+
+                <div className="timeline-header">
+                  <span>Video Timeline</span>
+
+                  <span>
+                    {formatTime(currentTime)} / {formatTime(duration)}
+                  </span>
+                </div>
+
+                <div className="timeline">
+
+                  {/* Progress */}
+
+                  <div
+                    className="timeline-progress"
+                    style={{
+                      width: `${Math.min(
+                        (currentTime / duration) * 100,
+                        100
+                      )}%`
+                    }}
+                  />
+
+                  {/* Current position */}
+
+                  <div
+                    className="timeline-current"
+                    style={{
+                      left: `${Math.min(
+                        (currentTime / duration) * 100,
+                        100
+                      )}%`
+                    }}
+                  />
+
+                  {/* Advertisement markers */}
+
+                  {placements.map((placement, index) => {
+
+                    const position =
+                      (placement.timestamp / duration) * 100;
+
+                    return (
+                      <button
+                        key={`${placement.timestamp}-${index}`}
+                        className={`ad-marker ${currentAd?.timestamp === placement.timestamp
+                            ? "active"
+                            : ""
+                          }`}
+                        style={{
+                          left: `${Math.min(
+                            Math.max(position, 0),
+                            100
+                          )}%`
+                        }}
+                        onClick={() =>
+                          seekToAd(placement.timestamp)
+                        }
+                        title={`${placement.ad.brand} • ${placement.timestamp_formatted}`}
+                      >
+                        <span className="ad-marker-dot" />
+
+                        <span className="ad-marker-label">
+                          {placement.ad.brand}
+                        </span>
+                      </button>
+                    );
+                  })}
+                </div>
+
+                {/* Time labels */}
+
+                <div className="timeline-times">
+                  <span>00:00</span>
+
+                  <span>
+                    {formatTime(duration)}
+                  </span>
+                </div>
+
+              </div>
+            )}
+
           </div>
 
 
@@ -452,7 +585,7 @@ function App() {
             {!currentAd && (
               <div className="no-ad">
                 {status ===
-                "processing"
+                  "processing"
                   ? "Analyzing video..."
                   : "No advertisement available"}
               </div>

@@ -4,10 +4,19 @@ import uuid
 from pathlib import Path
 
 from youtube_extractor import YouTubeFeatureExtractor
-from vision_analyzer import analyze_frame_and_find_ads
+from scene_detector import (
+    select_scene_frames
+)
 
+from vision_analyzer import (
+    analyze_frame_and_find_ads,
+    analyze_frames_batch
+)
+
+from pinecone_ads import search_ads
 
 CHUNK_DURATION_SECONDS = 30
+MAX_BATCH_FRAMES = 3
 
 # 3 representative frames per chunk.
 # Example for 0-30s:
@@ -22,7 +31,6 @@ FRAMES_PER_CHUNK = 3
 jobs = {}
 
 jobs_lock = threading.Lock()
-
 
 def create_job(youtube_url: str):
 
@@ -74,17 +82,113 @@ def update_job(job_id: str, **updates):
 
 
 def add_placement(job_id: str, placement: dict):
+    """
+    Add an advertisement placement.
+
+    If the new advertisement is the same as the
+    previous advertisement, don't create another
+    placement. Instead, keep the existing placement
+    open.
+
+    If the advertisement changes, close the previous
+    placement and create a new one.
+    """
 
     with jobs_lock:
 
         if job_id not in jobs:
-            return
+            return False
 
-        jobs[job_id]["placements"].append(
+        placements = jobs[job_id]["placements"]
+
+        # ------------------------------------------
+        # No previous placement
+        # ------------------------------------------
+
+        if not placements:
+
+            placements.append(placement)
+
+            return True
+
+        previous = placements[-1]
+
+        previous_ad = previous.get(
+            "ad",
+            {}
+        )
+
+        current_ad = placement.get(
+            "ad",
+            {}
+        )
+
+        previous_id = previous_ad.get(
+            "id"
+        )
+
+        current_id = current_ad.get(
+            "id"
+        )
+
+        # ------------------------------------------
+        # Same advertisement
+        # ------------------------------------------
+
+        if (
+            previous_id
+            and current_id
+            and previous_id == current_id
+        ):
+
+            print(
+                f"🔁 Same ad detected: "
+                f"{current_ad.get('brand', '')}"
+            )
+
+            print(
+                "   Extending existing placement."
+            )
+
+            return False
+
+        # ------------------------------------------
+        # Advertisement changed
+        # ------------------------------------------
+
+        previous["end_time"] = (
+            placement["timestamp"]
+        )
+
+        previous["end_time_formatted"] = (
+            format_timestamp(
+                placement["timestamp"]
+            )
+        )
+
+        # ------------------------------------------
+        # Create new placement
+        # ------------------------------------------
+
+        placement["start_time"] = (
+            placement["timestamp"]
+        )
+
+        placement["start_time_formatted"] = (
+            format_timestamp(
+                placement["timestamp"]
+            )
+        )
+
+        placement["end_time"] = None
+
+        placement["end_time_formatted"] = None
+
+        placements.append(
             placement
         )
 
-
+        return True
 # --------------------------------------------------
 # Timestamp helpers
 # --------------------------------------------------
@@ -188,160 +292,144 @@ def process_chunk(
     chunk_end
 ):
 
-    print(
-        f"\n{'=' * 70}"
-    )
+    print(f"\n{'=' * 70}")
+    print(f"📦 JOB {job_id}")
+    print(f"🎬 Processing chunk {chunk_start}s → {chunk_end}s")
+    print(f"{'=' * 70}")
 
-    print(
-        f"📦 JOB {job_id}"
-    )
+    # ------------------------------------------
+    # Get frames belonging to this chunk
+    # ------------------------------------------
 
-    print(
-        f"🎬 Processing chunk "
-        f"{chunk_start}s → {chunk_end}s"
-    )
-
-    print(
-        f"{'=' * 70}"
-    )
-
-    selected_frames = get_chunk_frames(
+    chunk_frames = get_chunk_frames(
         frame_files,
         chunk_start,
         chunk_end
     )
 
-    print(
-        f"🖼️ Selected "
-        f"{len(selected_frames)} frames"
+    # ------------------------------------------
+    # Cheap scene-change detection
+    # ------------------------------------------
+
+    selected_frames = select_scene_frames(
+        chunk_frames,
+        threshold=0.25,
+        min_gap_seconds=10
     )
 
-    for frame_path in selected_frames:
+    print(f"\n🖼️ Chunk frames: {len(chunk_frames)}")
+    print(f"⭐ Selected frames: {len(selected_frames)}")
 
-        timestamp = get_timestamp_from_filename(
-            frame_path.name
-        )
+    if not selected_frames:
+        print("⚠️ No useful frames found in this chunk.")
+        return
+
+    # ------------------------------------------
+    # Batch selected frames
+    # ------------------------------------------
+
+    for batch_start in range(
+        0,
+        len(selected_frames),
+        MAX_BATCH_FRAMES
+    ):
+
+        # ✅ This was wrongly indented
+        batch = selected_frames[
+            batch_start:
+            batch_start + MAX_BATCH_FRAMES
+        ]
 
         print(
-            f"\n⏱️ Processing frame "
-            f"at {timestamp}s"
+            f"\n🚀 BATCH "
+            f"{batch_start // MAX_BATCH_FRAMES + 1}"
         )
+
+        print(f"Frames in batch: {len(batch)}")
 
         try:
 
-            result = analyze_frame_and_find_ads(
-                str(frame_path)
-            )
+            # ----------------------------------
+            # ONE QWEN REQUEST
+            # ----------------------------------
 
-            ads = result.get(
-                "ads",
-                []
-            )
+            batch_results = analyze_frames_batch(batch)
 
-            if not ads:
+            # ----------------------------------
+            # Pinecone search for each frame
+            # ----------------------------------
 
-                print(
-                    "⚠️ No advertisement "
-                    "found."
+            for result in batch_results:
+
+                frame_index = result["frame_index"]
+
+                if frame_index >= len(batch):
+                    continue
+
+                frame_path = batch[frame_index]
+
+                timestamp = get_timestamp_from_filename(
+                    frame_path.name
                 )
 
-                continue
+                scene = result.get("scene", "")
+                search_query = result.get("search_query", "")
 
-            # ----------------------------------
-            # Best advertisement
-            # ----------------------------------
+                print(f"\n🖼️ Frame: {frame_path.name}")
+                print(f"⏱️ Timestamp: {timestamp}s")
+                print(f"🧠 Scene: {scene}")
+                print(f"🔎 Query: {search_query}")
 
-            best_ad = ads[0]
+                # ----------------------------------
+                # Pinecone Search
+                # ----------------------------------
 
-            fields = best_ad.fields
+                results = search_ads(
+                    search_query,
+                    top_k=3
+                )
 
-            placement = {
-
-                "timestamp": timestamp,
-
-                "timestamp_formatted":
-                    format_timestamp(
-                        timestamp
-                    ),
-
-                "scene":
-                    result.get(
-                        "scene",
-                        ""
-                    ),
-
-                "search_query":
-                    result.get(
-                        "search_query",
-                        ""
-                    ),
-
-                "ad": {
-
-                    "id":
-                        best_ad.id,
-
-                    "brand":
-                        fields.get(
-                            "brand",
-                            ""
-                        ),
-
-                    "title":
-                        fields.get(
-                            "title",
-                            ""
-                        ),
-
-                    "category":
-                        fields.get(
-                            "category",
-                            ""
-                        ),
-
-                    "description":
-                        fields.get(
-                            "description",
-                            ""
-                        )
-                },
-
-                "score":
-                    float(
-                        best_ad.score
+                if results is None:
+                    print(
+                        "⚠️ No sufficiently relevant "
+                        "advertisement found."
                     )
-            }
+                    continue
 
-            add_placement(
-                job_id,
-                placement
-            )
+                hits = results.result.hits
 
-            print(
-                f"✅ AD FOUND: "
-                f"{fields.get('brand', '')}"
-            )
+                if not hits:
+                    print("⚠️ No advertisement found.")
+                    continue
 
-            print(
-                f"   Timestamp: "
-                f"{timestamp}s"
-            )
+                best_ad = hits[0]
+                fields = best_ad.fields
 
-            print(
-                f"   Score: "
-                f"{best_ad.score:.4f}"
-            )
+                placement = {
+                    "timestamp": timestamp,
+                    "timestamp_formatted": format_timestamp(timestamp),
+                    "scene": scene,
+                    "search_query": search_query,
+                    "ad": {
+                        "id": best_ad.id,
+                        "brand": fields.get("brand", ""),
+                        "title": fields.get("title", ""),
+                        "category": fields.get("category", ""),
+                        "description": fields.get("description", "")
+                    },
+                    "score": float(best_ad.score)
+                }
+
+                add_placement(job_id, placement)
+
+                print(f"📢 AD FOUND: {fields.get('brand', '')}")
+                print(f"   Timestamp: {timestamp}s")
+                print(f"   Score: {best_ad.score:.4f}")
 
         except Exception as exc:
 
-            print(
-                f"❌ Frame analysis failed: "
-                f"{exc}"
-            )
-
-            # Continue with the next frame.
+            print(f"❌ Batch processing failed: {exc}")
             continue
-
 
 # --------------------------------------------------
 # Complete background analysis
@@ -525,6 +613,33 @@ def run_analysis_job(job_id):
         # Completed
         # --------------------------------------
 
+# --------------------------------------
+# Close final advertisement placement
+# --------------------------------------
+
+        with jobs_lock:
+
+            if job_id in jobs:
+
+                placements = jobs[job_id]["placements"]
+
+                if placements:
+
+                    last_placement = placements[-1]
+
+                    if last_placement.get(
+                        "end_time"
+                    ) is None:
+
+                        last_placement["end_time"] = (
+                            video_duration
+                        )
+
+                        last_placement[
+                            "end_time_formatted"
+                        ] = format_timestamp(
+                            video_duration
+                        )
         update_job(
             job_id,
             status="completed",

@@ -20,6 +20,13 @@ NAMESPACE = os.getenv("PINECONE_NAMESPACE", "advertisements")
 # This avoids us having to manage an external embedding model.
 EMBEDDING_MODEL = "llama-text-embed-v2"
 
+# Minimum Pinecone similarity required to consider an ad relevant.
+# Start conservative and tune after testing.
+MIN_AD_SCORE = 0.25
+
+# Don't return too many candidates.
+MAX_AD_RESULTS = 3
+
 
 def get_client():
     if not PINECONE_API_KEY:
@@ -131,29 +138,69 @@ def seed_ads():
 
     print(f"📦 Uploading {len(records)} advertisements...")
 
-    index.upsert_records(
-        namespace=NAMESPACE,
-        records=records
-    )
+    BATCH_SIZE = 96
+
+    for start in range(0, len(records), BATCH_SIZE):
+
+        batch = records[
+            start:start + BATCH_SIZE
+        ]
+
+        batch_number = (
+            start // BATCH_SIZE
+        ) + 1
+
+        total_batches = (
+            (len(records) + BATCH_SIZE - 1)
+            // BATCH_SIZE
+        )
+
+        print(
+            f"🚀 Uploading batch "
+            f"{batch_number}/{total_batches} "
+            f"({len(batch)} records)"
+        )
+
+        index.upsert_records(
+            namespace=NAMESPACE,
+            records=batch
+        )
+
+        print(
+            f"✅ Batch {batch_number} uploaded."
+        )
 
     print("⏳ Waiting for Pinecone indexing...")
     time.sleep(5)
 
     print("✅ Advertisement database is ready.")
-
     return index
 
 
-def search_ads(query_text, top_k=3):
+def search_ads(
+    query_text,
+    top_k=MAX_AD_RESULTS,
+    min_score=MIN_AD_SCORE
+):
     """
     Search advertisements semantically using plain text.
 
     Pinecone performs the embedding automatically.
+
+    Results below min_score are removed because a vector
+    database will always try to return the closest records,
+    even when none are actually relevant.
     """
 
     index = create_index_if_needed()
 
-    print(f"\n🔎 Ad search query:")
+    query_text = (query_text or "").strip()
+
+    if not query_text:
+        print("⚠️ Empty ad search query.")
+        return None
+
+    print("\n🔎 Ad search query:")
     print(f"   {query_text}")
 
     results = index.search(
@@ -175,12 +222,82 @@ def search_ads(query_text, top_k=3):
             "text"
         ]
     )
-    
-    print("\nDEBUG PINECONE RESPONSE:")
-    print(results)
+
+    # ------------------------------------------
+    # Get Pinecone hits
+    # ------------------------------------------
+
+    hits = results.result.hits
+
+    print(
+        f"\n📊 Pinecone returned "
+        f"{len(hits)} candidates."
+    )
+
+    # ------------------------------------------
+    # Filter weak matches
+    # ------------------------------------------
+
+    filtered_hits = []
+
+    for hit in hits:
+
+        score = float(
+            getattr(hit, "score", 0.0)
+        )
+
+        fields = hit.fields
+
+        print(
+            f"\n   {fields.get('brand', 'Unknown')}"
+        )
+
+        print(
+            f"   Score: {score:.4f}"
+        )
+
+        if score >= min_score:
+
+            filtered_hits.append(hit)
+
+        else:
+
+            print(
+                f"   ❌ Rejected "
+                f"(below {min_score})"
+            )
+
+    # ------------------------------------------
+    # No sufficiently relevant ad
+    # ------------------------------------------
+
+    if not filtered_hits:
+
+        print(
+            "\n⚠️ No advertisement passed "
+            "the relevance threshold."
+        )
+
+        return None
+
+    print(
+        f"\n✅ {len(filtered_hits)} "
+        f"relevant advertisements found."
+    )
+
+    # ------------------------------------------
+    # IMPORTANT:
+    #
+    # We need to preserve the same response
+    # structure expected by analysis_service.py.
+    #
+    # So replace the hits inside the existing
+    # response rather than returning a list.
+    # ------------------------------------------
+
+    results.result.hits = filtered_hits
 
     return results
-
 
 def print_search_results(results):
     """
