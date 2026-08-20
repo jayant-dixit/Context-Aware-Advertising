@@ -8,3 +8,5 @@ youtube-transcript-api
 fastapi
 uvicorn[standard]
 python-multipart
+
+ollama
