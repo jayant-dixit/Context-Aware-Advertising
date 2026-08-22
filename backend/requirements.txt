@@ -1,4 +1,4 @@
-groq
+
 pinecone
 python-dotenv
 opencv-python
@@ -9,5 +9,5 @@ fastapi
 uvicorn[standard]
 python-multipart
 
-ollama
+
 huggingface_hub
