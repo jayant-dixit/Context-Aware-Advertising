@@ -1,162 +1,61 @@
+from pathlib import Path
 import cv2
-import numpy as np
+from scenedetect import detect, ContentDetector, SceneManager, open_video
 
 
-def calculate_frame_difference(
-    frame1,
-    frame2
-):
+def detect_video_scenes(video_path: str, threshold: float = 27.0):
     """
-    Calculate visual difference between
-    two frames using grayscale histogram
-    comparison.
+    Detect scene transitions directly in a video file using PySceneDetect.
+    
+    Returns a list of (start_seconds, end_seconds) tuples for each scene.
     """
-
-    gray1 = cv2.cvtColor(
-        frame1,
-        cv2.COLOR_BGR2GRAY
-    )
-
-    gray2 = cv2.cvtColor(
-        frame2,
-        cv2.COLOR_BGR2GRAY
-    )
-
-    # Resize for faster processing
-    gray1 = cv2.resize(
-        gray1,
-        (320, 180)
-    )
-
-    gray2 = cv2.resize(
-        gray2,
-        (320, 180)
-    )
-
-    # Calculate absolute pixel difference
-    difference = cv2.absdiff(
-        gray1,
-        gray2
-    )
-
-    # Normalize difference to 0-1
-    score = (
-        np.mean(difference)
-        / 255.0
-    )
-
-    return float(score)
+    scene_list = detect(str(video_path), ContentDetector(threshold=threshold))
+    return [(scene[0].get_seconds(), scene[1].get_seconds()) for scene in scene_list]
 
 
-def select_scene_frames(
-    frame_files,
-    threshold=0.20,
-    min_gap_seconds=10
-):
+def get_timestamp(frame_path) -> int:
+    """
+    Extract timestamp from filename (e.g. 'frame_25s.jpg' -> 25).
+    """
+    name = Path(frame_path).stem
+    return int(name.replace("frame_", "").replace("s", ""))
 
+
+def select_scene_frames(frame_files, threshold: float = 27.0, min_gap_seconds: int = 10):
+    """
+    Select representative key frames from a sequence of frame files
+    using PySceneDetect content change metrics and a minimum time gap cooldown.
+    """
     if not frame_files:
         return []
 
     selected = []
-
-    reference_frame = None
-
-    last_selected_timestamp = -999
+    last_timestamp = -999
+    prev_frame = None
 
     for frame_path in frame_files:
-
-        frame = cv2.imread(
-            str(frame_path)
-        )
-
+        timestamp = get_timestamp(frame_path)
+        frame = cv2.imread(str(frame_path))
         if frame is None:
             continue
 
-        timestamp = get_timestamp(
-            frame_path
-        )
-
-        # --------------------------------------
-        # First frame
-        # --------------------------------------
-
-        if reference_frame is None:
-
-            selected.append(
-                frame_path
-            )
-
-            reference_frame = frame
-
-            last_selected_timestamp = (
-                timestamp
-            )
-
+        # Always select the first frame of the chunk
+        if prev_frame is None:
+            selected.append(frame_path)
+            prev_frame = frame
+            last_timestamp = timestamp
             continue
 
-        # --------------------------------------
-        # Compare against last selected frame
-        # --------------------------------------
+        # Compare color space delta (HSV) matching PySceneDetect ContentDetector method
+        hsv_prev = cv2.cvtColor(prev_frame, cv2.COLOR_BGR2HSV)
+        hsv_curr = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
+        score = float(cv2.absdiff(hsv_prev, hsv_curr).mean())
 
-        difference = (
-            calculate_frame_difference(
-                reference_frame,
-                frame
-            )
-        )
-
-        print(
-            f"Frame {timestamp}s "
-            f"difference: "
-            f"{difference:.3f}"
-        )
-
-        # --------------------------------------
-        # Scene change
-        # --------------------------------------
-
-        scene_changed = (
-            difference >= threshold
-        )
-
-        enough_time_passed = (
-            timestamp
-            - last_selected_timestamp
-            >= min_gap_seconds
-        )
-
-        if (
-            scene_changed
-            and enough_time_passed
-        ):
-
-            print(
-                f"⭐ Scene change detected "
-                f"at {timestamp}s"
-            )
-
-            selected.append(
-                frame_path
-            )
-
-            reference_frame = frame
-
-            last_selected_timestamp = (
-                timestamp
-            )
+        # Scene change detected if score exceeds threshold and cooldown has passed
+        if score >= threshold and (timestamp - last_timestamp >= min_gap_seconds):
+            print(f"⭐ Scene change detected at {timestamp}s (score: {score:.2f})")
+            selected.append(frame_path)
+            prev_frame = frame
+            last_timestamp = timestamp
 
     return selected
-
-
-def get_timestamp(frame_path):
-
-    name = frame_path.name
-
-    # frame_25s.jpg
-    timestamp = (
-        name
-        .replace("frame_", "")
-        .replace("s.jpg", "")
-    )
-
-    return int(timestamp)

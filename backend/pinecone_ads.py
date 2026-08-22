@@ -307,26 +307,36 @@ def print_search_results(results):
     print("\n📢 TOP RELEVANT ADS")
     print("=" * 60)
 
-    hits = results.get("result", {}).get("hits", [])
+    if results is None:
+        print("No advertisements found.")
+        return
+
+    if isinstance(results, dict):
+        hits = results.get("result", {}).get("hits", [])
+    else:
+        result_obj = getattr(results, "result", None)
+        hits = getattr(result_obj, "hits", []) if result_obj else []
 
     if not hits:
         print("No advertisements found.")
         return
 
     for i, hit in enumerate(hits, start=1):
-
-        fields = hit.get("fields", {})
+        if isinstance(hit, dict):
+            fields = hit.get("fields", {})
+            score = hit.get("_score", 0.0)
+        else:
+            fields = getattr(hit, "fields", {})
+            score = getattr(hit, "score", 0.0)
 
         print(f"\n{i}. {fields.get('brand', 'Unknown')}")
         print(f"   Title: {fields.get('title', '')}")
         print(f"   Category: {fields.get('category', '')}")
-        print(f"   Score: {hit.get('_score', 0):.4f}")
+        print(f"   Score: {float(score):.4f}")
         print(
             f"   Description: "
             f"{fields.get('description', '')}"
         )
-        print(type(hit))
-        print(hit)
 
 
 if __name__ == "__main__":
