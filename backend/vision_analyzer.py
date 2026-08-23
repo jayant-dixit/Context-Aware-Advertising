@@ -13,17 +13,37 @@ from pinecone_ads import search_ads
 load_dotenv()
 
 TOP_K_ADS = int(os.getenv("TOP_K_ADS", "3"))
-HF_MODEL = os.getenv("HF_MODEL", "Qwen/Qwen3-VL-235B-A22B-Instruct:novita")
+
+
+def get_model_and_provider():
+    """
+    Parse model ID and provider cleanly.
+    Supports both:
+      HF_MODEL="Qwen/Qwen3-VL-235B-A22B-Instruct:novita"
+      AND
+      HF_MODEL="Qwen/Qwen3-VL-235B-A22B-Instruct" + HF_PROVIDER="novita"
+    """
+    raw_model = os.getenv("HF_MODEL", "Qwen/Qwen3-VL-235B-A22B-Instruct:novita").strip()
+    env_provider = os.getenv("HF_PROVIDER", "").strip()
+
+    if ":" in raw_model:
+        model_id, provider = raw_model.split(":", 1)
+        return model_id.strip(), provider.strip()
+
+    return raw_model, (env_provider or "novita")
 
 
 def get_hf_client() -> InferenceClient:
     """
-    Get or create Hugging Face Inference Client lazily.
+    Get or create Hugging Face Inference Client with proper provider.
     """
     token = os.getenv("HF_TOKEN")
     if not token:
         raise RuntimeError("HF_TOKEN is missing from your .env file.")
 
+    _, provider = get_model_and_provider()
+    if provider:
+        return InferenceClient(provider=provider, api_key=token)
     return InferenceClient(api_key=token)
 
 
@@ -55,55 +75,40 @@ def encode_image(image_path: str) -> str:
 def analyze_frame(image_path: str, max_retries: int = 3):
     image_data_url = image_to_data_url(image_path)
 
-    prompt = """
-Analyze this video frame for contextual advertising.
+    prompt = """You are an expert AI advertising strategist. Analyze this video frame for contextual advertisement placement.
 
-Return exactly two lines:
+Return EXACTLY two lines in this format:
+SCENE: <concise 1-sentence description of the visual scene>
+QUERY: <6 to 12 high-intent commercial keywords for ad targeting>
 
-SCENE: <short description of the scene>
-
-QUERY: <5 to 12 important words for semantic advertisement search>
-
-Rules:
-
-- Identify the main scene.
-- Identify important objects.
-- Identify the activity.
-- Identify the environment.
-- Identify products or lifestyle context.
-- Create a semantic query useful for advertisement matching.
-- Do NOT identify a brand unless the brand is clearly visible.
-- Do NOT explain your reasoning.
-- Do NOT return JSON.
-- Do NOT use markdown.
-- Do NOT write paragraphs.
-- Do NOT include <think> tags.
+Guidelines for QUERY:
+- Focus on high-intent commercial terms, products, apparel, electronics, beverages, food, gear, and lifestyle themes.
+- Avoid generic filler words (do NOT use words like: 'person', 'indoors', 'walking', 'standing', 'looking', 'shouting').
+- Target concrete categories like: streetwear, hoodie, music streaming, headphones, sneakers, energy drink, fast food, gaming, fitness.
+- Do NOT output brand names unless clearly printed and legible.
+- Do NOT output JSON, markdown, or conversational text.
 
 Example:
-
-SCENE: Person running outdoors
-
-QUERY: running fitness sports shoes athletic clothing exercise
+SCENE: Man wearing athletic wear stretching near a running track
+QUERY: sportswear running shoes athletic apparel fitness gym workout energy drink
 
 Example:
-
-SCENE: Friends eating pizza
-
-QUERY: pizza restaurant food delivery dinner friends
+SCENE: Group of young friends enjoying pizza around a table
+QUERY: pizza food delivery fast food soft drinks casual dining friends restaurant
 
 Example:
-
-SCENE: Person drinking coffee in cafe
-
-QUERY: coffee cafe beverages drinks relaxation lifestyle
+SCENE: Young musician singing in a hoodie under neon lights
+QUERY: hoodie streetwear urban fashion music streaming audio headphones youth apparel sneakers
 """
 
+    model_id, _ = get_model_and_provider()
     last_error = None
+
     for attempt in range(1, max_retries + 1):
         try:
             client = get_hf_client()
             response = client.chat.completions.create(
-                model=HF_MODEL,
+                model=model_id,
                 messages=[
                     {
                         "role": "user",
@@ -254,55 +259,47 @@ def analyze_frames_batch(image_paths, max_retries: int = 3):
             }
         })
 
-    prompt = """
-Analyze all the video frames provided below.
+    prompt = """You are an expert AI advertising strategist. Analyze all the video frames provided below for contextual advertisement placement.
 
 Each image has a FRAME_INDEX.
 
 For EVERY frame, return exactly:
-
 FRAME_INDEX: <index>
-SCENE: <short scene description>
-QUERY: <5 to 12 words useful for advertisement search>
+SCENE: <concise 1-sentence description of the visual scene>
+QUERY: <6 to 12 high-intent commercial keywords for ad targeting>
 
-Rules:
-
-- Analyze every frame.
-- Keep each frame's result separate.
-- Do not skip frames.
-- Identify the main scene, objects, activity,
-  environment and relevant lifestyle/product context.
-- QUERY must contain useful semantic advertising keywords.
-- Do NOT identify brands unless clearly visible.
-- Do NOT explain your reasoning.
-- Do NOT return JSON.
-- Do NOT use markdown.
-- Do NOT include <think> tags.
+Guidelines for QUERY:
+- Focus on high-intent commercial products, fashion/apparel, consumer electronics, beverages, food, gear, and lifestyle services.
+- Avoid generic filler words (do NOT use words like: 'person', 'indoors', 'walking', 'standing', 'looking', 'shouting').
+- Target concrete categories like: streetwear, hoodie, music streaming, headphones, sneakers, energy drink, fast food, gaming, fitness.
+- Do NOT output brand names unless clearly visible and printed.
+- Do NOT output JSON, markdown, or conversational text.
 
 Example:
-
 FRAME_INDEX: 0
-SCENE: Person cooking in a kitchen
-QUERY: cooking kitchen appliances cookware groceries
+SCENE: Man cooking with fresh vegetables in modern kitchen
+QUERY: groceries cooking cookware kitchen appliances fresh food gourmet recipe
 
 FRAME_INDEX: 1
-SCENE: Person eating dinner
-QUERY: food restaurant groceries food delivery dining
+SCENE: Young musician singing in a hoodie under neon lights
+QUERY: hoodie streetwear urban fashion music streaming audio headphones youth apparel
 
 FRAME_INDEX: 2
-SCENE: Person exercising outdoors
-QUERY: fitness running sports shoes gym exercise
+SCENE: Athlete running on mountain trail in sportswear
+QUERY: trail running shoes sportswear fitness hydration outdoor athletic gear
 """
 
     content = [{"type": "text", "text": prompt}]
     content.extend(image_contents)
 
+    model_id, _ = get_model_and_provider()
     last_error = None
+
     for attempt in range(1, max_retries + 1):
         try:
             client = get_hf_client()
             response = client.chat.completions.create(
-                model=HF_MODEL,
+                model=model_id,
                 messages=[
                     {
                         "role": "user",
@@ -328,24 +325,30 @@ QUERY: fitness running sports shoes gym exercise
                 flags=re.DOTALL | re.IGNORECASE
             ).strip()
 
-            # Parse each frame
+            # Robust block-based frame parser
             results = []
-            pattern = re.compile(
-                r"FRAME_INDEX\s*:\s*(\d+)"
-                r"\s*"
-                r"SCENE\s*:\s*(.+?)"
-                r"\s*"
-                r"QUERY\s*:\s*(.+?)(?="
-                r"\s*FRAME_INDEX\s*:|$)",
-                flags=re.IGNORECASE | re.DOTALL
-            )
+            blocks = re.split(r"(?=FRAME_INDEX\s*:\s*\d+)", raw_output, flags=re.IGNORECASE)
 
-            matches = pattern.findall(raw_output)
+            for block in blocks:
+                if not block.strip():
+                    continue
 
-            for match in matches:
-                frame_index = int(match[0])
-                scene = match[1].strip().replace("\n", " ")
-                query = match[2].strip().replace("\n", " ")
+                idx_match = re.search(r"FRAME_INDEX\s*:\s*(\d+)", block, flags=re.IGNORECASE)
+                if not idx_match:
+                    continue
+
+                frame_index = int(idx_match.group(1))
+
+                scene_match = re.search(r"SCENE\s*:\s*([^\n\r]+)", block, flags=re.IGNORECASE)
+                scene = scene_match.group(1).strip() if scene_match else ""
+
+                query_match = re.search(r"QUERY\s*:\s*(.+)", block, flags=re.IGNORECASE | re.DOTALL)
+                query = query_match.group(1).strip() if query_match else ""
+                query = re.split(r"FRAME_INDEX\s*:\s*\d+", query, flags=re.IGNORECASE)[0].strip()
+                query = query.replace("\n", " ").strip("\"'")
+
+                if query.lower() in ["none", "n/a", "no visible content"]:
+                    query = ""
 
                 results.append({
                     "frame_index": frame_index,
@@ -360,7 +363,7 @@ QUERY: fitness running sports shoes gym exercise
             last_error = exc
             print(f"[!] Batch vision attempt {attempt}/{max_retries} failed: {exc}")
             if attempt < max_retries:
-                time.sleep(2 * attempt)
+                time.sleep(5 * attempt)
 
     print(f"[X] Batch Qwen vision failed after {max_retries} attempts: {last_error}")
     raise last_error

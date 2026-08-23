@@ -4,24 +4,16 @@ import uuid
 from pathlib import Path
 
 from youtube_extractor import YouTubeFeatureExtractor
-from scene_detector import (
-    select_scene_frames
-)
-
-from vision_analyzer import (
-    analyze_frame_and_find_ads,
-    analyze_frames_batch
-)
-
+from scene_detector import extract_scene_keyframes, get_timestamp
+from vision_analyzer import analyze_frames_batch
 from pinecone_ads import search_ads
 
-CHUNK_DURATION_SECONDS = 30
 MAX_BATCH_FRAMES = 3
 
-# 3 representative frames per chunk.
-# Example for 0-30s:
-# 5s, 15s, 25s
-FRAMES_PER_CHUNK = 3
+# --------------------------------------------------
+# Cadence Policy: 2.5 minutes spacing between distinct ads
+# --------------------------------------------------
+MIN_AD_SPACING_SECONDS = 150   # 150 seconds (2.5 minutes) cooldown
 
 
 # --------------------------------------------------
@@ -29,11 +21,10 @@ FRAMES_PER_CHUNK = 3
 # --------------------------------------------------
 
 jobs = {}
-
 jobs_lock = threading.Lock()
 
-def create_job(youtube_url: str):
 
+def create_job(youtube_url: str):
     job_id = str(uuid.uuid4())
 
     job = {
@@ -54,389 +45,202 @@ def create_job(youtube_url: str):
 
 
 def get_job(job_id: str):
-
     with jobs_lock:
         job = jobs.get(job_id)
 
         if job is None:
             return None
 
-        # Return a copy so callers don't mutate
-        # the internal object.
+        # Return a copy so callers don't mutate the internal object
         return {
             **job,
-            "placements": list(
-                job["placements"]
-            )
+            "placements": list(job["placements"])
         }
 
 
 def update_job(job_id: str, **updates):
-
     with jobs_lock:
-
         if job_id not in jobs:
             return
-
         jobs[job_id].update(updates)
 
 
 def add_placement(job_id: str, placement: dict):
     """
-    Add an advertisement placement.
-
-    If the new advertisement is the same as the
-    previous advertisement, don't create another
-    placement. Instead, keep the existing placement
-    open.
-
-    If the advertisement changes, close the previous
-    placement and create a new one.
+    Add an advertisement placement based purely on contextual relevance:
+    - Same-ad extension allowed across consecutive scenes
+    - Places all high-relevance ads without cooldown suppression
     """
-
     with jobs_lock:
-
         if job_id not in jobs:
             return False
 
         placements = jobs[job_id]["placements"]
+        current_timestamp = placement.get("timestamp", 0)
 
-        # ------------------------------------------
-        # No previous placement
-        # ------------------------------------------
-
+        # First placement in the video
         if not placements:
-
+            placement["start_time"] = current_timestamp
+            placement["start_time_formatted"] = format_timestamp(current_timestamp)
+            placement["end_time"] = None
+            placement["end_time_formatted"] = None
             placements.append(placement)
-
             return True
 
         previous = placements[-1]
+        previous_ad = previous.get("ad", {})
+        current_ad = placement.get("ad", {})
 
-        previous_ad = previous.get(
-            "ad",
-            {}
-        )
+        previous_id = previous_ad.get("id")
+        current_id = current_ad.get("id")
 
-        current_ad = placement.get(
-            "ad",
-            {}
-        )
-
-        previous_id = previous_ad.get(
-            "id"
-        )
-
-        current_id = current_ad.get(
-            "id"
-        )
-
-        # ------------------------------------------
-        # Same advertisement
-        # ------------------------------------------
-
-        if (
-            previous_id
-            and current_id
-            and previous_id == current_id
-        ):
-
-            print(
-                f"🔁 Same ad detected: "
-                f"{current_ad.get('brand', '')}"
-            )
-
-            print(
-                "   Extending existing placement."
-            )
-
+        # Case 1: Same advertisement detected -> Extend existing placement
+        if previous_id and current_id and previous_id == current_id:
+            previous["end_time"] = current_timestamp
+            previous["end_time_formatted"] = format_timestamp(current_timestamp)
+            print(f"[CADENCE] Same ad detected ({current_ad.get('brand', '')}). Extended placement duration to {current_timestamp}s.")
             return False
 
-        # ------------------------------------------
-        # Advertisement changed
-        # ------------------------------------------
+        # Close previous placement if still open
+        if previous.get("end_time") is None:
+            previous["end_time"] = current_timestamp
+            previous["end_time_formatted"] = format_timestamp(current_timestamp)
 
-        previous["end_time"] = (
-            placement["timestamp"]
-        )
-
-        previous["end_time_formatted"] = (
-            format_timestamp(
-                placement["timestamp"]
-            )
-        )
-
-        # ------------------------------------------
         # Create new placement
-        # ------------------------------------------
-
-        placement["start_time"] = (
-            placement["timestamp"]
-        )
-
-        placement["start_time_formatted"] = (
-            format_timestamp(
-                placement["timestamp"]
-            )
-        )
-
+        placement["start_time"] = current_timestamp
+        placement["start_time_formatted"] = format_timestamp(current_timestamp)
         placement["end_time"] = None
-
         placement["end_time_formatted"] = None
 
-        placements.append(
-            placement
-        )
-
+        placements.append(placement)
         return True
+
+
 # --------------------------------------------------
 # Timestamp helpers
 # --------------------------------------------------
 
 def get_timestamp_from_filename(filename):
-
-    match = re.search(
-        r"frame_(\d+)s",
-        filename
-    )
-
-    if match:
-        return int(match.group(1))
-
-    return None
+    match = re.search(r"frame_(\d+)s", filename)
+    return int(match.group(1)) if match else None
 
 
 def format_timestamp(seconds):
-
     minutes = seconds // 60
     remaining_seconds = seconds % 60
-
-    return (
-        f"{minutes:02d}:"
-        f"{remaining_seconds:02d}"
-    )
+    return f"{minutes:02d}:{remaining_seconds:02d}"
 
 
 # --------------------------------------------------
-# Extract representative frames
+# Process a batch of scene keyframes
 # --------------------------------------------------
 
-def get_chunk_frames(
-    frame_files,
-    chunk_start,
-    chunk_end
-):
-
-    chunk_frames = []
-
-    for frame_path in frame_files:
-
-        timestamp = get_timestamp_from_filename(
-            frame_path.name
-        )
-
-        if timestamp is None:
-            continue
-
-        if (
-            chunk_start
-            <= timestamp
-            < chunk_end
-        ):
-
-            chunk_frames.append(
-                frame_path
-            )
-
-    if not chunk_frames:
-        return []
-
-    # ------------------------------------------
-    # Select representative frames
-    # ------------------------------------------
-
-    if len(chunk_frames) <= FRAMES_PER_CHUNK:
-        return chunk_frames
-
-    step = (
-        len(chunk_frames)
-        / FRAMES_PER_CHUNK
-    )
-
-    selected = []
-
-    for i in range(FRAMES_PER_CHUNK):
-
-        index = int(
-            i * step
-        )
-
-        if index >= len(chunk_frames):
-            index = len(chunk_frames) - 1
-
-        selected.append(
-            chunk_frames[index]
-        )
-
-    return selected
-
-
-# --------------------------------------------------
-# Analyze one chunk
-# --------------------------------------------------
-
-def process_chunk(
+def process_scene_batch(
     job_id,
-    frame_files,
-    chunk_start,
-    chunk_end
+    batch,
+    batch_index,
+    total_batches,
+    transcript=None,
+    extractor=None
 ):
-
     print(f"\n{'=' * 70}")
-    print(f"📦 JOB {job_id}")
-    print(f"🎬 Processing chunk {chunk_start}s → {chunk_end}s")
+    print(f"[*] JOB {job_id} | Processing Scene Batch {batch_index}/{total_batches} ({len(batch)} keyframes)")
     print(f"{'=' * 70}")
 
-    # ------------------------------------------
-    # Get frames belonging to this chunk
-    # ------------------------------------------
+    try:
+        batch_results = analyze_frames_batch(batch)
 
-    chunk_frames = get_chunk_frames(
-        frame_files,
-        chunk_start,
-        chunk_end
-    )
+        for result in batch_results:
+            frame_index = result["frame_index"]
+            if frame_index >= len(batch):
+                continue
 
-    # ------------------------------------------
-    # Cheap scene-change detection
-    # ------------------------------------------
+            frame_path = batch[frame_index]
+            timestamp = get_timestamp_from_filename(frame_path.name)
+            scene = result.get("scene", "")
+            vision_query = result.get("search_query", "")
 
-    selected_frames = select_scene_frames(
-        chunk_frames,
-        threshold=0.25,
-        min_gap_seconds=10
-    )
-
-    print(f"\n🖼️ Chunk frames: {len(chunk_frames)}")
-    print(f"⭐ Selected frames: {len(selected_frames)}")
-
-    if not selected_frames:
-        print("⚠️ No useful frames found in this chunk.")
-        return
-
-    # ------------------------------------------
-    # Batch selected frames
-    # ------------------------------------------
-
-    for batch_start in range(
-        0,
-        len(selected_frames),
-        MAX_BATCH_FRAMES
-    ):
-
-        # ✅ This was wrongly indented
-        batch = selected_frames[
-            batch_start:
-            batch_start + MAX_BATCH_FRAMES
-        ]
-
-        print(
-            f"\n🚀 BATCH "
-            f"{batch_start // MAX_BATCH_FRAMES + 1}"
-        )
-
-        print(f"Frames in batch: {len(batch)}")
-
-        try:
-
-            # ----------------------------------
-            # ONE QWEN REQUEST
-            # ----------------------------------
-
-            batch_results = analyze_frames_batch(batch)
-
-            # ----------------------------------
-            # Pinecone search for each frame
-            # ----------------------------------
-
-            for result in batch_results:
-
-                frame_index = result["frame_index"]
-
-                if frame_index >= len(batch):
-                    continue
-
-                frame_path = batch[frame_index]
-
-                timestamp = get_timestamp_from_filename(
-                    frame_path.name
+            # Align spoken transcript in ±15s window around scene timestamp
+            spoken_text = ""
+            if extractor and transcript:
+                spoken_text = extractor.get_transcript_window(
+                    transcript,
+                    timestamp,
+                    window_seconds=15.0
                 )
 
-                scene = result.get("scene", "")
-                search_query = result.get("search_query", "")
+            # Multimodal context fusion
+            if spoken_text:
+                multimodal_query = f"{vision_query} {spoken_text}".strip()
+            else:
+                multimodal_query = vision_query.strip()
 
-                print(f"\n🖼️ Frame: {frame_path.name}")
-                print(f"⏱️ Timestamp: {timestamp}s")
-                print(f"🧠 Scene: {scene}")
-                print(f"🔎 Query: {search_query}")
+            if not multimodal_query:
+                print(f"\n[*] Scene Keyframe: {frame_path.name} | Timestamp: {timestamp}s")
+                print(f"    Visual Scene: {scene}")
+                print(f"    [!] No commercial context detected (e.g. blank screen/intro). Skipped.")
+                continue
 
-                # ----------------------------------
-                # Pinecone Search
-                # ----------------------------------
+            print(f"\n[*] Scene Keyframe: {frame_path.name} | Timestamp: {timestamp}s")
+            print(f"    Visual Scene: {scene}")
+            print(f"    Visual Query: {vision_query}")
+            if spoken_text:
+                print(f"    Spoken Transcript: \"{spoken_text}\"")
+            print(f"    Fused Search Query: {multimodal_query}")
 
-                results = search_ads(
-                    search_query,
-                    top_k=3
-                )
+            # Hybrid Search (Dense + BM25 Sparse + Gatekeeper)
+            results = search_ads(
+                multimodal_query,
+                top_k=3,
+                min_score=0.34,
+                min_dense_score=0.10,
+                alpha=0.65
+            )
 
-                if results is None:
-                    print(
-                        "⚠️ No sufficiently relevant "
-                        "advertisement found."
-                    )
-                    continue
+            if results is None:
+                print("[!] No sufficiently relevant advertisement passed quality gate.")
+                continue
 
-                hits = results.result.hits
+            hits = results.result.hits if hasattr(results, "result") else []
+            if not hits:
+                print("[!] No advertisement found.")
+                continue
 
-                if not hits:
-                    print("⚠️ No advertisement found.")
-                    continue
+            best_ad = hits[0]
+            fields = best_ad.fields
 
-                best_ad = hits[0]
-                fields = best_ad.fields
+            placement = {
+                "timestamp": timestamp,
+                "timestamp_formatted": format_timestamp(timestamp),
+                "scene": scene,
+                "search_query": multimodal_query,
+                "spoken_transcript": spoken_text,
+                "ad": {
+                    "id": best_ad.id,
+                    "brand": fields.get("brand", ""),
+                    "title": fields.get("title", ""),
+                    "category": fields.get("category", ""),
+                    "description": fields.get("description", "")
+                },
+                "score": float(best_ad.score)
+            }
 
-                placement = {
-                    "timestamp": timestamp,
-                    "timestamp_formatted": format_timestamp(timestamp),
-                    "scene": scene,
-                    "search_query": search_query,
-                    "ad": {
-                        "id": best_ad.id,
-                        "brand": fields.get("brand", ""),
-                        "title": fields.get("title", ""),
-                        "category": fields.get("category", ""),
-                        "description": fields.get("description", "")
-                    },
-                    "score": float(best_ad.score)
-                }
-
-                add_placement(job_id, placement)
-
-                print(f"📢 AD FOUND: {fields.get('brand', '')}")
-                print(f"   Timestamp: {timestamp}s")
+            added = add_placement(job_id, placement)
+            if added:
+                print(f"\n[AD PLACEMENT ACCEPTED]")
+                print(f"   Brand: {fields.get('brand', '')}")
+                print(f"   Timestamp: {timestamp}s ({format_timestamp(timestamp)})")
                 print(f"   Score: {best_ad.score:.4f}")
 
-        except Exception as exc:
+    except Exception as exc:
+        print(f"[ERROR] Batch processing failed: {exc}")
 
-            print(f"❌ Batch processing failed: {exc}")
-            continue
 
 # --------------------------------------------------
 # Complete background analysis
 # --------------------------------------------------
 
 def run_analysis_job(job_id):
-
     job = get_job(job_id)
 
     if not job:
@@ -445,7 +249,6 @@ def run_analysis_job(job_id):
     youtube_url = job["youtube_url"]
 
     try:
-
         update_job(
             job_id,
             status="downloading",
@@ -453,35 +256,26 @@ def run_analysis_job(job_id):
         )
 
         extractor = YouTubeFeatureExtractor()
-
-        video_id = extractor.extract_video_id(
-            youtube_url
-        )
+        video_id = extractor.extract_video_id(youtube_url)
 
         if not video_id:
+            raise ValueError("Invalid YouTube URL.")
 
-            raise ValueError(
-                "Invalid YouTube URL."
-            )
+        print(f"\n🎬 Starting job {job_id}")
+        print(f"Video ID: {video_id}")
 
-        print(
-            f"\n🎬 Starting job {job_id}"
-        )
-
-        print(
-            f"Video ID: {video_id}"
+        # --------------------------------------
+        # 1. Download video & metadata
+        # --------------------------------------
+        video_path = extractor.download_video_and_metadata(
+            youtube_url,
+            video_id
         )
 
         # --------------------------------------
-        # Download video
+        # 2. Extract timestamped transcript
         # --------------------------------------
-
-        video_path = (
-            extractor.download_video_and_metadata(
-                youtube_url,
-                video_id
-            )
-        )
+        transcript = extractor.get_transcript(video_id)
 
         update_job(
             job_id,
@@ -490,174 +284,89 @@ def run_analysis_job(job_id):
         )
 
         # --------------------------------------
-        # Extract frames
+        # 3. Direct Scene Keyframe Extraction (PySceneDetect)
         # --------------------------------------
-
-        extractor.extract_frames(
+        frame_directory = Path(extractor.dirs["frames"]) / video_id
+        keyframe_paths = extract_scene_keyframes(
             video_path,
-            video_id,
-            interval_seconds=5
+            output_dir=str(frame_directory),
+            threshold=27.0
         )
 
-        frame_directory = (
-            Path(
-                extractor.dirs["frames"]
-            )
-            / video_id
+        if not keyframe_paths:
+            raise RuntimeError("No scene keyframes were extracted.")
+
+        keyframe_paths.sort(
+            key=lambda path: get_timestamp_from_filename(path.name) or 0
         )
 
-        frame_files = list(
-            frame_directory.glob(
-                "frame_*s.jpg"
-            )
-        )
-
-        frame_files.sort(
-            key=lambda path:
-            get_timestamp_from_filename(
-                path.name
-            ) or 0
-        )
-
-        if not frame_files:
-
-            raise RuntimeError(
-                "No frames were extracted."
-            )
-
-        # --------------------------------------
         # Determine video duration
-        # --------------------------------------
-
         timestamps = [
-            get_timestamp_from_filename(
-                path.name
-            )
-            for path in frame_files
+            get_timestamp_from_filename(path.name)
+            for path in keyframe_paths
         ]
+        timestamps = [t for t in timestamps if t is not None]
+        video_duration = max(timestamps) + 30
 
-        timestamps = [
-            timestamp
-            for timestamp in timestamps
-            if timestamp is not None
-        ]
-
-        video_duration = (
-            max(timestamps) + 5
-        )
-
-        total_chunks = (
-            video_duration
-            + CHUNK_DURATION_SECONDS
-            - 1
-        ) // CHUNK_DURATION_SECONDS
+        total_batches = (len(keyframe_paths) + MAX_BATCH_FRAMES - 1) // MAX_BATCH_FRAMES
 
         update_job(
             job_id,
             status="processing",
-            total_chunks=total_chunks,
+            total_chunks=total_batches,
             completed_chunks=0,
             progress=0
         )
 
         # --------------------------------------
-        # Process chunks sequentially
+        # 4. Process scene keyframe batches
         # --------------------------------------
+        for batch_idx in range(total_batches):
+            start_i = batch_idx * MAX_BATCH_FRAMES
+            batch = keyframe_paths[start_i:start_i + MAX_BATCH_FRAMES]
 
-        for chunk_number in range(
-            total_chunks
-        ):
-
-            chunk_start = (
-                chunk_number
-                * CHUNK_DURATION_SECONDS
-            )
-
-            chunk_end = min(
-                chunk_start
-                + CHUNK_DURATION_SECONDS,
-                video_duration
-            )
-
-            process_chunk(
+            process_scene_batch(
                 job_id,
-                frame_files,
-                chunk_start,
-                chunk_end
+                batch,
+                batch_index=batch_idx + 1,
+                total_batches=total_batches,
+                transcript=transcript,
+                extractor=extractor
             )
 
-            completed_chunks = (
-                chunk_number + 1
-            )
-
-            progress = int(
-                (
-                    completed_chunks
-                    / total_chunks
-                )
-                * 100
-            )
+            completed_batches = batch_idx + 1
+            progress = int((completed_batches / total_batches) * 100)
 
             update_job(
                 job_id,
-                completed_chunks=completed_chunks,
+                completed_chunks=completed_batches,
                 progress=progress
             )
 
-            print(
-                f"\n📊 JOB PROGRESS: "
-                f"{progress}%"
-            )
+            print(f"\n📊 JOB PROGRESS: {progress}%")
 
         # --------------------------------------
-        # Completed
+        # 5. Close final advertisement placement
         # --------------------------------------
-
-# --------------------------------------
-# Close final advertisement placement
-# --------------------------------------
-
         with jobs_lock:
-
             if job_id in jobs:
-
                 placements = jobs[job_id]["placements"]
-
                 if placements:
-
                     last_placement = placements[-1]
+                    if last_placement.get("end_time") is None:
+                        last_placement["end_time"] = video_duration
+                        last_placement["end_time_formatted"] = format_timestamp(video_duration)
 
-                    if last_placement.get(
-                        "end_time"
-                    ) is None:
-
-                        last_placement["end_time"] = (
-                            video_duration
-                        )
-
-                        last_placement[
-                            "end_time_formatted"
-                        ] = format_timestamp(
-                            video_duration
-                        )
         update_job(
             job_id,
             status="completed",
             progress=100
         )
 
-        print(
-            f"\n🎉 JOB {job_id} COMPLETED"
-        )
+        print(f"\n🎉 JOB {job_id} COMPLETED")
 
     except Exception as exc:
-
-        print(
-            f"\n❌ JOB {job_id} FAILED:"
-        )
-
-        print(exc)
-
+        print(f"\n❌ JOB {job_id} FAILED: {exc}")
         update_job(
             job_id,
             status="failed",
@@ -669,20 +378,12 @@ def run_analysis_job(job_id):
 # Start background job
 # --------------------------------------------------
 
-def start_background_job(
-    youtube_url
-):
-
-    job_id = create_job(
-        youtube_url
-    )
-
+def start_background_job(youtube_url):
+    job_id = create_job(youtube_url)
     thread = threading.Thread(
         target=run_analysis_job,
         args=(job_id,),
         daemon=True
     )
-
     thread.start()
-
     return job_id

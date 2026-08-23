@@ -9,7 +9,7 @@ frames = glob.glob("data/frames/**/*.jpg", recursive=True)
 if frames:
     IMAGE_PATH = frames[0]
 else:
-    IMAGE_PATH = "data/frames/QPsxAUZLQ3c/frame_50s.jpg"
+    IMAGE_PATH = "data/frames/kTJczUoc26U/frame_104s.jpg"
 
 print(f"Testing with image: {IMAGE_PATH}")
 result = analyze_frame(IMAGE_PATH)
