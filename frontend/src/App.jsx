@@ -615,6 +615,21 @@ function App() {
                   {currentAd.ad.description}
                 </p>
 
+                {currentAd.spoken_transcript && (
+                  <div style={{
+                    marginTop: "12px",
+                    padding: "8px 12px",
+                    background: "rgba(99, 102, 241, 0.1)",
+                    borderLeft: "3px solid #6366f1",
+                    borderRadius: "4px",
+                    fontSize: "0.85rem",
+                    color: "#e2e8f0"
+                  }}>
+                    <strong style={{ color: "#818cf8" }}>🎙️ Spoken Audio: </strong>
+                    "{currentAd.spoken_transcript}"
+                  </div>
+                )}
+
                 <div className="ad-meta">
 
                   <span>
@@ -668,15 +683,21 @@ function App() {
                 </div>
 
                 <div>
-                  {
-                    placement.ad.brand
-                  }
+                  <strong>{placement.ad.brand}</strong> - {placement.ad.title}
                 </div>
 
                 <div>
-                  {
-                    placement.scene
-                  }
+                  <em>Scene:</em> {placement.scene}
+                </div>
+
+                {placement.spoken_transcript && (
+                  <div style={{ fontSize: "0.85rem", color: "#94a3b8", marginTop: "4px" }}>
+                    🎙️ <em>Spoken:</em> "{placement.spoken_transcript}"
+                  </div>
+                )}
+
+                <div style={{ fontSize: "0.85rem", color: "#10b981", marginTop: "4px" }}>
+                  Score: {placement.score.toFixed(3)}
                 </div>
 
               </div>

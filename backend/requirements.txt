@@ -3,9 +3,11 @@ python-dotenv
 opencv-python
 numpy
 yt-dlp
+youtube-transcript-api
+rank-bm25
+scenedetect[opencv]
 fastapi
 uvicorn[standard]
 python-multipart
 pydantic
 huggingface_hub
-scenedetect[opencv]

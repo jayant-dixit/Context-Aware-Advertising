@@ -1,6 +1,9 @@
-venv
+venv/
+.venv/
 .env
-__pycache__
-frames
-metadata
-videos
+__pycache__/
+data/frames/
+data/metadata/
+data/videos/
+data/transcripts/
+!data/ads.json
