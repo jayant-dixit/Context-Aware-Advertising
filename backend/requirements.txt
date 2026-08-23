@@ -1,13 +1,11 @@
-
 pinecone
 python-dotenv
 opencv-python
+numpy
 yt-dlp
-youtube-transcript-api
-
 fastapi
 uvicorn[standard]
 python-multipart
-
-
+pydantic
 huggingface_hub
+scenedetect[opencv]
