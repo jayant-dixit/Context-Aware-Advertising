@@ -181,9 +181,9 @@ class YouTubeFeatureExtractor:
                 text = item.get("text", "").strip()
                 # Clean bracketed sound effects like [Music] or (cheering)
                 clean_text = re.sub(r"\[.*?\]|\(.*?\)", "", text)
-                # Clean music notes (e.g. ♪, ♫) and non-ascii symbols
-                clean_text = re.sub(r"[^\w\s.,!?'\"-]", " ", clean_text).strip()
-                clean_text = re.sub(r"\s+", " ", clean_text)
+                # Remove music symbols without stripping Devanagari/multilingual characters
+                clean_text = re.sub(r"[\u266a\u266b\u266c\u266d\u266e\u266f♫♪]", " ", clean_text)
+                clean_text = re.sub(r"\s+", " ", clean_text).strip()
                 if clean_text:
                     matching_texts.append(clean_text)
 

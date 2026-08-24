@@ -173,19 +173,16 @@ def process_scene_batch(
                     window_seconds=15.0
                 )
 
-            # Multimodal context fusion: Vision + Spoken Audio + Overarching Metadata
+            # Multimodal context fusion: Vision + Spoken Audio + Overarching Metadata (when needed)
             query_parts = []
             if vision_query:
                 query_parts.append(vision_query)
             if spoken_text:
                 query_parts.append(spoken_text)
-            if meta_query:
-                # If visual query is weak/empty or short, append global metadata context
-                if not vision_query or len(vision_query.split()) < 4:
-                    query_parts.append(meta_query)
-                else:
-                    # Append select category terms
-                    query_parts.append(meta_query)
+
+            # If visual query is short/sparse, augment with global video metadata context
+            if meta_query and (not vision_query or len(vision_query.split()) < 4):
+                query_parts.append(meta_query)
 
             multimodal_query = " ".join(query_parts).strip()
 
