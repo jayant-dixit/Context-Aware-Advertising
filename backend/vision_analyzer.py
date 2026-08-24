@@ -19,9 +19,10 @@ def get_model_and_provider():
     """
     Parse model ID and provider cleanly.
     Supports both:
-      HF_MODEL="Qwen/Qwen3-VL-235B-A22B-Instruct:novita"
+      HF_MODEL="Qwen/Qwen2.5-VL-72B-Instruct:together"
       AND
-      HF_MODEL="Qwen/Qwen3-VL-235B-A22B-Instruct" + HF_PROVIDER="novita"
+      HF_MODEL="Qwen/Qwen2.5-VL-72B-Instruct" + HF_PROVIDER="together"
+      OR default Hugging Face auto provider routing
     """
     raw_model = os.getenv("HF_MODEL", "Qwen/Qwen3-VL-235B-A22B-Instruct:novita").strip()
     env_provider = os.getenv("HF_PROVIDER", "").strip()
@@ -30,7 +31,7 @@ def get_model_and_provider():
         model_id, provider = raw_model.split(":", 1)
         return model_id.strip(), provider.strip()
 
-    return raw_model, (env_provider or "novita")
+    return raw_model, (env_provider or None)
 
 
 def get_hf_client() -> InferenceClient:
@@ -222,6 +223,107 @@ def analyze_frame_and_find_ads(image_path: str):
         "scene": scene,
         "search_query": search_query,
         "ads": hits
+    }
+
+
+def analyze_video_metadata(metadata: dict, max_retries: int = 3) -> dict:
+    """
+    Analyze YouTube video metadata (Title, Description, Tags, Categories, Channel)
+    to identify the global genre/theme and high-intent commercial ad queries.
+    Provides rich context for videos with static visuals (e.g. songs, podcasts, tutorials)
+    and enables multi-genre ad matching.
+    """
+    if not metadata:
+        return {"theme": "", "search_query": ""}
+
+    title = metadata.get("title", "")
+    description = (metadata.get("description") or "")[:1200]
+    tags = ", ".join(metadata.get("tags", [])[:15]) if metadata.get("tags") else ""
+    categories = ", ".join(metadata.get("categories", [])) if metadata.get("categories") else ""
+    channel = metadata.get("channel", "")
+
+    prompt = f"""You are an expert AI advertising strategist. Analyze this YouTube video's metadata to determine its content genre/theme and generate high-intent commercial ad targeting keywords.
+
+Video Information:
+- Title: {title}
+- Channel: {channel}
+- Categories: {categories}
+- Tags: {tags}
+- Description: {description}
+
+Return EXACTLY two lines in this format:
+THEME: <concise 1-sentence description of the video content, format, and genre>
+QUERY: <8 to 15 high-intent commercial keywords and product/service categories for ad targeting>
+
+Guidelines for QUERY:
+- If this is a Song / Music / Audio / Lyric video: target streaming music apps, songs, audio track, headphones, wireless earbuds, playlists, Spotify, Apple Music, boAt, sound systems, concert tickets.
+- If this is a Gaming / Esports video: target gaming laptops, console, PlayStation, Xbox, Discord, gaming headset, mechanical keyboard, energy drinks, gaming mouse.
+- If this is a Tech / Coding / Educational tutorial: target online courses, coding platforms, Udemy, Coursera, laptops, cloud services, software development, certifications.
+- If this is a Fitness / Workout / Sports video: target gym apparel, running shoes, sportswear, Nike, Adidas, workout supplements, fitness trackers.
+- If this is a Cooking / Food video: target food delivery, Zomato, Swiggy, fresh groceries, cookware, snacks, beverages.
+- If this is a Travel / Tourism video: target flights, hotels, vacations, MakeMyTrip, Goibibo, Airbnb, travel gear, luggage.
+- Focus on commercial products, services, and brands relevant to the viewer's interests.
+- Do NOT output conversational text, markdown, or JSON.
+"""
+
+    model_id, _ = get_model_and_provider()
+    last_error = None
+
+    for attempt in range(1, max_retries + 1):
+        try:
+            client = get_hf_client()
+            response = client.chat.completions.create(
+                model=model_id,
+                messages=[
+                    {
+                        "role": "user",
+                        "content": prompt
+                    }
+                ],
+                max_tokens=250,
+                temperature=0
+            )
+
+            raw_output = response.choices[0].message.content.strip()
+
+            # Remove thinking blocks if present
+            raw_output = re.sub(
+                r"<think>.*?</think>",
+                "",
+                raw_output,
+                flags=re.DOTALL | re.IGNORECASE
+            ).strip()
+
+            theme_match = re.search(r"THEME\s*:\s*([^\n\r]+)", raw_output, flags=re.IGNORECASE)
+            theme = theme_match.group(1).strip() if theme_match else ""
+
+            query_match = re.search(r"QUERY\s*:\s*(.+)", raw_output, flags=re.IGNORECASE | re.DOTALL)
+            query = query_match.group(1).strip() if query_match else ""
+            query = query.replace("\n", " ").strip("\"'")
+
+            if not query:
+                query = f"{title} {tags} {categories}".strip()
+
+            print(f"\n[METADATA INTELLIGENCE]")
+            print(f"   Theme: {theme}")
+            print(f"   Query: {query}")
+
+            return {
+                "theme": theme,
+                "search_query": query
+            }
+
+        except Exception as exc:
+            last_error = exc
+            print(f"[!] Metadata analysis attempt {attempt}/{max_retries} failed: {exc}")
+            if attempt < max_retries:
+                time.sleep(2 * attempt)
+
+    # Fallback to raw metadata terms if LLM fails
+    fallback_query = f"{title} {tags} {categories}".strip()
+    return {
+        "theme": title,
+        "search_query": fallback_query
     }
 
 

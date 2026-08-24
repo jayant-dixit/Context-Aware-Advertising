@@ -101,9 +101,27 @@ def build_ad_text(ad):
 def load_ads():
     global _ads_list, _ads_by_id
     if not _ads_list:
-        with open(ADS_FILE, "r", encoding="utf-8") as f:
-            _ads_list = json.load(f)
-        _ads_by_id = {ad["id"]: ad for ad in _ads_list}
+        candidates = [
+            ADS_FILE,
+            Path("backend/data/ads.json"),
+            Path("data/ads.json"),
+            Path(__file__).resolve().parent / "data" / "ads.json",
+            Path(__file__).resolve().parent.parent / "backend" / "data" / "ads.json",
+        ]
+        found_file = None
+        for candidate in candidates:
+            if candidate.exists():
+                found_file = candidate
+                break
+
+        if found_file:
+            with open(found_file, "r", encoding="utf-8") as f:
+                _ads_list = json.load(f)
+            _ads_by_id = {ad["id"]: ad for ad in _ads_list}
+        else:
+            print("[!] Warning: ads.json not found in candidate paths.")
+            _ads_list = []
+            _ads_by_id = {}
     return _ads_list
 
 
