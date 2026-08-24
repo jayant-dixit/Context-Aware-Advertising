@@ -1,0 +1,64 @@
+{
+  "video_id": "RxmU5rk1YbM",
+  "youtube_url": "https://youtu.be/RxmU5rk1YbM?si=_tfWYF2fAyP3v5aC",
+  "video_duration": 84,
+  "placements": [
+    {
+      "timestamp": 0,
+      "timestamp_formatted": "00:00",
+      "scene": "Two soccer players interacting on a pitch, one in white kit with number 37, the other in black kit with number 10",
+      "search_query": "soccer cleats sportswear athletic gear team jerseys performance socks football apparel म स अपन इस हरकत क वजह स क फ बड म श क ल म आ गए अर ज ट न क इन प ल यर स क ब न कर द य गय और क य र न ल ड क 1000 ग ल स जल द क प ल ट ह सकत ह ? ज ह ग इस सबस पहल म स क म जर ल ग स कर न अनड स क ल ज ड अम उ ट क फ इन लग य जब उन ह न फ ल ड फ य य न यन क ख ल ड क व स 11वन क गर दन क प छल football jerseys, soccer cleats, Nike football gear, Adidas sportswear, football trading cards, sports betting apps, fantasy football platforms, ESPN+, DAZN, football gloves, stadium tickets, sports nutrition supplements, football training equipment, soccer balls, fan merchandise",
+      "spoken_transcript": "म स अपन इस हरकत क वजह स क फ बड म श क ल म आ गए अर ज ट न क इन प ल यर स क ब न कर द य गय और क य र न ल ड क 1000 ग ल स जल द क प ल ट ह सकत ह ? ज ह ग इस सबस पहल म स क म जर ल ग स कर न अनड स क ल ज ड अम उ ट क फ इन लग य जब उन ह न फ ल ड फ य य न यन क ख ल ड क व स 11वन क गर दन क प छल",
+      "ad": {
+        "id": "nike_football_001",
+        "brand": "Nike",
+        "title": "Play To Win",
+        "category": "sports and fitness",
+        "description": "Football boots, jerseys and sportswear for football training and matches."
+      },
+      "score": 0.5008685611188411,
+      "start_time": 0,
+      "start_time_formatted": "00:00",
+      "end_time": 0,
+      "end_time_formatted": "00:00"
+    },
+    {
+      "timestamp": 0,
+      "timestamp_formatted": "00:00",
+      "scene": "A sensationalist sports news video focusing on football drama involving Messi, Ronaldo, and Argentina players, designed to grab attention with urgent headlines and emojis.",
+      "search_query": "football jerseys, soccer cleats, Nike football gear, Adidas sportswear, football trading cards, sports betting apps, fantasy football platforms, ESPN+, DAZN, football gloves, stadium tickets, sports nutrition supplements, football training equipment, soccer balls, fan merchandise",
+      "spoken_transcript": "",
+      "ad": {
+        "id": "adidas_football_001",
+        "brand": "Adidas",
+        "title": "Impossible Is Football",
+        "category": "sports and fitness",
+        "description": "Football boots, jerseys and training apparel for players and football fans."
+      },
+      "score": 0.6170446180408504,
+      "start_time": 0,
+      "start_time_formatted": "00:00",
+      "end_time": 45,
+      "end_time_formatted": "00:45"
+    },
+    {
+      "timestamp": 45,
+      "timestamp_formatted": "00:45",
+      "scene": "A sensationalist sports news video focusing on football drama involving Messi, Ronaldo, and Argentina players, designed to grab attention with urgent headlines and emojis.",
+      "search_query": "football jerseys, soccer cleats, Nike football gear, Adidas sportswear, football trading cards, sports betting apps, fantasy football platforms, ESPN+, DAZN, football gloves, stadium tickets, sports nutrition supplements, football training equipment, soccer balls, fan merchandise",
+      "spoken_transcript": "",
+      "ad": {
+        "id": "nike_football_001",
+        "brand": "Nike",
+        "title": "Play To Win",
+        "category": "sports and fitness",
+        "description": "Football boots, jerseys and sportswear for football training and matches."
+      },
+      "score": 0.6036907613277436,
+      "start_time": 45,
+      "start_time_formatted": "00:45",
+      "end_time": 84,
+      "end_time_formatted": "01:24"
+    }
+  ]
+}
