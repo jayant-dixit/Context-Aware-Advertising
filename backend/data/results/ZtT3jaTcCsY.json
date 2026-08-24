@@ -1,0 +1,83 @@
+{
+  "video_id": "ZtT3jaTcCsY",
+  "youtube_url": "https://youtu.be/ZtT3jaTcCsY?si=B0iX2T2ytAEsJicX",
+  "video_duration": 303,
+  "placements": [
+    {
+      "timestamp": 0,
+      "timestamp_formatted": "00:00",
+      "scene": "Completely black screen with no visible content",
+      "search_query": "flights to Alps, ski resorts, winter vacation packages, Airbnb in Switzerland, travel drones DJI, snow gear, mountain hotels, travel insurance, hiking boots, Goibibo, MakeMyTrip, luggage brands, outdoor jackets, scenic tours, alpine photography tours",
+      "spoken_transcript": "",
+      "ad": {
+        "id": "makemytrip_beach_001",
+        "brand": "MakeMyTrip",
+        "title": "Escape To The Beach",
+        "category": "travel",
+        "description": "Beach holidays, coastal resorts, flights and vacation packages for relaxing getaways."
+      },
+      "score": 0.5134824067354202,
+      "start_time": 0,
+      "start_time_formatted": "00:00",
+      "end_time": 90,
+      "end_time_formatted": "01:30"
+    },
+    {
+      "timestamp": 90,
+      "timestamp_formatted": "01:30",
+      "scene": "Snow-covered forest surrounding a vivid turquoise alpine lake with wooden gazebo on shore",
+      "search_query": "winter travel snow gear hiking boots thermal wear mountain lodge outdoor adventure flights to Alps, ski resorts, winter vacation packages, Airbnb in Switzerland, travel drones DJI, snow gear, mountain hotels, travel insurance, hiking boots, Goibibo, MakeMyTrip, luggage brands, outdoor jackets, scenic tours, alpine photography tours",
+      "spoken_transcript": "",
+      "ad": {
+        "id": "goibibo_001",
+        "brand": "Goibibo",
+        "title": "Travel More",
+        "category": "travel",
+        "description": "Flights, hotels, holiday trips, weekend getaways, tourism and travel bookings for adventures and vacations."
+      },
+      "score": 0.4867113078364824,
+      "start_time": 90,
+      "start_time_formatted": "01:30",
+      "end_time": 180,
+      "end_time_formatted": "03:00"
+    },
+    {
+      "timestamp": 180,
+      "timestamp_formatted": "03:00",
+      "scene": "Sunlit evergreen slope overlooking misty valley with snow-capped mountain range in distance",
+      "search_query": "ski resort winter apparel mountain view travel destination nature photography hiking gear flights to Alps, ski resorts, winter vacation packages, Airbnb in Switzerland, travel drones DJI, snow gear, mountain hotels, travel insurance, hiking boots, Goibibo, MakeMyTrip, luggage brands, outdoor jackets, scenic tours, alpine photography tours",
+      "spoken_transcript": "",
+      "ad": {
+        "id": "makemytrip_beach_001",
+        "brand": "MakeMyTrip",
+        "title": "Escape To The Beach",
+        "category": "travel",
+        "description": "Beach holidays, coastal resorts, flights and vacation packages for relaxing getaways."
+      },
+      "score": 0.5147307455539704,
+      "start_time": 180,
+      "start_time_formatted": "03:00",
+      "end_time": 270,
+      "end_time_formatted": "04:30"
+    },
+    {
+      "timestamp": 270,
+      "timestamp_formatted": "04:30",
+      "scene": "Calm lake reflecting snow-capped mountains and evergreen forest at sunrise",
+      "search_query": "outdoor adventure hiking gear camping equipment nature photography travel destinations mountain apparel flights to Alps, ski resorts, winter vacation packages, Airbnb in Switzerland, travel drones DJI, snow gear, mountain hotels, travel insurance, hiking boots, Goibibo, MakeMyTrip, luggage brands, outdoor jackets, scenic tours, alpine photography tours",
+      "spoken_transcript": "",
+      "ad": {
+        "id": "decathlon_hiking_001",
+        "brand": "Decathlon",
+        "title": "Explore Outdoors",
+        "category": "sports equipment",
+        "description": "Hiking shoes, backpacks, trekking equipment and outdoor clothing."
+      },
+      "score": 0.5372987351587319,
+      "start_time": 270,
+      "start_time_formatted": "04:30",
+      "end_time": 303,
+      "end_time_formatted": "05:03"
+    }
+  ]
+}

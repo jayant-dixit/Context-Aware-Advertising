@@ -1,5 +1,5 @@
 {
-  "name": "frontend",
+  "name": "cogni-frontend",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -10,9 +10,18 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@tailwindcss/vite": "^4.3.3",
+    "clsx": "^2.1.1",
+    "gsap": "^3.15.0",
+    "lucide-react": "^1.33.0",
+    "motion": "^13.1.1",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
-    "react-youtube": "^10.1.0"
+    "react-router-dom": "^7.18.2",
+    "react-youtube": "^10.1.0",
+    "split-type": "^0.3.4",
+    "tailwind-merge": "^3.6.0",
+    "tailwindcss": "^4.3.3"
   },
   "devDependencies": {
     "@types/react": "^19.2.17",
