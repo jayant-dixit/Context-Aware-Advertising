@@ -1,0 +1,64 @@
+{
+  "video_id": "fD6RRw8qcIc",
+  "youtube_url": "https://www.youtube.com/watch?v=fD6RRw8qcIc",
+  "video_duration": 326,
+  "placements": [
+    {
+      "timestamp": 0,
+      "timestamp_formatted": "00:00",
+      "scene": "Completely black screen with no visible content",
+      "search_query": "flights, hotels, Airbnb, travel gear, luggage, MakeMyTrip, Goibibo, travel insurance, vacation packages, drone accessories, cinema cameras, travel photography courses, outdoor apparel, adventure tours, travel credit cards",
+      "spoken_transcript": "",
+      "ad": {
+        "id": "goibibo_001",
+        "brand": "Goibibo",
+        "title": "Travel More",
+        "category": "travel",
+        "description": "Flights, hotels, holiday trips, weekend getaways, tourism and travel bookings for adventures and vacations."
+      },
+      "score": 0.6508639127016067,
+      "start_time": 0,
+      "start_time_formatted": "00:00",
+      "end_time": 90,
+      "end_time_formatted": "01:30"
+    },
+    {
+      "timestamp": 90,
+      "timestamp_formatted": "01:30",
+      "scene": "Person wearing backpack facing lake with snow-capped mountain in distance",
+      "search_query": "hiking backpack outdoor gear travel apparel adventure tourism nature photography flights, hotels, Airbnb, travel gear, luggage, MakeMyTrip, Goibibo, travel insurance, vacation packages, drone accessories, cinema cameras, travel photography courses, outdoor apparel, adventure tours, travel credit cards",
+      "spoken_transcript": "",
+      "ad": {
+        "id": "makemytrip_001",
+        "brand": "MakeMyTrip",
+        "title": "Plan Your Next Adventure",
+        "category": "travel",
+        "description": "Flights, hotels, vacations, mountain trips, beach holidays, weekend getaways, tourism and adventure travel."
+      },
+      "score": 0.6382696807384491,
+      "start_time": 90,
+      "start_time_formatted": "01:30",
+      "end_time": 180,
+      "end_time_formatted": "03:00"
+    },
+    {
+      "timestamp": 270,
+      "timestamp_formatted": "04:30",
+      "scene": "Hiker with backpack walking on forest trail surrounded by ferns and mossy trees",
+      "search_query": "hiking boots trail shoes outdoor gear backpacking hydration pack trekking poles nature apparel flights, hotels, Airbnb, travel gear, luggage, MakeMyTrip, Goibibo, travel insurance, vacation packages, drone accessories, cinema cameras, travel photography courses, outdoor apparel, adventure tours, travel credit cards",
+      "spoken_transcript": "",
+      "ad": {
+        "id": "goibibo_001",
+        "brand": "Goibibo",
+        "title": "Travel More",
+        "category": "travel",
+        "description": "Flights, hotels, holiday trips, weekend getaways, tourism and travel bookings for adventures and vacations."
+      },
+      "score": 0.587010283768177,
+      "start_time": 270,
+      "start_time_formatted": "04:30",
+      "end_time": 326,
+      "end_time_formatted": "05:26"
+    }
+  ]
+}

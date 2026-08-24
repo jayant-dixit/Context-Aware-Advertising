@@ -1,0 +1,64 @@
+{
+  "video_id": "qmVOX5alZn8",
+  "youtube_url": "https://www.youtube.com/watch?v=qmVOX5alZn8",
+  "video_duration": 164,
+  "placements": [
+    {
+      "timestamp": 0,
+      "timestamp_formatted": "00:00",
+      "scene": "Romantic street scene with couple under soft filter, text overlay for slowed reverb music track",
+      "search_query": "romantic music love song slow jam audio headphones music streaming streetwear urban fashion पत त अन र क पत त चर र क Spotify, Apple Music, boAt headphones, wireless earbuds, YouTube Music, concert tickets, Zee Music Company, lyric videos, sound systems, music playlists, Joi Barua songs, Irshad Kamil lyrics, Jyotica Tangri, Laila Majnu movie, headphone audio experience",
+      "spoken_transcript": "पत त अन र क पत त चर र क",
+      "ad": {
+        "id": "boat_music_001",
+        "brand": "boAt",
+        "title": "Your Music Everywhere",
+        "category": "audio electronics",
+        "description": "Wireless earbuds and headphones for music, podcasts and everyday listening."
+      },
+      "score": 0.626659308373928,
+      "start_time": 0,
+      "start_time_formatted": "00:00",
+      "end_time": 0,
+      "end_time_formatted": "00:00"
+    },
+    {
+      "timestamp": 54,
+      "timestamp_formatted": "00:54",
+      "scene": "A lyrical music video featuring Jyotica Tangri’s romantic song “O Meri Laila” from the movie Laila Majnu, optimized for headphone listening with visual and audio enhancements.",
+      "search_query": "Spotify, Apple Music, boAt headphones, wireless earbuds, YouTube Music, concert tickets, Zee Music Company, lyric videos, sound systems, music playlists, Joi Barua songs, Irshad Kamil lyrics, Jyotica Tangri, Laila Majnu movie, headphone audio experience",
+      "spoken_transcript": "",
+      "ad": {
+        "id": "spotify_001",
+        "brand": "Spotify",
+        "title": "Music For Every Moment",
+        "category": "music and entertainment",
+        "description": "Music streaming, playlists, songs, podcasts, headphones, entertainment and listening experiences."
+      },
+      "score": 0.568345231708463,
+      "start_time": 54,
+      "start_time_formatted": "00:54",
+      "end_time": 108,
+      "end_time_formatted": "01:48"
+    },
+    {
+      "timestamp": 108,
+      "timestamp_formatted": "01:48",
+      "scene": "A lyrical music video featuring Jyotica Tangri’s romantic song “O Meri Laila” from the movie Laila Majnu, optimized for headphone listening with visual and audio enhancements.",
+      "search_query": "Spotify, Apple Music, boAt headphones, wireless earbuds, YouTube Music, concert tickets, Zee Music Company, lyric videos, sound systems, music playlists, Joi Barua songs, Irshad Kamil lyrics, Jyotica Tangri, Laila Majnu movie, headphone audio experience",
+      "spoken_transcript": "",
+      "ad": {
+        "id": "apple_airpods_001",
+        "brand": "Apple",
+        "title": "Wireless Sound",
+        "category": "technology",
+        "description": "Wireless earbuds for music, podcasts, calls and entertainment on the go."
+      },
+      "score": 0.5165198562308728,
+      "start_time": 108,
+      "start_time_formatted": "01:48",
+      "end_time": 164,
+      "end_time_formatted": "02:44"
+    }
+  ]
+}

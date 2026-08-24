@@ -1,0 +1,26 @@
+{
+  "video_id": "bc9d7f4zCAo",
+  "youtube_url": "https://www.youtube.com/watch?v=bc9d7f4zCAo",
+  "video_duration": 485,
+  "placements": [
+    {
+      "timestamp": 0,
+      "timestamp_formatted": "00:00",
+      "scene": "Completely black screen with no visible content",
+      "search_query": "Spotify Apple Music boAt wireless earbuds romantic playlists Hindi music apps soulful songs concert tickets sound systems trending love songs emotional tracks couple playlists music streaming subscriptions",
+      "spoken_transcript": "",
+      "ad": {
+        "id": "spotify_001",
+        "brand": "Spotify",
+        "title": "Music For Every Moment",
+        "category": "music and entertainment",
+        "description": "Music streaming, playlists, songs, podcasts, headphones, entertainment and listening experiences."
+      },
+      "score": 0.61999332010746,
+      "start_time": 0,
+      "start_time_formatted": "00:00",
+      "end_time": 450,
+      "end_time_formatted": "07:30"
+    }
+  ]
+}
