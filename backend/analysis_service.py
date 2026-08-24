@@ -14,7 +14,7 @@ MAX_BATCH_FRAMES = 3
 # --------------------------------------------------
 # Cadence Policy: 2.5 minutes spacing between distinct ads
 # --------------------------------------------------
-MIN_AD_SPACING_SECONDS = 150   # 150 seconds (2.5 minutes) cooldown
+MIN_AD_SPACING_SECONDS = 60   # 150 seconds (2.5 minutes) cooldown
 
 
 # --------------------------------------------------
