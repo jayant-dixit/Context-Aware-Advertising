@@ -2,6 +2,7 @@ import os
 import cv2
 import json
 import re
+import shutil
 import yt_dlp
 from youtube_transcript_api import YouTubeTranscriptApi
 
@@ -15,11 +16,34 @@ class YouTubeFeatureExtractor:
             "videos": os.path.join(output_dir, "videos"),
             "frames": os.path.join(output_dir, "frames"),
             "metadata": os.path.join(output_dir, "metadata"),
-            "transcripts": os.path.join(output_dir, "transcripts")
+            "transcripts": os.path.join(output_dir, "transcripts"),
+            "results": os.path.join(output_dir, "results")
         }
 
         for path in self.dirs.values():
             os.makedirs(path, exist_ok=True)
+
+    def cleanup_temp_files(self, video_id: str, keep_video: bool = True):
+        """
+        Safely cleanup temporary extracted frames directory.
+        Keeps downloaded .mp4 video by default so subsequent analysis never re-downloads.
+        """
+        if not keep_video:
+            video_path = os.path.join(self.dirs["videos"], f"{video_id}.mp4")
+            if os.path.exists(video_path):
+                try:
+                    os.remove(video_path)
+                    print(f"[CLEANUP] Deleted temporary video: {video_path}")
+                except Exception as e:
+                    print(f"[!] Could not delete video {video_path}: {e}")
+
+        frame_dir = os.path.join(self.dirs["frames"], video_id)
+        if os.path.exists(frame_dir):
+            try:
+                shutil.rmtree(frame_dir)
+                print(f"[CLEANUP] Deleted temporary frames directory: {frame_dir}")
+            except Exception as e:
+                print(f"[!] Could not delete frames directory {frame_dir}: {e}")
 
     def extract_video_id(self, url):
         match = re.search(
@@ -29,16 +53,38 @@ class YouTubeFeatureExtractor:
         return match.group(1) if match else None
 
     def download_video_and_metadata(self, url, video_id):
-        print(f"\n[1/3] Fetching video: {video_id}")
-
         video_path = os.path.join(self.dirs["videos"], f"{video_id}.mp4")
         metadata_path = os.path.join(self.dirs["metadata"], f"{video_id}.json")
+
+        # 1. Reuse existing video if already downloaded
+        if os.path.exists(video_path) and os.path.getsize(video_path) > 0 and os.path.exists(metadata_path):
+            print(f"\n[CACHE HIT] Video file already downloaded on disk: {video_path}")
+            return video_path
+
+        print(f"\n[1/3] Downloading video: {video_id}")
+
+        def progress_hook(d):
+            if d['status'] == 'downloading':
+                total = d.get('total_bytes') or d.get('total_bytes_estimate') or 0
+                downloaded = d.get('downloaded_bytes') or 0
+                if total > 0:
+                    percent = (downloaded / total) * 100
+                    last_p = getattr(progress_hook, 'last_p', -1)
+                    if last_p < 0 or (percent - last_p >= 25) or percent >= 99.5:
+                        speed = d.get('speed') or 0
+                        speed_mb = (speed / (1024 * 1024)) if speed else 0
+                        print(f"[*] Downloading: {percent:.0f}% ({speed_mb:.1f} MB/s)")
+                        progress_hook.last_p = percent
+            elif d['status'] == 'finished':
+                print(f"[OK] Download completed successfully.")
 
         ydl_opts = {
             "format": "best[ext=mp4]/best",
             "outtmpl": video_path,
-            "quiet": False,
-            "no_warnings": False,
+            "quiet": True,
+            "no_warnings": True,
+            "noprogress": True,
+            "progress_hooks": [progress_hook],
             "http_headers": {
                 "User-Agent": (
                     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
@@ -74,6 +120,19 @@ class YouTubeFeatureExtractor:
         print(f"[OK] Video saved: {video_path}")
         print(f"[OK] Metadata saved: {metadata_path}")
         return video_path
+
+    def get_metadata(self, video_id: str) -> dict:
+        """
+        Fetch cached video metadata (title, description, tags, categories, channel).
+        """
+        metadata_path = os.path.join(self.dirs["metadata"], f"{video_id}.json")
+        if os.path.exists(metadata_path):
+            try:
+                with open(metadata_path, "r", encoding="utf-8") as f:
+                    return json.load(f)
+            except Exception as e:
+                print(f"[!] Could not read metadata {metadata_path}: {e}")
+        return {}
 
     def get_transcript(self, video_id: str) -> list:
         """
