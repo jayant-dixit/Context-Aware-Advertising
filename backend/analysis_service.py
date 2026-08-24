@@ -567,7 +567,7 @@ def run_analysis_job(job_id):
         # 6. Automatic cleanup of temporary .mp4 and frames
         # --------------------------------------
         if extractor and video_id:
-            extractor.cleanup_temp_files(video_id)
+            extractor.cleanup_temp_files(video_id, keep_video=False)
 
 
 # --------------------------------------------------
