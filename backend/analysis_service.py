@@ -12,9 +12,8 @@ from pinecone_ads import search_ads
 MAX_BATCH_FRAMES = 3
 
 # --------------------------------------------------
-# Brand Frequency Policy: Max 2 placements per brand in full video
+# Cadence Policy: 2.5 minutes spacing between distinct ads
 # --------------------------------------------------
-MAX_BRAND_OCCURRENCES = 2
 MIN_AD_SPACING_SECONDS = 150   # 150 seconds (2.5 minutes) cooldown
 
 
@@ -69,9 +68,9 @@ def update_job(job_id: str, **updates):
 
 def add_placement(job_id: str, placement: dict):
     """
-    Add an advertisement placement based on contextual relevance and frequency caps:
+    Add an advertisement placement based purely on contextual relevance:
     - Same-ad extension allowed across consecutive scenes
-    - Brand frequency cap: No brand can appear more than MAX_BRAND_OCCURRENCES (2 times)
+    - Places all high-relevance ads without cooldown suppression
     """
     with jobs_lock:
         if job_id not in jobs:
@@ -79,9 +78,6 @@ def add_placement(job_id: str, placement: dict):
 
         placements = jobs[job_id]["placements"]
         current_timestamp = placement.get("timestamp", 0)
-        current_ad = placement.get("ad", {})
-        current_id = current_ad.get("id")
-        current_brand = current_ad.get("brand", "")
 
         # First placement in the video
         if not placements:
@@ -94,7 +90,10 @@ def add_placement(job_id: str, placement: dict):
 
         previous = placements[-1]
         previous_ad = previous.get("ad", {})
+        current_ad = placement.get("ad", {})
+
         previous_id = previous_ad.get("id")
+        current_id = current_ad.get("id")
 
         # Case 1: Same advertisement detected -> Extend existing placement
         if previous_id and current_id and previous_id == current_id:
@@ -102,13 +101,6 @@ def add_placement(job_id: str, placement: dict):
             previous["end_time_formatted"] = format_timestamp(current_timestamp)
             print(f"[CADENCE] Same ad detected ({current_ad.get('brand', '')}). Extended placement duration to {current_timestamp}s.")
             return False
-
-        # Brand Frequency Cap Check (Max 2 times per brand per video)
-        if current_brand:
-            brand_count = sum(1 for p in placements if p.get("ad", {}).get("brand", "").lower() == current_brand.lower())
-            if brand_count >= MAX_BRAND_OCCURRENCES:
-                print(f"[CAP] Brand '{current_brand}' already reached max limit ({MAX_BRAND_OCCURRENCES} times). Skipping.")
-                return False
 
         # Close previous placement if still open
         if previous.get("end_time") is None:
@@ -215,7 +207,7 @@ def process_scene_batch(
             # Hybrid Search (Dense + BM25 Sparse + Gatekeeper)
             results = search_ads(
                 multimodal_query,
-                top_k=8,
+                top_k=3,
                 min_score=0.34,
                 min_dense_score=0.10,
                 alpha=0.65
@@ -230,60 +222,7 @@ def process_scene_batch(
                 print("[!] No advertisement found.")
                 continue
 
-            # Calculate Brand Frequency Counts & Last Placed Brand
-            brand_counts = {}
-            last_brand = None
-            with jobs_lock:
-                if job_id in jobs and jobs[job_id]["placements"]:
-                    current_placements = jobs[job_id]["placements"]
-                    last_brand = current_placements[-1].get("ad", {}).get("brand", "").lower()
-                    for p in current_placements:
-                        b = p.get("ad", {}).get("brand", "").lower()
-                        if b:
-                            brand_counts[b] = brand_counts.get(b, 0) + 1
-
-            # Candidate Selection:
-            # 1. Prefer brand under cap (< MAX_BRAND_OCCURRENCES) and NOT identical to immediately previous brand (rotation)
-            best_ad = None
-            for h in hits:
-                b = h.fields.get("brand", "").lower()
-                if brand_counts.get(b, 0) >= MAX_BRAND_OCCURRENCES:
-                    continue
-                if last_brand and b == last_brand and len(hits) > 1:
-                    continue
-                best_ad = h
-                break
-
-            # 2. Fallback: If rotation not possible, pick any hit under cap
-            if best_ad is None:
-                for h in hits:
-                    b = h.fields.get("brand", "").lower()
-                    if brand_counts.get(b, 0) < MAX_BRAND_OCCURRENCES:
-                        best_ad = h
-                        break
-
-            # 3. Fallback: If all returned hits for this query reached the 2-ad cap, search broader metadata context for alternative company brands
-            if best_ad is None and meta_query:
-                print(f"[CAP] Top brands capped. Searching alternative company brands from video context...")
-                fallback_results = search_ads(
-                    meta_query,
-                    top_k=10,
-                    min_score=0.28,
-                    min_dense_score=0.08,
-                    alpha=0.65
-                )
-                if fallback_results and hasattr(fallback_results, "result"):
-                    for h in fallback_results.result.hits:
-                        b = h.fields.get("brand", "").lower()
-                        if brand_counts.get(b, 0) < MAX_BRAND_OCCURRENCES:
-                            best_ad = h
-                            print(f"[ALT BRAND SELECTED] Using alternative brand '{h.fields.get('brand')}' ({h.fields.get('title')})")
-                            break
-
-            if best_ad is None:
-                print("[!] No eligible ad found within brand frequency limits (max 2 per brand).")
-                continue
-
+            best_ad = hits[0]
             fields = best_ad.fields
 
             placement = {
@@ -468,17 +407,16 @@ def run_analysis_job(job_id):
         with jobs_lock:
             current_placements = jobs[job_id]["placements"]
             current_count = len(current_placements)
-            distinct_brands = len(set(p.get("ad", {}).get("brand") for p in current_placements if p.get("ad", {}).get("brand")))
 
-        # If zero placements passed or video has fewer than 2 distinct brands
-        if current_count == 0 or (video_duration >= 60 and distinct_brands < 2):
-            print(f"\n[*] Minimal scene changes or low brand diversity detected ({distinct_brands} brands for {video_duration}s video).")
+        # If zero placements passed or minimal frames with few placements across video
+        if current_count == 0 or (len(keyframe_paths) <= 2 and video_duration >= 30 and current_count < 2):
+            print(f"\n[*] Minimal scene changes or low visual match count detected ({current_count} ads for {video_duration}s video).")
             print(f"[*] Activating Description & Genre-Based Ad Distribution...")
             meta_query = metadata_context.get("search_query", "").strip()
             if meta_query:
                 meta_ads_result = search_ads(
                     meta_query,
-                    top_k=10,
+                    top_k=5,
                     min_score=0.30,
                     min_dense_score=0.08,
                     alpha=0.65

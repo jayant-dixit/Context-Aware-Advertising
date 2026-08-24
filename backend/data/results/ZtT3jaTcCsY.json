@@ -1,0 +1,45 @@
+{
+  "video_id": "ZtT3jaTcCsY",
+  "youtube_url": "https://www.youtube.com/watch?v=ZtT3jaTcCsY",
+  "video_duration": 303,
+  "placements": [
+    {
+      "timestamp": 0,
+      "timestamp_formatted": "00:00",
+      "scene": "Completely black screen with no visible content",
+      "search_query": "flights to Alps, ski resorts, winter vacation packages, Airbnb in Switzerland, travel drones, DJI Mavic 3, 4K camera gear, snow gear, mountain hotels, Goibibo, MakeMyTrip, luggage for travel, winter jackets, ski equipment rentals, travel insurance",
+      "spoken_transcript": "",
+      "ad": {
+        "id": "goibibo_001",
+        "brand": "Goibibo",
+        "title": "Travel More",
+        "category": "travel",
+        "description": "Flights, hotels, holiday trips, weekend getaways, tourism and travel bookings for adventures and vacations."
+      },
+      "score": 0.512976749686425,
+      "start_time": 0,
+      "start_time_formatted": "00:00",
+      "end_time": 90,
+      "end_time_formatted": "01:30"
+    },
+    {
+      "timestamp": 180,
+      "timestamp_formatted": "03:00",
+      "scene": "Sunrise over snow-dusted mountain range with misty valley and evergreen forest",
+      "search_query": "mountain gear ski resort winter vacation hiking apparel thermal layers adventure travel flights to Alps, ski resorts, winter vacation packages, Airbnb in Switzerland, travel drones, DJI Mavic 3, 4K camera gear, snow gear, mountain hotels, Goibibo, MakeMyTrip, luggage for travel, winter jackets, ski equipment rentals, travel insurance",
+      "spoken_transcript": "",
+      "ad": {
+        "id": "makemytrip_mountains_001",
+        "brand": "MakeMyTrip",
+        "title": "Mountain Getaway",
+        "category": "travel",
+        "description": "Mountain trips, hill stations, hotels and adventure vacations."
+      },
+      "score": 0.5340427156078362,
+      "start_time": 180,
+      "start_time_formatted": "03:00",
+      "end_time": 270,
+      "end_time_formatted": "04:30"
+    }
+  ]
+}

@@ -23,19 +23,18 @@ class YouTubeFeatureExtractor:
         for path in self.dirs.values():
             os.makedirs(path, exist_ok=True)
 
-    def cleanup_temp_files(self, video_id: str, keep_video: bool = True):
+    def cleanup_temp_files(self, video_id: str):
         """
-        Safely cleanup temporary extracted frames directory.
-        Keeps downloaded .mp4 video by default so subsequent analysis never re-downloads.
+        Safely delete temporary heavy .mp4 video file and extracted frames directory.
+        Preserves metadata, transcripts, and analysis results JSON.
         """
-        if not keep_video:
-            video_path = os.path.join(self.dirs["videos"], f"{video_id}.mp4")
-            if os.path.exists(video_path):
-                try:
-                    os.remove(video_path)
-                    print(f"[CLEANUP] Deleted temporary video: {video_path}")
-                except Exception as e:
-                    print(f"[!] Could not delete video {video_path}: {e}")
+        video_path = os.path.join(self.dirs["videos"], f"{video_id}.mp4")
+        if os.path.exists(video_path):
+            try:
+                os.remove(video_path)
+                print(f"[CLEANUP] Deleted temporary video: {video_path}")
+            except Exception as e:
+                print(f"[!] Could not delete video {video_path}: {e}")
 
         frame_dir = os.path.join(self.dirs["frames"], video_id)
         if os.path.exists(frame_dir):
@@ -53,38 +52,21 @@ class YouTubeFeatureExtractor:
         return match.group(1) if match else None
 
     def download_video_and_metadata(self, url, video_id):
+        print(f"\n[1/3] Fetching video: {video_id}")
+
         video_path = os.path.join(self.dirs["videos"], f"{video_id}.mp4")
         metadata_path = os.path.join(self.dirs["metadata"], f"{video_id}.json")
 
-        # 1. Reuse existing video if already downloaded
-        if os.path.exists(video_path) and os.path.getsize(video_path) > 0 and os.path.exists(metadata_path):
-            print(f"\n[CACHE HIT] Video file already downloaded on disk: {video_path}")
-            return video_path
-
-        print(f"\n[1/3] Downloading video: {video_id}")
-
-        def progress_hook(d):
-            if d['status'] == 'downloading':
-                total = d.get('total_bytes') or d.get('total_bytes_estimate') or 0
-                downloaded = d.get('downloaded_bytes') or 0
-                if total > 0:
-                    percent = (downloaded / total) * 100
-                    last_p = getattr(progress_hook, 'last_p', -1)
-                    if last_p < 0 or (percent - last_p >= 25) or percent >= 99.5:
-                        speed = d.get('speed') or 0
-                        speed_mb = (speed / (1024 * 1024)) if speed else 0
-                        print(f"[*] Downloading: {percent:.0f}% ({speed_mb:.1f} MB/s)")
-                        progress_hook.last_p = percent
-            elif d['status'] == 'finished':
-                print(f"[OK] Download completed successfully.")
+        clean_url = f"https://www.youtube.com/watch?v={video_id}"
 
         ydl_opts = {
-            "format": "best[ext=mp4]/best",
+            # Prefer fast, lightweight 360p/480p video for scene analysis to minimize download time
+            "format": "best[height<=360][ext=mp4]/bestvideo[height<=360][ext=mp4]+bestaudio/best[height<=480][ext=mp4]/worst[ext=mp4]/worst",
             "outtmpl": video_path,
-            "quiet": True,
-            "no_warnings": True,
-            "noprogress": True,
-            "progress_hooks": [progress_hook],
+            "noplaylist": True,
+            "quiet": False,
+            "no_warnings": False,
+            "socket_timeout": 20,
             "http_headers": {
                 "User-Agent": (
                     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
@@ -101,7 +83,7 @@ class YouTubeFeatureExtractor:
         }
 
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:
-            info = ydl.extract_info(url, download=True)
+            info = ydl.extract_info(clean_url, download=True)
             metadata = {
                 "id": info.get("id"),
                 "title": info.get("title"),
