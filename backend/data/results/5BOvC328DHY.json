@@ -1,0 +1,64 @@
+{
+  "video_id": "5BOvC328DHY",
+  "youtube_url": "https://youtu.be/5BOvC328DHY?si=DgCfNWNlPufLZcJ7",
+  "video_duration": 130,
+  "placements": [
+    {
+      "timestamp": 0,
+      "timestamp_formatted": "00:00",
+      "scene": "Throne room with glowing stained glass and green ambient lighting",
+      "search_query": "fantasy gaming epic soundtrack throne decor cinematic audio dark fantasy व क टर क त ज द म ग क क ई म क बल नह थ पर तब व ऐस नह थ Marvel movies, Avengers merchandise, cinema tickets, IMAX experience, movie snacks, popcorn buckets, superhero apparel, Disney+ Hotstar, action figures, collectible toys, gaming consoles, streaming subscriptions, theater gift cards, movie posters, superhero comics",
+      "spoken_transcript": "व क टर क त ज द म ग क क ई म क बल नह थ पर तब व ऐस नह थ",
+      "ad": {
+        "id": "netflix_movies_001",
+        "brand": "Netflix",
+        "title": "Movie Night",
+        "category": "entertainment",
+        "description": "Streaming movies, films and entertainment for relaxing evenings at home."
+      },
+      "score": 0.4435127079486847,
+      "start_time": 0,
+      "start_time_formatted": "00:00",
+      "end_time": 90,
+      "end_time_formatted": "01:30"
+    },
+    {
+      "timestamp": 90,
+      "timestamp_formatted": "01:30",
+      "scene": "Warrior mid-air in battle against shadowy figures under stormy sky",
+      "search_query": "action gaming combat gear fantasy armor sword fighting adrenaline rush ल ग जव ब द व क टर क य य त मन क य ? त झ इतन तड प ऊ ग क त म त क भ ख म ग ग पर व भ त झ नस ब नह ह ग म त त म र इश र पर चलत ह क य क म ह त म Marvel movies, Avengers merchandise, cinema tickets, IMAX experience, movie snacks, popcorn buckets, superhero apparel, Disney+ Hotstar, action figures, collectible toys, gaming consoles, streaming subscriptions, theater gift cards, movie posters, superhero comics",
+      "spoken_transcript": "ल ग जव ब द व क टर क य य त मन क य ? त झ इतन तड प ऊ ग क त म त क भ ख म ग ग पर व भ त झ नस ब नह ह ग म त त म र इश र पर चलत ह क य क म ह त म",
+      "ad": {
+        "id": "playstation_action_001",
+        "brand": "PlayStation",
+        "title": "Enter The Action",
+        "category": "gaming",
+        "description": "Console gaming, action games, controllers and immersive entertainment."
+      },
+      "score": 0.5532858416438102,
+      "start_time": 90,
+      "start_time_formatted": "01:30",
+      "end_time": 126,
+      "end_time_formatted": "02:06"
+    },
+    {
+      "timestamp": 126,
+      "timestamp_formatted": "02:06",
+      "scene": "Countdown timer overlaid on gothic architecture with Marvel branding",
+      "search_query": "superhero movie streaming countdown watch party comic book merch Marvel apparel त Marvel movies, Avengers merchandise, cinema tickets, IMAX experience, movie snacks, popcorn buckets, superhero apparel, Disney+ Hotstar, action figures, collectible toys, gaming consoles, streaming subscriptions, theater gift cards, movie posters, superhero comics",
+      "spoken_transcript": "त",
+      "ad": {
+        "id": "netflix_movies_001",
+        "brand": "Netflix",
+        "title": "Movie Night",
+        "category": "entertainment",
+        "description": "Streaming movies, films and entertainment for relaxing evenings at home."
+      },
+      "score": 0.519289655983448,
+      "start_time": 126,
+      "start_time_formatted": "02:06",
+      "end_time": 130,
+      "end_time_formatted": "02:10"
+    }
+  ]
+}

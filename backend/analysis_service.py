@@ -510,6 +510,24 @@ def run_analysis_job(job_id):
 # --------------------------------------------------
 
 def start_background_job(youtube_url):
+    # 1. Sabse pehle URL se video_id nikal lo
+    extractor = YouTubeFeatureExtractor()
+    new_video_id = extractor.extract_video_id(youtube_url)
+
+    if not new_video_id:
+        raise ValueError("Invalid YouTube URL.")
+
+    # 2. Check karo ki kya is video ka koi job already chal raha hai
+    with jobs_lock:
+        for j_id, job_data in jobs.items():
+            existing_video_id = extractor.extract_video_id(job_data["youtube_url"])
+            
+            # Agar same video process ho rahi hai aur wo fail/complete nahi hui hai
+            if existing_video_id == new_video_id and job_data["status"] not in ["completed", "failed"]:
+                print(f"⚡ [DEDUPLICATION] Job already running for {new_video_id}. Returning existing Job ID: {j_id}")
+                return j_id  # Purana job_id return kar do, naya thread mat banao
+
+    # 3. Agar koi purana job nahi hai, toh hi naya job start karo
     job_id = create_job(youtube_url)
     thread = threading.Thread(
         target=run_analysis_job,
