@@ -1,20 +1,61 @@
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=waving&amp;color=0:6366f1,100:a855f7&amp;height=200&amp;section=header&amp;text=ContextAds&amp;fontSize=60&amp;fontColor=ffffff&amp;animation=fadeIn&amp;fontAlignY=38&amp;desc=AI-Powered%20Context-Aware%20Advertising%20System&amp;descAlignY=58&amp;descSize=20"/>
+<picture>
+  <img src="https://capsule-render.vercel.app/api?type=venom&color=0:0f0c29,30:302b63,60:6366f1,100:a855f7&height=220&section=header&text=ContextAds&fontSize=80&fontColor=ffffff&animation=twinkling&fontAlignY=50&stroke=6366f1&strokeWidth=2&desc=Contextual%20Intelligence%20for%20Modern%20Advertising&descSize=17&descColor=c4b5fd&descAlignY=68"/>
+</picture>
 
-<p>
-  <img src="https://img.shields.io/badge/Python-3.10+-FFD43B?style=for-the-badge&amp;logo=python&amp;logoColor=black"/>
-  <img src="https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&amp;logo=fastapi&amp;logoColor=white"/>
-  <img src="https://img.shields.io/badge/React-61DAFB?style=for-the-badge&amp;logo=react&amp;logoColor=black"/>
-  <img src="https://img.shields.io/badge/Pinecone-000000?style=for-the-badge&amp;logoColor=white"/>
-  <img src="https://img.shields.io/badge/HuggingFace-FFD21E?style=for-the-badge&amp;logo=huggingface&amp;logoColor=black"/>
-</p>
+<br/>
 
-<p>
-  <img src="https://img.shields.io/badge/Live%20Demo-contextads.vercel.app-6366f1?style=for-the-badge&amp;logo=vercel&amp;logoColor=white"/>
-</p>
+<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=16&duration=2000&pause=500&color=a855f7&center=true&vCenter=true&width=700&lines=Built+for+the+future+of+advertising...;YouTube+URL+to+Relevant+Ad+in+seconds...;Vision+AI+understands+scene+%2B+objects+%2B+actions...;Pinecone+finds+the+right+ad+at+the+right+moment..." />
 
-**[🌐 Live Demo](https://contextads.vercel.app)**
+<br/>
+
+<a href="https://contextads.vercel.app" target="_blank">
+  <img src="https://img.shields.io/badge/🚀%20%20Try%20ContextAds%20Live%20%20🚀-Click%20to%20Launch-a855f7?style=for-the-badge&labelColor=0f0c29&logoColor=white" height="40"/>
+</a>
+
+<br/><br/>
+
+<table border="0">
+<tr>
+<td>
+<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=13&duration=2000&pause=500&color=6366F1&center=true&vCenter=true&multiline=true&width=380&height=80&lines=Vision+AI+%E2%86%92+Context+Extraction;Context+%E2%86%92+Semantic+Search;Semantic+Search+%E2%86%92+Relevant+Ads" />
+</td>
+<td>&nbsp;&nbsp;&nbsp;</td>
+<td align="left">
+
+```text
+model   : Qwen Vision-Language Model
+vector  : Pinecone Semantic Search  
+backend : FastAPI + Python 3.10+
+frontend: React + Vite
+privacy : zero cookies · zero tracking
+```
+
+</td>
+</tr>
+</table>
+
+<br/>
+
+![Status](https://img.shields.io/badge/STATUS-ACTIVE-22c55e?style=for-the-badge)
+&nbsp;
+![Privacy](https://img.shields.io/badge/TRACKING-ZERO-ef4444?style=for-the-badge)
+&nbsp;
+![AI](https://img.shields.io/badge/POWERED%20BY-VISION%20AI-6366f1?style=for-the-badge)
+
+<br/>
+
+<img src="https://img.shields.io/badge/Python-3.10+-FFD43B?style=flat-square&logo=python&logoColor=black"/>
+<img src="https://img.shields.io/badge/FastAPI-009688?style=flat-square&logo=fastapi&logoColor=white"/>
+<img src="https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=react&logoColor=black"/>
+<img src="https://img.shields.io/badge/Pinecone-000000?style=flat-square&logoColor=white"/>
+<img src="https://img.shields.io/badge/HuggingFace-FFD21E?style=flat-square&logo=huggingface&logoColor=black"/>
+<img src="https://img.shields.io/badge/Qwen_VLM-6366f1?style=flat-square&logo=openai&logoColor=white"/>
+
+<br/><br/>
+
+<img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png" width="100%"/>
 
 </div>
 
@@ -25,6 +66,8 @@
 ContextAds is an **AI-powered contextual advertising engine** that understands the visual content of an image or video and serves the most relevant advertisements — without relying on user data or cookies.
 
 Instead of tracking users, it tracks **context**.
+
+> **The future of advertising is not about who you are. It's about what you see.**
 
 ```
 User uploads Image / YouTube URL
@@ -180,7 +223,7 @@ Frontend runs at `http://localhost:5173`
 
 ## 🔑 Environment Variables
 
-Create a `.env` file in `/backend` using `.env.example`:
+Create a `.env` file inside `/backend` using `.env.example`:
 
 ```env
 PINECONE_API_KEY=your_pinecone_api_key
@@ -219,7 +262,26 @@ Results are returned to the React frontend and displayed to the user.
 | `POST` | `/analyze/youtube` | Analyze YouTube video URL |
 | `GET` | `/health` | Backend health check |
 
-Full interactive docs available at `http://localhost:8000/docs`
+Full interactive docs at `http://localhost:8000/docs`
 
 ---
 
+<div align="center">
+
+<br/>
+
+### Don't just show ads. Show the *right* ads.
+
+<br/>
+
+<a href="https://contextads.vercel.app" target="_blank">
+  <img src="https://img.shields.io/badge/⚡%20%20Launch%20ContextAds%20Now%20%20⚡-Go%20to%20Website-a855f7?style=for-the-badge&labelColor=0f0c29" height="45"/>
+</a>
+
+<br/><br/>
+
+<img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png" width="100%"/>
+
+<img src="https://capsule-render.vercel.app/api?type=venom&color=0:0f0c29,30:302b63,60:6366f1,100:a855f7&height=120&section=footer&animation=twinkling"/>
+
+</div>
