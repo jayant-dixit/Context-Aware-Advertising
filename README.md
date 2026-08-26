@@ -223,6 +223,3 @@ Full interactive docs available at `http://localhost:8000/docs`
 
 ---
 
-<div align="center">
-<img src="https://capsule-render.vercel.app/api?type=waving&amp;color=0:a855f7,100:6366f1&amp;height=100&amp;section=footer"/>
-</div><img width="1912" height="1073" alt="image" src="https://github.com/user-attachments/assets/71a21d46-a459-46be-bf19-d6989b1e406c" />
