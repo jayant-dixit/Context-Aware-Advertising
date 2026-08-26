@@ -1,0 +1,83 @@
+{
+  "video_id": "pOwHpWNOTto",
+  "youtube_url": "https://youtu.be/pOwHpWNOTto?si=pPNKLm9FtcpJgT_T",
+  "video_duration": 102,
+  "placements": [
+    {
+      "timestamp": 0,
+      "timestamp_formatted": "00:00",
+      "scene": "Snow-dusted mountain peaks under overcast sky",
+      "search_query": "hiking gear outdoor adventure winter sports trekking boots mountaineering equipment cold weather apparel",
+      "spoken_transcript": "",
+      "ad": {
+        "id": "decathlon_hiking_001",
+        "brand": "Decathlon",
+        "title": "Explore Outdoors",
+        "category": "sports equipment",
+        "description": "Hiking shoes, backpacks, trekking equipment and outdoor clothing."
+      },
+      "score": 0.6441875994205475,
+      "start_time": 0,
+      "start_time_formatted": "00:00",
+      "end_time": 0,
+      "end_time_formatted": "00:00"
+    },
+    {
+      "timestamp": 0,
+      "timestamp_formatted": "00:00",
+      "scene": "A promotional tech showcase video highlighting the DJI Mini 5 Pro drone’s lightweight design and advanced aerial photography capabilities for adventurous travel and filmmaking.",
+      "search_query": "DJI Mini 5 Pro, aerial photography drones, 4K drone camera, travel drone, UAV for filmmakers, compact drone with O4+ transmission, drone for mountain adventures, ultralight travel gear, drone videography equipment, DJI drone accessories, aerial cinematography tools, drone for snowy peaks, travel filmmaking kit, portable drone for backpackers",
+      "spoken_transcript": "",
+      "ad": {
+        "id": "apple_iphone_001",
+        "brand": "Apple",
+        "title": "iPhone For Every Day",
+        "category": "technology",
+        "description": "Premium smartphones for photography, communication, entertainment and everyday productivity."
+      },
+      "score": 0.4727122789987762,
+      "start_time": 0,
+      "start_time_formatted": "00:00",
+      "end_time": 45,
+      "end_time_formatted": "00:45"
+    },
+    {
+      "timestamp": 45,
+      "timestamp_formatted": "00:45",
+      "scene": "A promotional tech showcase video highlighting the DJI Mini 5 Pro drone’s lightweight design and advanced aerial photography capabilities for adventurous travel and filmmaking.",
+      "search_query": "DJI Mini 5 Pro, aerial photography drones, 4K drone camera, travel drone, UAV for filmmakers, compact drone with O4+ transmission, drone for mountain adventures, ultralight travel gear, drone videography equipment, DJI drone accessories, aerial cinematography tools, drone for snowy peaks, travel filmmaking kit, portable drone for backpackers",
+      "spoken_transcript": "",
+      "ad": {
+        "id": "goibibo_001",
+        "brand": "Goibibo",
+        "title": "Travel More",
+        "category": "travel",
+        "description": "Flights, hotels, holiday trips, weekend getaways, tourism and travel bookings for adventures and vacations."
+      },
+      "score": 0.45832686647772786,
+      "start_time": 45,
+      "start_time_formatted": "00:45",
+      "end_time": 90,
+      "end_time_formatted": "01:30"
+    },
+    {
+      "timestamp": 90,
+      "timestamp_formatted": "01:30",
+      "scene": "A promotional tech showcase video highlighting the DJI Mini 5 Pro drone’s lightweight design and advanced aerial photography capabilities for adventurous travel and filmmaking.",
+      "search_query": "DJI Mini 5 Pro, aerial photography drones, 4K drone camera, travel drone, UAV for filmmakers, compact drone with O4+ transmission, drone for mountain adventures, ultralight travel gear, drone videography equipment, DJI drone accessories, aerial cinematography tools, drone for snowy peaks, travel filmmaking kit, portable drone for backpackers",
+      "spoken_transcript": "",
+      "ad": {
+        "id": "phonepe_travel_001",
+        "brand": "PhonePe",
+        "title": "Pay While You Travel",
+        "category": "digital payments",
+        "description": "Digital payments for travel bookings, transport, food and everyday trips."
+      },
+      "score": 0.4319370282194921,
+      "start_time": 90,
+      "start_time_formatted": "01:30",
+      "end_time": 102,
+      "end_time_formatted": "01:42"
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "video_id": "SiZTIuVmh04",
+  "youtube_url": "https://youtu.be/SiZTIuVmh04?si=ksy0e3oewWiYruEj",
+  "video_duration": 232,
+  "placements": [
+    {
+      "timestamp": 0,
+      "timestamp_formatted": "00:00",
+      "scene": "Aerial view of a lone hiker on a winding mountain trail surrounded by rocks and sparse vegetation",
+      "search_query": "hiking boots trail running outdoor gear hydration pack adventure travel mountain apparel",
+      "spoken_transcript": "",
+      "ad": {
+        "id": "decathlon_hiking_001",
+        "brand": "Decathlon",
+        "title": "Explore Outdoors",
+        "category": "sports equipment",
+        "description": "Hiking shoes, backpacks, trekking equipment and outdoor clothing."
+      },
+      "score": 0.6088942755916622,
+      "start_time": 0,
+      "start_time_formatted": "00:00",
+      "end_time": 180,
+      "end_time_formatted": "03:00"
+    }
+  ]
+}

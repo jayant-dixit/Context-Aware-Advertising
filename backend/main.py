@@ -1,6 +1,7 @@
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, HttpUrl
+import os
 
 from analysis_service import (
     start_background_job,
@@ -26,7 +27,7 @@ app.add_middleware(
     CORSMiddleware,
 
     allow_origins=[
-        "http://localhost:5173"
+        os.getenv('FRONTEND_URL')
     ],
 
     allow_credentials=True,

@@ -12,6 +12,13 @@ from pinecone_ads import search_ads
 
 load_dotenv()
 
+# Hugging Face API token pool.
+# Provide ANY number of tokens separated by commas:
+# HF_TOKENS=hf_token_1
+# HF_TOKENS=hf_token_1,hf_token_2,hf_token_3
+# HF_TOKEN is still supported as a fallback for backward compatibility.
+# HF_TOKEN_COOLDOWN=60
+
 TOP_K_ADS = int(os.getenv("TOP_K_ADS", "3"))
 
 
@@ -34,18 +41,248 @@ def get_model_and_provider():
     return raw_model, (env_provider or None)
 
 
-def get_hf_client() -> InferenceClient:
+class HuggingFaceTokenManager:
     """
-    Get or create Hugging Face Inference Client with proper provider.
+    Dynamically manages any number of Hugging Face API tokens.
+
+    Configure tokens in .env as:
+        HF_TOKENS=hf_token_1,hf_token_2,hf_token_3
+
+    A single token also works:
+        HF_TOKENS=hf_token_1
+
+    Tokens that receive a rate-limit/quota response are put on cooldown
+    and skipped until the cooldown expires.
     """
-    token = os.getenv("HF_TOKEN")
+
+    def __init__(self):
+        raw_tokens = os.getenv("HF_TOKENS", "").strip()
+
+        # Backward compatibility with the old single-token setup.
+        if not raw_tokens:
+            raw_tokens = os.getenv("HF_TOKEN", "").strip()
+
+        self.tokens = [
+            token.strip()
+            for token in raw_tokens.split(",")
+            if token.strip()
+        ]
+
+        if not self.tokens:
+            raise RuntimeError(
+                "No Hugging Face tokens configured. "
+                "Set HF_TOKENS=token1,token2,... in your .env file."
+            )
+
+        self.current_index = 0
+        self.cooldown_until = [0.0] * len(self.tokens)
+
+        # Keep token rotation safe if multiple video/frame jobs run concurrently.
+        from threading import Lock
+        self._lock = Lock()
+
+        self.cooldown_seconds = max(
+            1,
+            int(os.getenv("HF_TOKEN_COOLDOWN", "60"))
+        )
+
+        print(f"[HF] Loaded {len(self.tokens)} Hugging Face token(s).")
+
+    def get_next_token(self):
+        """Return the next currently available token, or None if all are cooling down."""
+        now = time.time()
+
+        with self._lock:
+            token_count = len(self.tokens)
+
+            for offset in range(token_count):
+                index = (self.current_index + offset) % token_count
+
+                if self.cooldown_until[index] <= now:
+                    self.current_index = (index + 1) % token_count
+                    return index, self.tokens[index]
+
+        return None, None
+
+    def mark_rate_limited(self, index: int, cooldown_seconds: int | None = None):
+        """Temporarily remove a rate-limited token from rotation."""
+        if index < 0 or index >= len(self.tokens):
+            return
+
+        cooldown = (
+            cooldown_seconds
+            if cooldown_seconds is not None
+            else self.cooldown_seconds
+        )
+
+        with self._lock:
+            self.cooldown_until[index] = time.time() + cooldown
+
+        print(
+            f"[HF] Token {index + 1}/{len(self.tokens)} "
+            f"rate-limited. Cooling down for {cooldown}s."
+        )
+
+    def available_count(self) -> int:
+        """Return the number of tokens currently available."""
+        now = time.time()
+
+        with self._lock:
+            return sum(
+                1
+                for expiry in self.cooldown_until
+                if expiry <= now
+            )
+
+
+HF_TOKEN_MANAGER = HuggingFaceTokenManager()
+
+
+def get_hf_client(token: str | None = None) -> InferenceClient:
+    """
+    Create a Hugging Face InferenceClient using the supplied token.
+    If no token is supplied, obtain the next available token from the pool.
+    """
+    if token is None:
+        _, token = HF_TOKEN_MANAGER.get_next_token()
+
     if not token:
-        raise RuntimeError("HF_TOKEN is missing from your .env file.")
+        raise RuntimeError(
+            "All Hugging Face tokens are currently on cooldown. "
+            "Increase HF_TOKEN_COOLDOWN or wait for a token to become available."
+        )
 
     _, provider = get_model_and_provider()
+
     if provider:
         return InferenceClient(provider=provider, api_key=token)
+
     return InferenceClient(api_key=token)
+
+
+def is_hf_rate_limit_error(exc: Exception) -> bool:
+    """
+    Detect Hugging Face/provider rate-limit or quota errors.
+
+    Handles HTTP-style exceptions as well as SDK exceptions whose message
+    contains common rate-limit/quota indicators.
+    """
+    status_code = getattr(exc, "status_code", None)
+
+    response = getattr(exc, "response", None)
+    if response is not None:
+        status_code = getattr(response, "status_code", status_code)
+
+    if status_code == 429:
+        return True
+
+    message = str(exc).lower()
+
+    rate_limit_terms = (
+        "429",
+        "too many requests",
+        "rate limit",
+        "rate-limit",
+        "ratelimit",
+        "quota exceeded",
+        "quota",
+        "exhausted",
+        "limit exceeded",
+        "resource exhausted",
+    )
+
+    return any(term in message for term in rate_limit_terms)
+
+
+def call_hf_with_rotation(request_fn, max_retries: int = 3):
+    """
+    Execute one Hugging Face request with automatic token rotation.
+
+    request_fn receives an InferenceClient and must perform the actual
+    Hugging Face SDK request.
+
+    Rate-limit/quota errors immediately switch to another available token.
+    Other errors use normal retry behavior.
+    """
+    last_error = None
+    attempted_tokens = set()
+
+    # We allow each configured token to be tried once in the rotation,
+    # plus the caller's normal retries for non-rate-limit failures.
+    max_token_attempts = len(HF_TOKEN_MANAGER.tokens)
+
+    for token_attempt in range(max_token_attempts):
+        token_index, token = HF_TOKEN_MANAGER.get_next_token()
+
+        if token is None:
+            # All tokens are cooling down. Wait for the earliest cooldown
+            # instead of failing immediately.
+            now = time.time()
+
+            with HF_TOKEN_MANAGER._lock:
+                earliest = min(HF_TOKEN_MANAGER.cooldown_until)
+
+            wait_time = max(0.0, earliest - now)
+
+            if wait_time > 0:
+                print(
+                    f"[HF] All {len(HF_TOKEN_MANAGER.tokens)} token(s) "
+                    f"are cooling down. Waiting {wait_time:.1f}s..."
+                )
+                time.sleep(wait_time)
+
+            token_index, token = HF_TOKEN_MANAGER.get_next_token()
+
+            if token is None:
+                raise RuntimeError(
+                    "No Hugging Face token became available after cooldown."
+                )
+
+        # Prevent accidentally cycling over the same token during this request.
+        if token_index in attempted_tokens and len(attempted_tokens) < max_token_attempts:
+            continue
+
+        attempted_tokens.add(token_index)
+
+        try:
+            client = get_hf_client(token)
+            response = request_fn(client)
+
+            print(
+                f"[HF] Request succeeded using token "
+                f"{token_index + 1}/{len(HF_TOKEN_MANAGER.tokens)}"
+            )
+
+            return response
+
+        except Exception as exc:
+            last_error = exc
+
+            if is_hf_rate_limit_error(exc):
+                HF_TOKEN_MANAGER.mark_rate_limited(token_index)
+                print(
+                    f"[HF] Switching from token "
+                    f"{token_index + 1}/{len(HF_TOKEN_MANAGER.tokens)}..."
+                )
+                continue
+
+            # Non-rate-limit errors are retried with another available token
+            # only when there are retries left.
+            print(
+                f"[HF] Token {token_index + 1}/{len(HF_TOKEN_MANAGER.tokens)} "
+                f"request failed: {exc}"
+            )
+
+            if token_attempt + 1 < max_retries:
+                time.sleep(2 * (token_attempt + 1))
+                continue
+
+            raise
+
+    if last_error:
+        raise last_error
+
+    raise RuntimeError("Hugging Face request failed without a captured exception.")
 
 
 def image_to_data_url(image_path: str) -> str:
@@ -107,28 +344,30 @@ QUERY: hoodie streetwear urban fashion music streaming audio headphones youth ap
 
     for attempt in range(1, max_retries + 1):
         try:
-            client = get_hf_client()
-            response = client.chat.completions.create(
-                model=model_id,
-                messages=[
-                    {
-                        "role": "user",
-                        "content": [
-                            {
-                                "type": "text",
-                                "text": prompt
-                            },
-                            {
-                                "type": "image_url",
-                                "image_url": {
-                                    "url": image_data_url
+            response = call_hf_with_rotation(
+                lambda client: client.chat.completions.create(
+                    model=model_id,
+                    messages=[
+                        {
+                            "role": "user",
+                            "content": [
+                                {
+                                    "type": "text",
+                                    "text": prompt
+                                },
+                                {
+                                    "type": "image_url",
+                                    "image_url": {
+                                        "url": image_data_url
+                                    }
                                 }
-                            }
-                        ]
-                    }
-                ],
-                max_tokens=200,
-                temperature=0
+                            ]
+                        }
+                    ],
+                    max_tokens=200,
+                    temperature=0
+                ),
+                max_retries=max_retries
             )
 
             raw_output = response.choices[0].message.content.strip()
@@ -271,17 +510,19 @@ Guidelines for QUERY:
 
     for attempt in range(1, max_retries + 1):
         try:
-            client = get_hf_client()
-            response = client.chat.completions.create(
-                model=model_id,
-                messages=[
-                    {
-                        "role": "user",
-                        "content": prompt
-                    }
-                ],
-                max_tokens=250,
-                temperature=0
+            response = call_hf_with_rotation(
+                lambda client: client.chat.completions.create(
+                    model=model_id,
+                    messages=[
+                        {
+                            "role": "user",
+                            "content": prompt
+                        }
+                    ],
+                    max_tokens=250,
+                    temperature=0
+                ),
+                max_retries=max_retries
             )
 
             raw_output = response.choices[0].message.content.strip()
@@ -399,17 +640,19 @@ QUERY: trail running shoes sportswear fitness hydration outdoor athletic gear
 
     for attempt in range(1, max_retries + 1):
         try:
-            client = get_hf_client()
-            response = client.chat.completions.create(
-                model=model_id,
-                messages=[
-                    {
-                        "role": "user",
-                        "content": content
-                    }
-                ],
-                max_tokens=500,
-                temperature=0
+            response = call_hf_with_rotation(
+                lambda client: client.chat.completions.create(
+                    model=model_id,
+                    messages=[
+                        {
+                            "role": "user",
+                            "content": content
+                        }
+                    ],
+                    max_tokens=500,
+                    temperature=0
+                ),
+                max_retries=max_retries
             )
 
             raw_output = response.choices[0].message.content.strip()

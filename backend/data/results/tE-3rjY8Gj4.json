@@ -1,0 +1,64 @@
+{
+  "video_id": "tE-3rjY8Gj4",
+  "youtube_url": "https://youtu.be/tE-3rjY8Gj4?si=MF1LBwHJIARd0gNi",
+  "video_duration": 129,
+  "placements": [
+    {
+      "timestamp": 0,
+      "timestamp_formatted": "00:00",
+      "scene": "Snow-covered alpine peaks with a small mountain hut nestled on a snowy ridge",
+      "search_query": "ski gear winter apparel mountain lodge outdoor adventure snow sports hiking boots",
+      "spoken_transcript": "",
+      "ad": {
+        "id": "decathlon_hiking_001",
+        "brand": "Decathlon",
+        "title": "Explore Outdoors",
+        "category": "sports equipment",
+        "description": "Hiking shoes, backpacks, trekking equipment and outdoor clothing."
+      },
+      "score": 0.5990796834230423,
+      "start_time": 0,
+      "start_time_formatted": "00:00",
+      "end_time": 0,
+      "end_time_formatted": "00:00"
+    },
+    {
+      "timestamp": 45,
+      "timestamp_formatted": "00:45",
+      "scene": "A cinematic 4K drone travel video showcasing the French Alps, Mont Blanc, and mountain hikes, aimed at nature lovers and adventure travelers.",
+      "search_query": "flights to France, Alpine hotels, travel insurance, DJI Mini 3 Pro, drone accessories, hiking boots, travel backpacks, Airbnb in Chamonix, outdoor gear, GoPro HERO, travel tours, yoga retreats, scenic flight tickets, mountain trekking packages",
+      "spoken_transcript": "",
+      "ad": {
+        "id": "makemytrip_001",
+        "brand": "MakeMyTrip",
+        "title": "Plan Your Next Adventure",
+        "category": "travel",
+        "description": "Flights, hotels, vacations, mountain trips, beach holidays, weekend getaways, tourism and adventure travel."
+      },
+      "score": 0.4770912915712292,
+      "start_time": 45,
+      "start_time_formatted": "00:45",
+      "end_time": 90,
+      "end_time_formatted": "01:30"
+    },
+    {
+      "timestamp": 90,
+      "timestamp_formatted": "01:30",
+      "scene": "A cinematic 4K drone travel video showcasing the French Alps, Mont Blanc, and mountain hikes, aimed at nature lovers and adventure travelers.",
+      "search_query": "flights to France, Alpine hotels, travel insurance, DJI Mini 3 Pro, drone accessories, hiking boots, travel backpacks, Airbnb in Chamonix, outdoor gear, GoPro HERO, travel tours, yoga retreats, scenic flight tickets, mountain trekking packages",
+      "spoken_transcript": "",
+      "ad": {
+        "id": "airbnb_mountain_001",
+        "brand": "Airbnb",
+        "title": "A Stay In The Mountains",
+        "category": "travel accommodation",
+        "description": "Cabins, homes and unique stays near mountains and outdoor destinations."
+      },
+      "score": 0.45804183768862566,
+      "start_time": 90,
+      "start_time_formatted": "01:30",
+      "end_time": 129,
+      "end_time_formatted": "02:09"
+    }
+  ]
+}
