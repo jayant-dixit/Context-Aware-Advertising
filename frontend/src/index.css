@@ -1,49 +1,43 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
 
-:root {
-  --bg: #0B0F17;
-  --surface: #121826;
-  --surface-2: #1A2233;
-  --border: #212B3D;
-  --border-strong: #2C3A52;
-  --text-primary: #E7ECF5;
-  --text-secondary: #8996AC;
-  --text-muted: #5C6780;
-  --accent: #F5B942;
-  --teal: #5EEAD4;
-  --radius: 12px;
-  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-display: 'Space Grotesk', var(--font-sans);
-  --font-mono: 'JetBrains Mono', monospace;
+
+.font-sora {
+    font-family: "Sora", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
 }
 
-* {
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
+.font-dm-sans {
+    font-family: "DM Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
 }
 
 body {
-  margin: 0;
-  font-family: var(--font-sans);
-  background: radial-gradient(circle at 20% -10%, #16203a 0%, var(--bg) 55%);
-  background-attachment: fixed;
-  background-color: var(--bg);
-  color: var(--text-primary);
-  -webkit-font-smoothing: antialiased;
+    background-color: black;
+    scroll-behavior: smooth;
 }
 
-::selection {
-  background: var(--accent);
-  color: #241900;
+::-webkit-scrollbar {
+    width: 6px;
 }
 
-a {
-  color: var(--teal);
+::-webkit-scrollbar-track {
+    background: transparent;
 }
 
-button {
-  font-family: inherit;
+::-webkit-scrollbar-thumb {
+    background: rgba(139, 92, 246, 0.45);
+    border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(139, 92, 246, 0.75);
+}
+
+html {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(139, 92, 246, 0.55) transparent;
 }
