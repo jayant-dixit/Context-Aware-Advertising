@@ -20,6 +20,17 @@ class YouTubeFeatureExtractor:
             "results": os.path.join(output_dir, "results")
         }
 
+        self.cookies_file = os.getenv(
+            "YOUTUBE_COOKIES_FILE",
+            "/etc/secrets/youtube_cookies.txt"
+        )
+
+        if os.path.exists(self.cookies_file):
+            print("🍪 YouTube cookies enabled.")
+        else:
+            print("⚠️ YouTube cookies file not found.")
+            self.cookies_file = None  
+                    
         for path in self.dirs.values():
             os.makedirs(path, exist_ok=True)
 
@@ -67,6 +78,11 @@ class YouTubeFeatureExtractor:
             "quiet": False,
             "no_warnings": False,
             "socket_timeout": 20,
+            "retries": 5,
+
+            "fragment_retries": 5,
+
+            "file_access_retries": 3,
             "http_headers": {
                 "User-Agent": (
                     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
@@ -76,11 +92,12 @@ class YouTubeFeatureExtractor:
                 "Accept-Language": "en-US,en;q=0.9"
             },
             "extractor_args": {
-                "youtube": {
-                    "player_client": ["android", "web"]
-                }
+                "youtube": {}
             }
         }
+            
+        if self.cookies_file:
+            ydl_opts["cookiefile"] = self.cookies_file
 
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:
             info = ydl.extract_info(clean_url, download=True)
