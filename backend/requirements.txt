@@ -2,8 +2,6 @@ pinecone
 python-dotenv
 opencv-python
 numpy
-yt-dlp
-youtube-transcript-api
 rank-bm25
 scenedetect[opencv]
 fastapi
@@ -12,3 +10,7 @@ python-multipart
 pydantic
 huggingface_hub
 sentence_transformers
+
+yt-dlp[default]
+youtube-transcript-api
+opencv-python-headless
