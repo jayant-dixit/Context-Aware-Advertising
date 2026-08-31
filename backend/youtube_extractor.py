@@ -8,7 +8,6 @@ from youtube_transcript_api import YouTubeTranscriptApi
 
 print("========================================")
 print("yt-dlp:", yt_dlp.version.__version__)
-print("Deno:", shutil.which("deno"))
 print("Node:", shutil.which("node"))
 print("========================================")
 
@@ -279,6 +278,12 @@ class YouTubeFeatureExtractor:
 
                 "Accept-Language":
                     "en-US,en;q=0.9"
+            },
+            
+            "js_runtimes": {
+                "node": {
+                    "path": "/usr/bin/node"
+                }
             },
 
             # Don't force Android/Web clients.
