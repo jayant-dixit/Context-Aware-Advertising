@@ -6,6 +6,12 @@ import shutil
 import yt_dlp
 from youtube_transcript_api import YouTubeTranscriptApi
 
+print("========================================")
+print("yt-dlp:", yt_dlp.version.__version__)
+print("Deno:", shutil.which("deno"))
+print("Node:", shutil.which("node"))
+print("========================================")
+
 
 class YouTubeFeatureExtractor:
 
